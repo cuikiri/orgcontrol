@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.jhisolution.ong.control",
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "orgcontrol",
+    "packageName": "br.com.jhisolution.ong.control",
+    "packageFolder": "br/com/jhisolution/ong/control",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mariadb",
+    "prodDatabaseType": "mariadb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Yzc2YTA2N2ViNmU2OGY0NmExNDM4MjY2YzA3M2MwNmI2NTg1ODI0ODBlOTNlZmY0MTEzODIzODYyZGE4MzhhZWMwMzY1MjFkMGJjNDdkNmMxYjJjNTdjNTE1NGVjZTQ1MTZmYzBlMmY1NTNkMDM5YjFhNjlhZWZlZWZlNjU3Mzk=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": [
+      "pt-br",
+      "en",
+      "es"
+    ]
+  }
+}
