@@ -1,0 +1,27 @@
+{
+    "orgcontrolApp": {
+        "itemAvaliacaoEconomica": {
+            "home": {
+                "title": "Item Avaliacao Economicas",
+                "createLabel": "Crear nuevo Item Avaliacao Economica",
+                "createOrEditLabel": "Crear o editar Item Avaliacao Economica"
+            },
+            "created": "Un nuevo Item Avaliacao Economica ha sido creado con el identificador {{ param }}",
+            "updated": "Un Item Avaliacao Economica ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Item Avaliacao Economica ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Item Avaliacao Economica {{ id }}?"
+            },
+            "detail": {
+                "title": "Item Avaliacao Economica"
+            },
+            "tipoResposta": "Tipo Resposta",
+            "questao": "Questao",
+            "obs": "Obs",
+            "respAvalDescritivaEconomica": "Resp Aval Descritiva Economica",
+            "respAvalOptativaEconomica": "Resp Aval Optativa Economica",
+            "respostaAvaliacaoEconomica": "Resposta Avaliacao Economica",
+            "avaliacaoEconomica": "Avaliacao Economica"
+        }
+    }
+}

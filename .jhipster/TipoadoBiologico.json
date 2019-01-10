@@ -1,0 +1,40 @@
+{
+    "name": "TipoadoBiologico",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dadoBiologico",
+            "otherEntityName": "dadoBiologico",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoadoBiologico"
+        }
+    ],
+    "changelogDate": "20190110122514",
+    "entityTableName": "tipoado_biologico",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

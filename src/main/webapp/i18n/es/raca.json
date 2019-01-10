@@ -1,0 +1,21 @@
+{
+    "orgcontrolApp": {
+        "raca": {
+            "home": {
+                "title": "Racas",
+                "createLabel": "Crear nuevo Raca",
+                "createOrEditLabel": "Crear o editar Raca"
+            },
+            "created": "Un nuevo Raca ha sido creado con el identificador {{ param }}",
+            "updated": "Un Raca ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Raca ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Raca {{ id }}?"
+            },
+            "detail": {
+                "title": "Raca"
+            },
+            "nome": "Nome"
+        }
+    }
+}

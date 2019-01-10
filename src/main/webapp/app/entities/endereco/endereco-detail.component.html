@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="endereco">
+            <h2><span jhiTranslate="orgcontrolApp.endereco.detail.title">Endereco</span> {{endereco.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.endereco.tipoResidencia">Tipo Residencia</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.TipoResidencia.' + endereco.tipoResidencia}}">{{endereco.tipoResidencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.tipoEndereco">Tipo Endereco</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.EnderecoTipo.' + endereco.tipoEndereco}}">{{endereco.tipoEndereco}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.tipoLogradouro">Tipo Logradouro</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.TipoLogradouro.' + endereco.tipoLogradouro}}">{{endereco.tipoLogradouro}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.nome">Nome</span></dt>
+                <dd>
+                    <span>{{endereco.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.numero">Numero</span></dt>
+                <dd>
+                    <span>{{endereco.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.bairro">Bairro</span></dt>
+                <dd>
+                    <span>{{endereco.bairro}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.tipoBairoo">Tipo Bairoo</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.TipoBairro.' + endereco.tipoBairoo}}">{{endereco.tipoBairoo}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.zona">Zona</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.Regiao.' + endereco.zona}}">{{endereco.zona}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.cep">Cep</span></dt>
+                <dd>
+                    <span>{{endereco.cep}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.bloco">Bloco</span></dt>
+                <dd>
+                    <span>{{endereco.bloco}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.apto">Apto</span></dt>
+                <dd>
+                    <span>{{endereco.apto}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.complemento">Complemento</span></dt>
+                <dd>
+                    <span>{{endereco.complemento}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.cidade">Cidade</span></dt>
+                <dd>
+                    <span>{{endereco.cidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.estado">Estado</span></dt>
+                <dd>
+                    <div *ngIf="endereco.estado">
+                        <a [routerLink]="['/uf', endereco.estado?.id, 'view']">{{endereco.estado?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.localizacao">Localizacao</span></dt>
+                <dd>
+                    <div *ngIf="endereco.localizacao">
+                        <a [routerLink]="['/localizacao', endereco.localizacao?.id, 'view']">{{endereco.localizacao?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.endereco.pessoa">Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="endereco.pessoa">
+                        <a [routerLink]="['/pessoa', endereco.pessoa?.id, 'view']">{{endereco.pessoa?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/endereco', endereco.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

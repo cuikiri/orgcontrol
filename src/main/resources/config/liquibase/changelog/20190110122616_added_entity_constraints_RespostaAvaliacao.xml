@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity RespostaAvaliacao.
+    -->
+    <changeSet id="20190110122616-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="resp_aval_descritiva_id"
+                                 baseTableName="resposta_avaliacao"
+                                 constraintName="fk_resposta_avaliacao_resp_aval_descritiva_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resp_aval_descritiva"/>
+
+        <addForeignKeyConstraint baseColumnNames="resp_aval_optativa_id"
+                                 baseTableName="resposta_avaliacao"
+                                 constraintName="fk_resposta_avaliacao_resp_aval_optativa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resp_aval_optativa"/>
+
+        <addForeignKeyConstraint baseColumnNames="conceito_id"
+                                 baseTableName="resposta_avaliacao"
+                                 constraintName="fk_resposta_avaliacao_conceito_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conceito"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_avaliacao_id"
+                                 baseTableName="resposta_avaliacao"
+                                 constraintName="fk_resposta_avaliacao_item_avaliacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_avaliacao"/>
+
+    </changeSet>
+</databaseChangeLog>

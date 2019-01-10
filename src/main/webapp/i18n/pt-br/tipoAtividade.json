@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "tipoAtividade": {
+            "home": {
+                "title": "Tipo Atividades",
+                "createLabel": "Criar novo Tipo Atividade",
+                "createOrEditLabel": "Criar ou editar Tipo Atividade"
+            },
+            "created": "Um novo Tipo Atividade foi criado com o identificador {{ param }}",
+            "updated": "Um Tipo Atividade foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Tipo Atividade foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Tipo Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Atividade"
+            },
+            "nome": "Nome",
+            "atividade": "Atividade"
+        }
+    }
+}

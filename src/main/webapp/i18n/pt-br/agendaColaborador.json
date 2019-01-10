@@ -1,0 +1,28 @@
+{
+    "orgcontrolApp": {
+        "agendaColaborador": {
+            "home": {
+                "title": "Agenda Colaboradors",
+                "createLabel": "Criar novo Agenda Colaborador",
+                "createOrEditLabel": "Criar ou editar Agenda Colaborador"
+            },
+            "created": "Um novo Agenda Colaborador foi criado com o identificador {{ param }}",
+            "updated": "Um Agenda Colaborador foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Agenda Colaborador foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Agenda Colaborador {{ id }}?"
+            },
+            "detail": {
+                "title": "Agenda Colaborador"
+            },
+            "nome": "Nome",
+            "horaInicio": "Hora Inicio",
+            "horaFim": "Hora Fim",
+            "horaAlmocoInicio": "Hora Almoco Inicio",
+            "horaAlmocoFim": "Hora Almoco Fim",
+            "obs": "Obs",
+            "diaSemana": "Dia Semana",
+            "colaborador": "Colaborador"
+        }
+    }
+}

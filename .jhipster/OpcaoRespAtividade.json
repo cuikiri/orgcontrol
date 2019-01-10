@@ -1,0 +1,39 @@
+{
+    "name": "OpcaoRespAtividade",
+    "fields": [
+        {
+            "fieldName": "opcao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "opcaoResposta",
+            "otherEntityName": "respAtivOptativa",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122610",
+    "entityTableName": "opcao_resp_atividade",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

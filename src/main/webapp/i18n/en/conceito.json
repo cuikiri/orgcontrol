@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "conceito": {
+            "home": {
+                "title": "Conceitos",
+                "createLabel": "Create a new Conceito",
+                "createOrEditLabel": "Create or edit a Conceito"
+            },
+            "created": "A new Conceito is created with identifier {{ param }}",
+            "updated": "A Conceito is updated with identifier {{ param }}",
+            "deleted": "A Conceito is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Conceito {{ id }}?"
+            },
+            "detail": {
+                "title": "Conceito"
+            },
+            "nome": "Nome",
+            "nota": "Nota",
+            "tipoConceito": "Tipo Conceito",
+            "fechamentoBimestre": "Fechamento Bimestre"
+        }
+    }
+}

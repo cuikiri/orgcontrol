@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoAvaliacaoEconomica": {
+            "home": {
+                "title": "Tipo Avaliacao Economicas",
+                "createLabel": "Crear nuevo Tipo Avaliacao Economica",
+                "createOrEditLabel": "Crear o editar Tipo Avaliacao Economica"
+            },
+            "created": "Un nuevo Tipo Avaliacao Economica ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo Avaliacao Economica ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo Avaliacao Economica ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tipo Avaliacao Economica {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Avaliacao Economica"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "avaliacaoEconomica": "Avaliacao Economica"
+        }
+    }
+}

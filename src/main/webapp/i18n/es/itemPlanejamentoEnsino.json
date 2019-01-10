@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "itemPlanejamentoEnsino": {
+            "home": {
+                "title": "Item Planejamento Ensinos",
+                "createLabel": "Crear nuevo Item Planejamento Ensino",
+                "createOrEditLabel": "Crear o editar Item Planejamento Ensino"
+            },
+            "created": "Un nuevo Item Planejamento Ensino ha sido creado con el identificador {{ param }}",
+            "updated": "Un Item Planejamento Ensino ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Item Planejamento Ensino ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Item Planejamento Ensino {{ id }}?"
+            },
+            "detail": {
+                "title": "Item Planejamento Ensino"
+            },
+            "nome": "Nome",
+            "descricao": "Descricao",
+            "planejamentoEnsino": "Planejamento Ensino"
+        }
+    }
+}

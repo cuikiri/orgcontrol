@@ -1,0 +1,76 @@
+{
+    "name": "ExameMedico",
+    "fields": [
+        {
+            "fieldName": "nomeMedico",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "crmMedico",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "especialidadeMedico",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "idadePaciente",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "biotipo",
+            "otherEntityName": "biotipo",
+            "otherEntityRelationshipName": "exameMedico"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "exameMedico",
+            "relationshipName": "doenca",
+            "otherEntityName": "doenca",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "dadosMedico",
+            "otherEntityName": "dadosMedico",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122517",
+    "entityTableName": "exame_medico",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

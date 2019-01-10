@@ -1,0 +1,52 @@
+{
+    "name": "BimestreAcompanhamento",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "conceitoAcompanhamento",
+            "otherEntityName": "conceitoAcompanhamento",
+            "otherEntityRelationshipName": "bimestreAcompanhamento"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "materiaAcompanhamento",
+            "otherEntityName": "materiaAcompanhamento",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122534",
+    "entityTableName": "bimestre_acompanhamento",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

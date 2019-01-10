@@ -1,0 +1,69 @@
+{
+    "name": "ParteBloco",
+    "fields": [
+        {
+            "fieldName": "abreviatura",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "andar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoParteBloco",
+            "otherEntityName": "tipoParteBloco",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "parteBloco"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "periodoAtividade",
+            "otherEntityName": "periodoAtividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "parteBloco"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bloco",
+            "otherEntityName": "bloco",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122449",
+    "entityTableName": "parte_bloco",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

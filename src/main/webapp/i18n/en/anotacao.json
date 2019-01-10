@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "anotacao": {
+            "home": {
+                "title": "Anotacaos",
+                "createLabel": "Create a new Anotacao",
+                "createOrEditLabel": "Create or edit a Anotacao"
+            },
+            "created": "A new Anotacao is created with identifier {{ param }}",
+            "updated": "A Anotacao is updated with identifier {{ param }}",
+            "deleted": "A Anotacao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Anotacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Anotacao"
+            },
+            "descricao": "Descricao",
+            "diario": "Diario"
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "name": "TipoBiotipo",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "biotipo",
+            "otherEntityName": "biotipo",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoBiotipo"
+        }
+    ],
+    "changelogDate": "20190110122516",
+    "entityTableName": "tipo_biotipo",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fotoDocumento">
+            <h2><span jhiTranslate="orgcontrolApp.fotoDocumento.detail.title">Foto Documento</span> {{fotoDocumento.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.fotoDocumento.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="fotoDocumento.foto">
+                        <a (click)="openFile(fotoDocumento.fotoContentType, fotoDocumento.foto)">
+                            <img [src]="'data:' + fotoDocumento.fotoContentType + ';base64,' + fotoDocumento.foto" style="max-width: 100%;" alt="fotoDocumento image"/>
+                        </a>
+                        {{fotoDocumento.fotoContentType}}, {{byteSize(fotoDocumento.foto)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/foto-documento', fotoDocumento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

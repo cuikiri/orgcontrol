@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "motivoDiaNaoUtil": {
+            "home": {
+                "title": "Motivo Dia Nao Utils",
+                "createLabel": "Criar novo Motivo Dia Nao Util",
+                "createOrEditLabel": "Criar ou editar Motivo Dia Nao Util"
+            },
+            "created": "Um novo Motivo Dia Nao Util foi criado com o identificador {{ param }}",
+            "updated": "Um Motivo Dia Nao Util foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Motivo Dia Nao Util foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Motivo Dia Nao Util {{ id }}?"
+            },
+            "detail": {
+                "title": "Motivo Dia Nao Util"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "diaNaoUtil": "Dia Nao Util"
+        }
+    }
+}

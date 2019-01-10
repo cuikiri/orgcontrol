@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opcaoRespAtividade">
+            <h2><span jhiTranslate="orgcontrolApp.opcaoRespAtividade.detail.title">Opcao Resp Atividade</span> {{opcaoRespAtividade.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.opcaoRespAtividade.opcao">Opcao</span></dt>
+                <dd>
+                    <span>{{opcaoRespAtividade.opcao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.opcaoRespAtividade.obs">Obs</span></dt>
+                <dd>
+                    <span>{{opcaoRespAtividade.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.opcaoRespAtividade.opcaoResposta">Opcao Resposta</span></dt>
+                <dd>
+                    <div *ngIf="opcaoRespAtividade.opcaoResposta">
+                        <a [routerLink]="['/resp-ativ-optativa', opcaoRespAtividade.opcaoResposta?.id, 'view']">{{opcaoRespAtividade.opcaoResposta?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opcao-resp-atividade', opcaoRespAtividade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

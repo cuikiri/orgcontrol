@@ -1,0 +1,171 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-bimestre-heading" jhiTranslate="orgcontrolApp.bimestre.home.createOrEditLabel">Create or edit a Bimestre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!bimestre.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="bimestre.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.abreviatura" for="field_abreviatura">Abreviatura</label>
+                    <input type="text" class="form-control" name="abreviatura" id="field_abreviatura"
+                        [(ngModel)]="bimestre.abreviatura" required maxlength="20"/>
+                    <div [hidden]="!(editForm.controls.abreviatura?.dirty && editForm.controls.abreviatura?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.abreviatura?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.abreviatura?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="bimestre.nome" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.componente" for="field_componente">Componente</label>
+                    <input type="text" class="form-control" name="componente" id="field_componente"
+                        [(ngModel)]="bimestre.componente" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.componente?.dirty && editForm.controls.componente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.componente?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.dataInicio" for="field_dataInicio">Data Inicio</label>
+                    <div class="input-group">
+                        <input id="field_dataInicio" type="text" class="form-control" name="dataInicio" ngbDatepicker  #dataInicioDp="ngbDatepicker" [(ngModel)]="bimestre.dataInicio"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataInicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataInicio?.dirty && editForm.controls.dataInicio?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataInicio?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.dataFim" for="field_dataFim">Data Fim</label>
+                    <div class="input-group">
+                        <input id="field_dataFim" type="text" class="form-control" name="dataFim" ngbDatepicker  #dataFimDp="ngbDatepicker" [(ngModel)]="bimestre.dataFim"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataFimDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataFim?.dirty && editForm.controls.dataFim?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataFim?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.numero" for="field_numero">Numero</label>
+                    <input type="number" class="form-control" name="numero" id="field_numero"
+                        [(ngModel)]="bimestre.numero" required/>
+                    <div [hidden]="!(editForm.controls.numero?.dirty && editForm.controls.numero?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numero?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numero?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.atividadesPrevistas" for="field_atividadesPrevistas">Atividades Previstas</label>
+                    <input type="number" class="form-control" name="atividadesPrevistas" id="field_atividadesPrevistas"
+                        [(ngModel)]="bimestre.atividadesPrevistas" required/>
+                    <div [hidden]="!(editForm.controls.atividadesPrevistas?.dirty && editForm.controls.atividadesPrevistas?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.atividadesPrevistas?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.atividadesPrevistas?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.atividadesDadas" for="field_atividadesDadas">Atividades Dadas</label>
+                    <input type="number" class="form-control" name="atividadesDadas" id="field_atividadesDadas"
+                        [(ngModel)]="bimestre.atividadesDadas" required/>
+                    <div [hidden]="!(editForm.controls.atividadesDadas?.dirty && editForm.controls.atividadesDadas?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.atividadesDadas?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.atividadesDadas?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.atividadesRepostas" for="field_atividadesRepostas">Atividades Repostas</label>
+                    <input type="number" class="form-control" name="atividadesRepostas" id="field_atividadesRepostas"
+                        [(ngModel)]="bimestre.atividadesRepostas" required/>
+                    <div [hidden]="!(editForm.controls.atividadesRepostas?.dirty && editForm.controls.atividadesRepostas?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.atividadesRepostas?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.atividadesRepostas?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.fechamentoBimestre" for="field_fechamentoBimestre">Fechamento Bimestre</label>
+                    <select class="form-control" id="field_fechamentoBimestre" name="fechamentoBimestre" [(ngModel)]="bimestre.fechamentoBimestre">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fechamentoBimestreOption.id === bimestre.fechamentoBimestre?.id ? bimestre.fechamentoBimestre : fechamentoBimestreOption" *ngFor="let fechamentoBimestreOption of fechamentobimestres; trackBy: trackFechamentoBimestreById">{{fechamentoBimestreOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestre.diario" for="field_diario">Diario</label>
+                    <select class="form-control" id="field_diario" name="diario" [(ngModel)]="bimestre.diario" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="diarioOption.id === bimestre.diario?.id ? bimestre.diario : diarioOption" *ngFor="let diarioOption of diarios; trackBy: trackDiarioById">{{diarioOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

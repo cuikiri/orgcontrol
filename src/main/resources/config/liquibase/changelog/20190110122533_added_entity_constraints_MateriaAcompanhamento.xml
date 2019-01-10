@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity MateriaAcompanhamento.
+    -->
+    <changeSet id="20190110122533-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="acompanhamento_escolar_aluno_id"
+                                 baseTableName="materia_acompanhamento"
+                                 constraintName="fk_materia_acompanhamento_acompanhamento_escolar_aluno_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="acompanhamento_escolar_aluno"/>
+
+    </changeSet>
+</databaseChangeLog>

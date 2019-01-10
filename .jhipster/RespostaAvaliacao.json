@@ -1,0 +1,59 @@
+{
+    "name": "RespostaAvaliacao",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAvalDescritiva",
+            "otherEntityName": "respAvalDescritiva",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "respostaAvaliacao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAvalOptativa",
+            "otherEntityName": "respAvalOptativa",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "respostaAvaliacao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "conceito",
+            "otherEntityName": "conceito",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "itemAvaliacao",
+            "otherEntityName": "itemAvaliacao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122616",
+    "entityTableName": "resposta_avaliacao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

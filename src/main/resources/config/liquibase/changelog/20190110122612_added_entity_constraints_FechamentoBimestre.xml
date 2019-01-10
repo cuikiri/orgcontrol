@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity FechamentoBimestre.
+    -->
+    <changeSet id="20190110122612-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="conceito_id"
+                                 baseTableName="fechamento_bimestre"
+                                 constraintName="fk_fechamento_bimestre_conceito_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conceito"/>
+
+        <addForeignKeyConstraint baseColumnNames="fechamento_bimestres_id"
+                                 baseTableName="fechamento_bimestre_aluno"
+                                 constraintName="fk_fechamento_bimestre_aluno_fechamento_bimestres_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fechamento_bimestre"/>
+        <addForeignKeyConstraint baseColumnNames="alunos_id"
+                                 baseTableName="fechamento_bimestre_aluno"
+                                 constraintName="fk_fechamento_bimestre_aluno_alunos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aluno"/>
+        
+    </changeSet>
+</databaseChangeLog>

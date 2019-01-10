@@ -1,0 +1,29 @@
+{
+    "orgcontrolApp": {
+        "calendarioInstituicao": {
+            "home": {
+                "title": "Calendario Instituicaos",
+                "createLabel": "Crear nuevo Calendario Instituicao",
+                "createOrEditLabel": "Crear o editar Calendario Instituicao"
+            },
+            "created": "Un nuevo Calendario Instituicao ha sido creado con el identificador {{ param }}",
+            "updated": "Un Calendario Instituicao ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Calendario Instituicao ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Calendario Instituicao {{ id }}?"
+            },
+            "detail": {
+                "title": "Calendario Instituicao"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "diaNaoUtil": "Dia Nao Util",
+            "periodoDuracao": "Periodo Duracao",
+            "planejamentoInstituicao": "Planejamento Instituicao",
+            "planejamentoEnsino": "Planejamento Ensino",
+            "planejamentoAtividade": "Planejamento Atividade",
+            "instituicao": "Instituicao",
+            "unidade": "Unidade"
+        }
+    }
+}

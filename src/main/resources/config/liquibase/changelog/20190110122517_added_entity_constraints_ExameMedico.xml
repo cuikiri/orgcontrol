@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ExameMedico.
+    -->
+    <changeSet id="20190110122517-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="exame_medicos_id"
+                                 baseTableName="exame_medico_doenca"
+                                 constraintName="fk_exame_medico_doenca_exame_medicos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exame_medico"/>
+        <addForeignKeyConstraint baseColumnNames="doencas_id"
+                                 baseTableName="exame_medico_doenca"
+                                 constraintName="fk_exame_medico_doenca_doencas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="doenca"/>
+        
+        <addForeignKeyConstraint baseColumnNames="dados_medico_id"
+                                 baseTableName="exame_medico"
+                                 constraintName="fk_exame_medico_dados_medico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dados_medico"/>
+
+    </changeSet>
+</databaseChangeLog>

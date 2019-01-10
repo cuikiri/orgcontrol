@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "opcaoRespAvalOptativaEconomica": {
+            "home": {
+                "title": "Opcao Resp Aval Optativa Economicas",
+                "createLabel": "Create a new Opcao Resp Aval Optativa Economica",
+                "createOrEditLabel": "Create or edit a Opcao Resp Aval Optativa Economica"
+            },
+            "created": "A new Opcao Resp Aval Optativa Economica is created with identifier {{ param }}",
+            "updated": "A Opcao Resp Aval Optativa Economica is updated with identifier {{ param }}",
+            "deleted": "A Opcao Resp Aval Optativa Economica is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Opcao Resp Aval Optativa Economica {{ id }}?"
+            },
+            "detail": {
+                "title": "Opcao Resp Aval Optativa Economica"
+            },
+            "opcao": "Opcao",
+            "obs": "Obs",
+            "opcaoResposta": "Opcao Resposta"
+        }
+    }
+}

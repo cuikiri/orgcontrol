@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity RespostaAvaliacaoEconomica.
+    -->
+    <changeSet id="20190110122540-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="resp_aval_descritiva_economica_id"
+                                 baseTableName="resposta_avaliacao_economica"
+                                 constraintName="fk_resp_aval_econ_resp_aval_desc_economica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resp_aval_descritiva_economica"/>
+
+        <addForeignKeyConstraint baseColumnNames="resp_aval_optativa_economica_id"
+                                 baseTableName="resposta_avaliacao_economica"
+                                 constraintName="fk_resp_aval_econ_resp_aval_opta_economica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resp_aval_optativa_economica"/>
+
+        <addForeignKeyConstraint baseColumnNames="conceito_id"
+                                 baseTableName="resposta_avaliacao_economica"
+                                 constraintName="fk_resposta_avaliacao_economica_conceito_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conceito"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_avaliacao_economica_id"
+                                 baseTableName="resposta_avaliacao_economica"
+                                 constraintName="fk_resp_aval_econ_item_aval_economica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_avaliacao_economica"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,30 @@
+{
+    "orgcontrolApp": {
+        "avaliacao": {
+            "home": {
+                "title": "Avaliacaos",
+                "createLabel": "Criar novo Avaliacao",
+                "createOrEditLabel": "Criar ou editar Avaliacao"
+            },
+            "created": "Um novo Avaliacao foi criado com o identificador {{ param }}",
+            "updated": "Um Avaliacao foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Avaliacao foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Avaliacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Avaliacao"
+            },
+            "nome": "Nome",
+            "data": "Data",
+            "tema": "Tema",
+            "descricao": "Descricao",
+            "dataInicio": "Data Inicio",
+            "dataFim": "Data Fim",
+            "obs": "Obs",
+            "tipoAvaliacao": "Tipo Avaliacao",
+            "itemAvaliacao": "Item Avaliacao",
+            "fechamentoBimestre": "Fechamento Bimestre"
+        }
+    }
+}

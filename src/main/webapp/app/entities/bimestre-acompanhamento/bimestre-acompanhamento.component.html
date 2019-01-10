@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.bimestreAcompanhamento.home.title">Bimestre Acompanhamentos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bimestre-acompanhamento" [routerLink]="['/bimestre-acompanhamento/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.bimestreAcompanhamento.home.createLabel">
+            Create new Bimestre Acompanhamento
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="bimestreAcompanhamentos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.bimestreAcompanhamento.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numero"><span jhiTranslate="orgcontrolApp.bimestreAcompanhamento.numero">Numero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.bimestreAcompanhamento.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="materiaAcompanhamento.id"><span jhiTranslate="orgcontrolApp.bimestreAcompanhamento.materiaAcompanhamento">Materia Acompanhamento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let bimestreAcompanhamento of bimestreAcompanhamentos ;trackBy: trackId">
+                <td><a [routerLink]="['/bimestre-acompanhamento', bimestreAcompanhamento.id, 'view' ]">{{bimestreAcompanhamento.id}}</a></td>
+                <td>{{bimestreAcompanhamento.nome}}</td>
+                <td>{{bimestreAcompanhamento.numero}}</td>
+                <td>{{bimestreAcompanhamento.obs}}</td>
+                <td>
+                    <div *ngIf="bimestreAcompanhamento.materiaAcompanhamento">
+                        <a [routerLink]="['../materia-acompanhamento', bimestreAcompanhamento.materiaAcompanhamento?.id, 'view' ]" >{{bimestreAcompanhamento.materiaAcompanhamento?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/bimestre-acompanhamento', bimestreAcompanhamento.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/bimestre-acompanhamento', bimestreAcompanhamento.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'bimestre-acompanhamento/'+ bimestreAcompanhamento.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="bimestreAcompanhamentos && bimestreAcompanhamentos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

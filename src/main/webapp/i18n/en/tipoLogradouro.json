@@ -1,0 +1,12 @@
+{
+    "orgcontrolApp": {
+        "TipoLogradouro": {
+            "null": "",
+            "RUA": "RUA",
+            "AVENIDA": "AVENIDA",
+            "TRAVESSA": "TRAVESSA",
+            "ESTRADA": "ESTRADA",
+            "RODOVIA": "RODOVIA"
+        }
+    }
+}

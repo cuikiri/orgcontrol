@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "aviso": {
+            "home": {
+                "title": "Avisos",
+                "createLabel": "Criar novo Aviso",
+                "createOrEditLabel": "Criar ou editar Aviso"
+            },
+            "created": "Um novo Aviso foi criado com o identificador {{ param }}",
+            "updated": "Um Aviso foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Aviso foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Aviso {{ id }}?"
+            },
+            "detail": {
+                "title": "Aviso"
+            },
+            "data": "Data",
+            "aviso": "Aviso",
+            "tipo": "Tipo",
+            "pessoa": "Pessoa"
+        }
+    }
+}

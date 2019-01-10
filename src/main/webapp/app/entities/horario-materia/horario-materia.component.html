@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.horarioMateria.home.title">Horario Materias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-horario-materia" [routerLink]="['/horario-materia/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.horarioMateria.home.createLabel">
+            Create new Horario Materia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="horarioMaterias">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.horarioMateria.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horaInicio"><span jhiTranslate="orgcontrolApp.horarioMateria.horaInicio">Hora Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horaFim"><span jhiTranslate="orgcontrolApp.horarioMateria.horaFim">Hora Fim</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.horarioMateria.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="materia.abreviatura"><span jhiTranslate="orgcontrolApp.horarioMateria.materia">Materia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diaSemana.id"><span jhiTranslate="orgcontrolApp.horarioMateria.diaSemana">Dia Semana</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let horarioMateria of horarioMaterias ;trackBy: trackId">
+                <td><a [routerLink]="['/horario-materia', horarioMateria.id, 'view' ]">{{horarioMateria.id}}</a></td>
+                <td>{{horarioMateria.nome}}</td>
+                <td>{{horarioMateria.horaInicio}}</td>
+                <td>{{horarioMateria.horaFim}}</td>
+                <td>{{horarioMateria.obs}}</td>
+                <td>
+                    <div *ngIf="horarioMateria.materia">
+                        <a [routerLink]="['../materia', horarioMateria.materia?.id, 'view' ]" >{{horarioMateria.materia?.abreviatura}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="horarioMateria.diaSemana">
+                        <a [routerLink]="['../dia-semana', horarioMateria.diaSemana?.id, 'view' ]" >{{horarioMateria.diaSemana?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/horario-materia', horarioMateria.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/horario-materia', horarioMateria.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'horario-materia/'+ horarioMateria.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="horarioMaterias && horarioMaterias.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

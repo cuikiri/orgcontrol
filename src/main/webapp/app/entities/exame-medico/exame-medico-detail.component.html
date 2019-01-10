@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="exameMedico">
+            <h2><span jhiTranslate="orgcontrolApp.exameMedico.detail.title">Exame Medico</span> {{exameMedico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.exameMedico.nomeMedico">Nome Medico</span></dt>
+                <dd>
+                    <span>{{exameMedico.nomeMedico}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.exameMedico.crmMedico">Crm Medico</span></dt>
+                <dd>
+                    <span>{{exameMedico.crmMedico}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.exameMedico.especialidadeMedico">Especialidade Medico</span></dt>
+                <dd>
+                    <span>{{exameMedico.especialidadeMedico}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.exameMedico.idadePaciente">Idade Paciente</span></dt>
+                <dd>
+                    <span>{{exameMedico.idadePaciente}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.exameMedico.obs">Obs</span></dt>
+                <dd>
+                    <span>{{exameMedico.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.exameMedico.doenca">Doenca</span></dt>
+                <dd>
+                    <span *ngFor="let doenca of exameMedico.doencas; let last = last">
+                        <a [routerLink]="['/doenca', doenca?.id, 'view' ]">{{doenca.nome}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.exameMedico.dadosMedico">Dados Medico</span></dt>
+                <dd>
+                    <div *ngIf="exameMedico.dadosMedico">
+                        <a [routerLink]="['/dados-medico', exameMedico.dadosMedico?.id, 'view']">{{exameMedico.dadosMedico?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/exame-medico', exameMedico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

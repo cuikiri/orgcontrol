@@ -1,0 +1,31 @@
+{
+    "orgcontrolApp": {
+        "unidade": {
+            "home": {
+                "title": "Unidades",
+                "createLabel": "Crear nuevo Unidade",
+                "createOrEditLabel": "Crear o editar Unidade"
+            },
+            "created": "Un nuevo Unidade ha sido creado con el identificador {{ param }}",
+            "updated": "Un Unidade ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Unidade ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Unidade {{ id }}?"
+            },
+            "detail": {
+                "title": "Unidade"
+            },
+            "nome": "Nome",
+            "endereco": "Endereco",
+            "tipoUnidade": "Tipo Unidade",
+            "aluno": "Aluno",
+            "bloco": "Bloco",
+            "email": "Email",
+            "eleicao": "Eleicao",
+            "telefone": "Telefone",
+            "colaborador": "Colaborador",
+            "calendarioInstituicao": "Calendario Instituicao",
+            "instituicao": "Instituicao"
+        }
+    }
+}

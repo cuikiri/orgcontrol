@@ -1,0 +1,109 @@
+{
+    "name": "Diario",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "materia",
+            "otherEntityName": "materia",
+            "otherEntityField": "abreviatura",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "observacaoProfessor",
+            "otherEntityName": "observacaoProfessor",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "observacaoCoordenador",
+            "otherEntityName": "observacaoCoordenador",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "registroRecuperacao",
+            "otherEntityName": "registroRecuperacao",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "colaborador",
+            "otherEntityName": "colaborador",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "generalidade",
+            "otherEntityName": "generalidade",
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "anotacao",
+            "otherEntityName": "anotacao",
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "atividade",
+            "otherEntityName": "atividade",
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bimestre",
+            "otherEntityName": "bimestre",
+            "otherEntityRelationshipName": "diario"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "turma",
+            "otherEntityName": "turma",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122554",
+    "entityTableName": "diario",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

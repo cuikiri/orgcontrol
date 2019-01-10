@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "respostaAtividade": {
+            "home": {
+                "title": "Resposta Atividades",
+                "createLabel": "Create a new Resposta Atividade",
+                "createOrEditLabel": "Create or edit a Resposta Atividade"
+            },
+            "created": "A new Resposta Atividade is created with identifier {{ param }}",
+            "updated": "A Resposta Atividade is updated with identifier {{ param }}",
+            "deleted": "A Resposta Atividade is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resposta Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Resposta Atividade"
+            },
+            "data": "Data",
+            "obs": "Obs",
+            "respAtivDescritiva": "Resp Ativ Descritiva",
+            "respAtivOptativa": "Resp Ativ Optativa",
+            "conceito": "Conceito",
+            "itemAcompanhamentoAtividade": "Item Acompanhamento Atividade"
+        }
+    }
+}

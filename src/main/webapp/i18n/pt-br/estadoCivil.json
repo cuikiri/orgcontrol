@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "estadoCivil": {
+            "home": {
+                "title": "Estado Civils",
+                "createLabel": "Criar novo Estado Civil",
+                "createOrEditLabel": "Criar ou editar Estado Civil"
+            },
+            "created": "Um novo Estado Civil foi criado com o identificador {{ param }}",
+            "updated": "Um Estado Civil foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Estado Civil foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Estado Civil {{ id }}?"
+            },
+            "detail": {
+                "title": "Estado Civil"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "colaborador": "Colaborador"
+        }
+    }
+}

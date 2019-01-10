@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemPlanejamentoEnsino">
+            <h2><span jhiTranslate="orgcontrolApp.itemPlanejamentoEnsino.detail.title">Item Planejamento Ensino</span> {{itemPlanejamentoEnsino.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.itemPlanejamentoEnsino.nome">Nome</span></dt>
+                <dd>
+                    <span>{{itemPlanejamentoEnsino.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemPlanejamentoEnsino.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{itemPlanejamentoEnsino.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemPlanejamentoEnsino.planejamentoEnsino">Planejamento Ensino</span></dt>
+                <dd>
+                    <div *ngIf="itemPlanejamentoEnsino.planejamentoEnsino">
+                        <a [routerLink]="['/planejamento-ensino', itemPlanejamentoEnsino.planejamentoEnsino?.id, 'view']">{{itemPlanejamentoEnsino.planejamentoEnsino?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-planejamento-ensino', itemPlanejamentoEnsino.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

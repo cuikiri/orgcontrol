@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "observacaoProfessor": {
+            "home": {
+                "title": "Observacao Professors",
+                "createLabel": "Criar novo Observacao Professor",
+                "createOrEditLabel": "Criar ou editar Observacao Professor"
+            },
+            "created": "Um novo Observacao Professor foi criado com o identificador {{ param }}",
+            "updated": "Um Observacao Professor foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Observacao Professor foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Observacao Professor {{ id }}?"
+            },
+            "detail": {
+                "title": "Observacao Professor"
+            },
+            "data": "Data",
+            "nome": "Nome",
+            "obs": "Obs",
+            "diario": "Diario",
+            "bimestre": "Bimestre"
+        }
+    }
+}

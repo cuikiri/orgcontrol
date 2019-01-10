@@ -1,0 +1,69 @@
+{
+    "name": "Bloco",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoBloco",
+            "otherEntityName": "tipoBloco",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bloco"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "localizacao",
+            "otherEntityName": "localizacao",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bloco"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "parteBloco",
+            "otherEntityName": "parteBloco",
+            "otherEntityRelationshipName": "bloco"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122447",
+    "entityTableName": "bloco",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "candidato": {
+            "home": {
+                "title": "Candidatoes",
+                "createLabel": "Criar novo Candidato",
+                "createOrEditLabel": "Criar ou editar Candidato"
+            },
+            "created": "Um novo Candidato foi criado com o identificador {{ param }}",
+            "updated": "Um Candidato foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Candidato foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Candidato {{ id }}?"
+            },
+            "detail": {
+                "title": "Candidato"
+            },
+            "apelido": "Apelido",
+            "dataCadastro": "Data Cadastro",
+            "obs": "Obs",
+            "cargo": "Cargo",
+            "colaborador": "Colaborador",
+            "chapa": "Chapa"
+        }
+    }
+}

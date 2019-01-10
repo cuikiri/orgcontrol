@@ -1,0 +1,156 @@
+{
+    "name": "Colaborador",
+    "fields": [
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dataAdmissao",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "salario",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "pai",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "mae",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "conjuge",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoContratacao",
+            "otherEntityName": "tipoContratacao",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoColaborador",
+            "otherEntityName": "tipoColaborador",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "estadoCivil",
+            "otherEntityName": "estadoCivil",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dadosMedico",
+            "otherEntityName": "dadosMedico",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ensino",
+            "otherEntityName": "ensino",
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "documento",
+            "otherEntityName": "documento",
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dependenteLegal",
+            "otherEntityName": "dependenteLegal",
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "agendaColaborador",
+            "otherEntityName": "agendaColaborador",
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "candidato",
+            "otherEntityName": "candidato",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "colaborador"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "instituicao",
+            "otherEntityName": "instituicao",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122505",
+    "entityTableName": "colaborador",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

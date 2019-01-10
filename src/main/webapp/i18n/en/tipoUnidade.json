@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoUnidade": {
+            "home": {
+                "title": "Tipo Unidades",
+                "createLabel": "Create a new Tipo Unidade",
+                "createOrEditLabel": "Create or edit a Tipo Unidade"
+            },
+            "created": "A new Tipo Unidade is created with identifier {{ param }}",
+            "updated": "A Tipo Unidade is updated with identifier {{ param }}",
+            "deleted": "A Tipo Unidade is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipo Unidade {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Unidade"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "unidade": "Unidade"
+        }
+    }
+}

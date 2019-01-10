@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "planejamentoAtividade": {
+            "home": {
+                "title": "Planejamento Atividades",
+                "createLabel": "Criar novo Planejamento Atividade",
+                "createOrEditLabel": "Criar ou editar Planejamento Atividade"
+            },
+            "created": "Um novo Planejamento Atividade foi criado com o identificador {{ param }}",
+            "updated": "Um Planejamento Atividade foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Planejamento Atividade foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Planejamento Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Planejamento Atividade"
+            },
+            "nome": "Nome",
+            "objetivo": "Objetivo",
+            "obs": "Obs",
+            "itemPlanejamentoAtividade": "Item Planejamento Atividade",
+            "calendarioInstituicao": "Calendario Instituicao"
+        }
+    }
+}

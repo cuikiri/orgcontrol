@@ -1,0 +1,45 @@
+{
+    "name": "Biotipo",
+    "fields": [
+        {
+            "fieldName": "valor",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoBiotipo",
+            "otherEntityName": "tipoBiotipo",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "biotipo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "exameMedico",
+            "otherEntityName": "exameMedico",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122515",
+    "entityTableName": "biotipo",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

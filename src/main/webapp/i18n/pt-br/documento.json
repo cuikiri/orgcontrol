@@ -1,0 +1,28 @@
+{
+    "orgcontrolApp": {
+        "documento": {
+            "home": {
+                "title": "Documentos",
+                "createLabel": "Criar novo Documento",
+                "createOrEditLabel": "Criar ou editar Documento"
+            },
+            "created": "Um novo Documento foi criado com o identificador {{ param }}",
+            "updated": "Um Documento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Documento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Documento {{ id }}?"
+            },
+            "detail": {
+                "title": "Documento"
+            },
+            "nome": "Nome",
+            "numero": "Numero",
+            "obs": "Obs",
+            "tipoDocumento": "Tipo Documento",
+            "fotoDocumento": "Foto Documento",
+            "pessoa": "Pessoa",
+            "colaborador": "Colaborador",
+            "dependenteLegal": "Dependente Legal"
+        }
+    }
+}

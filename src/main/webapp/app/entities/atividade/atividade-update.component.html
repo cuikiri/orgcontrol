@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-atividade-heading" jhiTranslate="orgcontrolApp.atividade.home.createOrEditLabel">Create or edit a Atividade</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!atividade.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="atividade.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.atividade.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="atividade.nome" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.atividade.data" for="field_data">Data</label>
+                    <div class="input-group">
+                        <input id="field_data" type="text" class="form-control" name="data" ngbDatepicker  #dataDp="ngbDatepicker" [(ngModel)]="atividade.data"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.data?.dirty && editForm.controls.data?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.data?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.atividade.resumo" for="field_resumo">Resumo</label>
+                    <input type="text" class="form-control" name="resumo" id="field_resumo"
+                        [(ngModel)]="atividade.resumo" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.resumo?.dirty && editForm.controls.resumo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.resumo?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.atividade.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="atividade.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.atividade.tipoAtividade" for="field_tipoAtividade">Tipo Atividade</label>
+                    <select class="form-control" id="field_tipoAtividade" name="tipoAtividade" [(ngModel)]="atividade.tipoAtividade">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoAtividadeOption.id === atividade.tipoAtividade?.id ? atividade.tipoAtividade : tipoAtividadeOption" *ngFor="let tipoAtividadeOption of tipoatividades; trackBy: trackTipoAtividadeById">{{tipoAtividadeOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="orgcontrolApp.atividade.aluno" for="field_aluno">Aluno</label>
+                    <select class="form-control" id="field_aluno" multiple name="aluno" [(ngModel)]="atividade.alunos">
+                        <option [ngValue]="getSelected(atividade.alunos, alunoOption)" *ngFor="let alunoOption of alunos; trackBy: trackAlunoById">{{alunoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.atividade.diario" for="field_diario">Diario</label>
+                    <select class="form-control" id="field_diario" name="diario" [(ngModel)]="atividade.diario" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="diarioOption.id === atividade.diario?.id ? atividade.diario : diarioOption" *ngFor="let diarioOption of diarios; trackBy: trackDiarioById">{{diarioOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.atividade.bimestre" for="field_bimestre">Bimestre</label>
+                    <select class="form-control" id="field_bimestre" name="bimestre" [(ngModel)]="atividade.bimestre" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bimestreOption.id === atividade.bimestre?.id ? atividade.bimestre : bimestreOption" *ngFor="let bimestreOption of bimestres; trackBy: trackBimestreById">{{bimestreOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

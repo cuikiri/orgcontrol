@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agendaColaborador">
+            <h2><span jhiTranslate="orgcontrolApp.agendaColaborador.detail.title">Agenda Colaborador</span> {{agendaColaborador.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.nome">Nome</span></dt>
+                <dd>
+                    <span>{{agendaColaborador.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.horaInicio">Hora Inicio</span></dt>
+                <dd>
+                    <span>{{agendaColaborador.horaInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.horaFim">Hora Fim</span></dt>
+                <dd>
+                    <span>{{agendaColaborador.horaFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.horaAlmocoInicio">Hora Almoco Inicio</span></dt>
+                <dd>
+                    <span>{{agendaColaborador.horaAlmocoInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.horaAlmocoFim">Hora Almoco Fim</span></dt>
+                <dd>
+                    <span>{{agendaColaborador.horaAlmocoFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.obs">Obs</span></dt>
+                <dd>
+                    <span>{{agendaColaborador.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.diaSemana">Dia Semana</span></dt>
+                <dd>
+                    <div *ngIf="agendaColaborador.diaSemana">
+                        <a [routerLink]="['/dia-semana', agendaColaborador.diaSemana?.id, 'view']">{{agendaColaborador.diaSemana?.abreviatura}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.agendaColaborador.colaborador">Colaborador</span></dt>
+                <dd>
+                    <div *ngIf="agendaColaborador.colaborador">
+                        <a [routerLink]="['/colaborador', agendaColaborador.colaborador?.id, 'view']">{{agendaColaborador.colaborador?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agenda-colaborador', agendaColaborador.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

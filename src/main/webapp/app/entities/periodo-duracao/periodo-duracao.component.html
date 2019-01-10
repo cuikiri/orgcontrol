@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.periodoDuracao.home.title">Periodo Duracaos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-periodo-duracao" [routerLink]="['/periodo-duracao/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.periodoDuracao.home.createLabel">
+            Create new Periodo Duracao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="periodoDuracaos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.periodoDuracao.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataInicio"><span jhiTranslate="orgcontrolApp.periodoDuracao.dataInicio">Data Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataFim"><span jhiTranslate="orgcontrolApp.periodoDuracao.dataFim">Data Fim</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.periodoDuracao.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calendarioInstituicao.id"><span jhiTranslate="orgcontrolApp.periodoDuracao.calendarioInstituicao">Calendario Instituicao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let periodoDuracao of periodoDuracaos ;trackBy: trackId">
+                <td><a [routerLink]="['/periodo-duracao', periodoDuracao.id, 'view' ]">{{periodoDuracao.id}}</a></td>
+                <td>{{periodoDuracao.nome}}</td>
+                <td>{{periodoDuracao.dataInicio | date:'mediumDate'}}</td>
+                <td>{{periodoDuracao.dataFim | date:'mediumDate'}}</td>
+                <td>{{periodoDuracao.obs}}</td>
+                <td>
+                    <div *ngIf="periodoDuracao.calendarioInstituicao">
+                        <a [routerLink]="['../calendario-instituicao', periodoDuracao.calendarioInstituicao?.id, 'view' ]" >{{periodoDuracao.calendarioInstituicao?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/periodo-duracao', periodoDuracao.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/periodo-duracao', periodoDuracao.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'periodo-duracao/'+ periodoDuracao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="periodoDuracaos && periodoDuracaos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Eleicao.
+    -->
+    <changeSet id="20190110122451-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="chapa_ganhadora_id"
+                                 baseTableName="eleicao"
+                                 constraintName="fk_eleicao_chapa_ganhadora_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chapa"/>
+
+        <addForeignKeyConstraint baseColumnNames="instituicao_id"
+                                 baseTableName="eleicao"
+                                 constraintName="fk_eleicao_instituicao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="instituicao"/>
+
+        <addForeignKeyConstraint baseColumnNames="unidade_id"
+                                 baseTableName="eleicao"
+                                 constraintName="fk_eleicao_unidade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unidade"/>
+
+    </changeSet>
+</databaseChangeLog>

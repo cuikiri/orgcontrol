@@ -1,0 +1,32 @@
+{
+    "orgcontrolApp": {
+        "pessoa": {
+            "home": {
+                "title": "Pessoas",
+                "createLabel": "Crear nuevo Pessoa",
+                "createOrEditLabel": "Crear o editar Pessoa"
+            },
+            "created": "Un nuevo Pessoa ha sido creado con el identificador {{ param }}",
+            "updated": "Un Pessoa ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Pessoa ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Pessoa {{ id }}?"
+            },
+            "detail": {
+                "title": "Pessoa"
+            },
+            "nome": "Nome",
+            "telefone": "Telefone",
+            "email": "Email",
+            "endereco": "Endereco",
+            "documento": "Documento",
+            "aviso": "Aviso",
+            "colaborador": "Colaborador",
+            "responsavel": "Responsavel",
+            "aluno": "Aluno",
+            "alunoMae": "Aluno Mae",
+            "alunoPai": "Aluno Pai",
+            "alunoIrmao": "Aluno Irmao"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "caracteristicasPsiquicas": {
+            "home": {
+                "title": "Caracteristicas Psiquicas",
+                "createLabel": "Criar novo Caracteristicas Psiquicas",
+                "createOrEditLabel": "Criar ou editar Caracteristicas Psiquicas"
+            },
+            "created": "Um novo Caracteristicas Psiquicas foi criado com o identificador {{ param }}",
+            "updated": "Um Caracteristicas Psiquicas foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Caracteristicas Psiquicas foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Caracteristicas Psiquicas {{ id }}?"
+            },
+            "detail": {
+                "title": "Caracteristicas Psiquicas"
+            },
+            "nome": "Nome",
+            "aluno": "Aluno"
+        }
+    }
+}

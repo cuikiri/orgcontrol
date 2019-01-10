@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "dependenteLegal": {
+            "home": {
+                "title": "Dependente Legals",
+                "createLabel": "Crear nuevo Dependente Legal",
+                "createOrEditLabel": "Crear o editar Dependente Legal"
+            },
+            "created": "Un nuevo Dependente Legal ha sido creado con el identificador {{ param }}",
+            "updated": "Un Dependente Legal ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Dependente Legal ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Dependente Legal {{ id }}?"
+            },
+            "detail": {
+                "title": "Dependente Legal"
+            },
+            "nome": "Nome",
+            "dataNascimento": "Data Nascimento",
+            "obs": "Obs",
+            "documento": "Documento",
+            "colaborador": "Colaborador"
+        }
+    }
+}

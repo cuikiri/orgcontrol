@@ -1,0 +1,53 @@
+{
+    "name": "PlanejamentoAtividade",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "objetivo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "itemPlanejamentoAtividade",
+            "otherEntityName": "itemPlanejamentoAtividade",
+            "otherEntityRelationshipName": "planejamentoAtividade"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "calendarioInstituicao",
+            "otherEntityName": "calendarioInstituicao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122501",
+    "entityTableName": "planejamento_atividade",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

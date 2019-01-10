@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "biotipo": {
+            "home": {
+                "title": "Biotipos",
+                "createLabel": "Create a new Biotipo",
+                "createOrEditLabel": "Create or edit a Biotipo"
+            },
+            "created": "A new Biotipo is created with identifier {{ param }}",
+            "updated": "A Biotipo is updated with identifier {{ param }}",
+            "deleted": "A Biotipo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Biotipo {{ id }}?"
+            },
+            "detail": {
+                "title": "Biotipo"
+            },
+            "valor": "Valor",
+            "obs": "Obs",
+            "tipoBiotipo": "Tipo Biotipo",
+            "exameMedico": "Exame Medico"
+        }
+    }
+}

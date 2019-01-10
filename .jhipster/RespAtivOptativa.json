@@ -1,0 +1,43 @@
+{
+    "name": "RespAtivOptativa",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "opcaoResposta",
+            "otherEntityName": "opcaoRespAtividade",
+            "otherEntityRelationshipName": "opcaoResposta"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "itemAcompanhamentoAtividade",
+            "otherEntityName": "itemAcompanhamentoAtividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAtivOptativa"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respostaAtividade",
+            "otherEntityName": "respostaAtividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAtivOptativa"
+        }
+    ],
+    "changelogDate": "20190110122609",
+    "entityTableName": "resp_ativ_optativa",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

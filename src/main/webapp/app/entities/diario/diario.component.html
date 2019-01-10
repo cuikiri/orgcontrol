@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.diario.home.title">Diarios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-diario" [routerLink]="['/diario/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.diario.home.createLabel">
+            Create new Diario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="diarios">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.diario.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.diario.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="materia.abreviatura"><span jhiTranslate="orgcontrolApp.diario.materia">Materia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="observacaoProfessor.id"><span jhiTranslate="orgcontrolApp.diario.observacaoProfessor">Observacao Professor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="observacaoCoordenador.id"><span jhiTranslate="orgcontrolApp.diario.observacaoCoordenador">Observacao Coordenador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="registroRecuperacao.id"><span jhiTranslate="orgcontrolApp.diario.registroRecuperacao">Registro Recuperacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="colaborador.nome"><span jhiTranslate="orgcontrolApp.diario.colaborador">Colaborador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="turma.id"><span jhiTranslate="orgcontrolApp.diario.turma">Turma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let diario of diarios ;trackBy: trackId">
+                <td><a [routerLink]="['/diario', diario.id, 'view' ]">{{diario.id}}</a></td>
+                <td>{{diario.nome}}</td>
+                <td>{{diario.obs}}</td>
+                <td>
+                    <div *ngIf="diario.materia">
+                        <a [routerLink]="['../materia', diario.materia?.id, 'view' ]" >{{diario.materia?.abreviatura}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="diario.observacaoProfessor">
+                        <a [routerLink]="['../observacao-professor', diario.observacaoProfessor?.id, 'view' ]" >{{diario.observacaoProfessor?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="diario.observacaoCoordenador">
+                        <a [routerLink]="['../observacao-coordenador', diario.observacaoCoordenador?.id, 'view' ]" >{{diario.observacaoCoordenador?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="diario.registroRecuperacao">
+                        <a [routerLink]="['../registro-recuperacao', diario.registroRecuperacao?.id, 'view' ]" >{{diario.registroRecuperacao?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="diario.colaborador">
+                        <a [routerLink]="['../colaborador', diario.colaborador?.id, 'view' ]" >{{diario.colaborador?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="diario.turma">
+                        <a [routerLink]="['../turma', diario.turma?.id, 'view' ]" >{{diario.turma?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/diario', diario.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/diario', diario.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'diario/'+ diario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="diarios && diarios.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

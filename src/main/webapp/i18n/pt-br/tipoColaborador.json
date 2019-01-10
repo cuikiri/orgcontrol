@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoColaborador": {
+            "home": {
+                "title": "Tipo Colaboradors",
+                "createLabel": "Criar novo Tipo Colaborador",
+                "createOrEditLabel": "Criar ou editar Tipo Colaborador"
+            },
+            "created": "Um novo Tipo Colaborador foi criado com o identificador {{ param }}",
+            "updated": "Um Tipo Colaborador foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Tipo Colaborador foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Tipo Colaborador {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Colaborador"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "colaborador": "Colaborador"
+        }
+    }
+}

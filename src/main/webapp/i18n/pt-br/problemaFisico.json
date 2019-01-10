@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "problemaFisico": {
+            "home": {
+                "title": "Problema Fisicos",
+                "createLabel": "Criar novo Problema Fisico",
+                "createOrEditLabel": "Criar ou editar Problema Fisico"
+            },
+            "created": "Um novo Problema Fisico foi criado com o identificador {{ param }}",
+            "updated": "Um Problema Fisico foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Problema Fisico foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Problema Fisico {{ id }}?"
+            },
+            "detail": {
+                "title": "Problema Fisico"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "dadosMedico": "Dados Medico"
+        }
+    }
+}

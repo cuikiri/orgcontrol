@@ -1,0 +1,52 @@
+{
+    "name": "ObservacaoCoordenador",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "observacaoCoordenador"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bimestre",
+            "otherEntityName": "bimestre",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122556",
+    "entityTableName": "observacao_coordenador",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

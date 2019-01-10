@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avaliacaoEconomica">
+            <h2><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.detail.title">Avaliacao Economica</span> {{avaliacaoEconomica.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.nome">Nome</span></dt>
+                <dd>
+                    <span>{{avaliacaoEconomica.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.data">Data</span></dt>
+                <dd>
+                    <span>{{avaliacaoEconomica.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.tema">Tema</span></dt>
+                <dd>
+                    <span>{{avaliacaoEconomica.tema}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{avaliacaoEconomica.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.dataInicio">Data Inicio</span></dt>
+                <dd>
+                    <span>{{avaliacaoEconomica.dataInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.dataFim">Data Fim</span></dt>
+                <dd>
+                    <span>{{avaliacaoEconomica.dataFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.obs">Obs</span></dt>
+                <dd>
+                    <span>{{avaliacaoEconomica.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.tipoAvaliacaoEconomica">Tipo Avaliacao Economica</span></dt>
+                <dd>
+                    <div *ngIf="avaliacaoEconomica.tipoAvaliacaoEconomica">
+                        <a [routerLink]="['/tipo-avaliacao-economica', avaliacaoEconomica.tipoAvaliacaoEconomica?.id, 'view']">{{avaliacaoEconomica.tipoAvaliacaoEconomica?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacaoEconomica.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="avaliacaoEconomica.aluno">
+                        <a [routerLink]="['/aluno', avaliacaoEconomica.aluno?.id, 'view']">{{avaliacaoEconomica.aluno?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avaliacao-economica', avaliacaoEconomica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

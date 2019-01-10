@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.home.title">Item Acompanhamento Atividades</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-item-acompanhamento-atividade" [routerLink]="['/item-acompanhamento-atividade/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.home.createLabel">
+            Create new Item Acompanhamento Atividade
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="itemAcompanhamentoAtividades">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoResposta"><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.tipoResposta">Tipo Resposta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="questao"><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.questao">Questao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="respAtivDescritiva.id"><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.respAtivDescritiva">Resp Ativ Descritiva</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="respAtivOptativa.id"><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.respAtivOptativa">Resp Ativ Optativa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="acompanhamentoAtividade.id"><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.acompanhamentoAtividade">Acompanhamento Atividade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let itemAcompanhamentoAtividade of itemAcompanhamentoAtividades ;trackBy: trackId">
+                <td><a [routerLink]="['/item-acompanhamento-atividade', itemAcompanhamentoAtividade.id, 'view' ]">{{itemAcompanhamentoAtividade.id}}</a></td>
+                <td jhiTranslate="{{'orgcontrolApp.TipoResposta.' + itemAcompanhamentoAtividade.tipoResposta}}">{{itemAcompanhamentoAtividade.tipoResposta}}</td>
+                <td>{{itemAcompanhamentoAtividade.questao}}</td>
+                <td>{{itemAcompanhamentoAtividade.obs}}</td>
+                <td>
+                    <div *ngIf="itemAcompanhamentoAtividade.respAtivDescritiva">
+                        <a [routerLink]="['../resp-ativ-descritiva', itemAcompanhamentoAtividade.respAtivDescritiva?.id, 'view' ]" >{{itemAcompanhamentoAtividade.respAtivDescritiva?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="itemAcompanhamentoAtividade.respAtivOptativa">
+                        <a [routerLink]="['../resp-ativ-optativa', itemAcompanhamentoAtividade.respAtivOptativa?.id, 'view' ]" >{{itemAcompanhamentoAtividade.respAtivOptativa?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="itemAcompanhamentoAtividade.acompanhamentoAtividade">
+                        <a [routerLink]="['../acompanhamento-atividade', itemAcompanhamentoAtividade.acompanhamentoAtividade?.id, 'view' ]" >{{itemAcompanhamentoAtividade.acompanhamentoAtividade?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/item-acompanhamento-atividade', itemAcompanhamentoAtividade.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/item-acompanhamento-atividade', itemAcompanhamentoAtividade.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'item-acompanhamento-atividade/'+ itemAcompanhamentoAtividade.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="itemAcompanhamentoAtividades && itemAcompanhamentoAtividades.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

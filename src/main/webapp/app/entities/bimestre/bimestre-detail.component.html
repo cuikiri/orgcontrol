@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bimestre">
+            <h2><span jhiTranslate="orgcontrolApp.bimestre.detail.title">Bimestre</span> {{bimestre.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.abreviatura">Abreviatura</span></dt>
+                <dd>
+                    <span>{{bimestre.abreviatura}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.nome">Nome</span></dt>
+                <dd>
+                    <span>{{bimestre.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.componente">Componente</span></dt>
+                <dd>
+                    <span>{{bimestre.componente}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.dataInicio">Data Inicio</span></dt>
+                <dd>
+                    <span>{{bimestre.dataInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.dataFim">Data Fim</span></dt>
+                <dd>
+                    <span>{{bimestre.dataFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.numero">Numero</span></dt>
+                <dd>
+                    <span>{{bimestre.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.atividadesPrevistas">Atividades Previstas</span></dt>
+                <dd>
+                    <span>{{bimestre.atividadesPrevistas}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.atividadesDadas">Atividades Dadas</span></dt>
+                <dd>
+                    <span>{{bimestre.atividadesDadas}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.atividadesRepostas">Atividades Repostas</span></dt>
+                <dd>
+                    <span>{{bimestre.atividadesRepostas}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.fechamentoBimestre">Fechamento Bimestre</span></dt>
+                <dd>
+                    <div *ngIf="bimestre.fechamentoBimestre">
+                        <a [routerLink]="['/fechamento-bimestre', bimestre.fechamentoBimestre?.id, 'view']">{{bimestre.fechamentoBimestre?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.bimestre.diario">Diario</span></dt>
+                <dd>
+                    <div *ngIf="bimestre.diario">
+                        <a [routerLink]="['/diario', bimestre.diario?.id, 'view']">{{bimestre.diario?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bimestre', bimestre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

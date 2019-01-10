@@ -1,0 +1,21 @@
+{
+    "orgcontrolApp": {
+        "sexo": {
+            "home": {
+                "title": "Sexos",
+                "createLabel": "Criar novo Sexo",
+                "createOrEditLabel": "Criar ou editar Sexo"
+            },
+            "created": "Um novo Sexo foi criado com o identificador {{ param }}",
+            "updated": "Um Sexo foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Sexo foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Sexo {{ id }}?"
+            },
+            "detail": {
+                "title": "Sexo"
+            },
+            "nome": "Nome"
+        }
+    }
+}

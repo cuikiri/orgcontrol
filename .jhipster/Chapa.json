@@ -1,0 +1,67 @@
+{
+    "name": "Chapa",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "totaVotos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "vencedor",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "candidato",
+            "otherEntityName": "candidato",
+            "otherEntityRelationshipName": "chapa"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "eleicaoGanhadora",
+            "otherEntityName": "eleicao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "chapaGanhadora"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "eleicao",
+            "otherEntityName": "eleicao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122452",
+    "entityTableName": "chapa",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

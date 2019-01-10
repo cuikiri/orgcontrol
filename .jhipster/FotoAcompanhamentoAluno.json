@@ -1,0 +1,31 @@
+{
+    "name": "FotoAcompanhamentoAluno",
+    "fields": [
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "acompanhamentoAluno",
+            "otherEntityName": "acompanhamentoAluno",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "fotoAcompanhamentoAluno"
+        }
+    ],
+    "changelogDate": "20190110122531",
+    "entityTableName": "foto_acompanhamento_aluno",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

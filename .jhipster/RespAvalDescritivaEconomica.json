@@ -1,0 +1,46 @@
+{
+    "name": "RespAvalDescritivaEconomica",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "resposta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "itemAvaliacaoEconomica",
+            "otherEntityName": "itemAvaliacaoEconomica",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalDescritivaEconomica"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respostaAvaliacaoEconomica",
+            "otherEntityName": "respostaAvaliacaoEconomica",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalDescritivaEconomica"
+        }
+    ],
+    "changelogDate": "20190110122541",
+    "entityTableName": "resp_aval_descritiva_economica",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

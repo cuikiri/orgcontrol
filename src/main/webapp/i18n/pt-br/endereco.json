@@ -1,0 +1,37 @@
+{
+    "orgcontrolApp": {
+        "endereco": {
+            "home": {
+                "title": "Enderecos",
+                "createLabel": "Criar novo Endereco",
+                "createOrEditLabel": "Criar ou editar Endereco"
+            },
+            "created": "Um novo Endereco foi criado com o identificador {{ param }}",
+            "updated": "Um Endereco foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Endereco foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Endereco {{ id }}?"
+            },
+            "detail": {
+                "title": "Endereco"
+            },
+            "tipoResidencia": "Tipo Residencia",
+            "tipoEndereco": "Tipo Endereco",
+            "tipoLogradouro": "Tipo Logradouro",
+            "nome": "Nome",
+            "numero": "Numero",
+            "bairro": "Bairro",
+            "tipoBairoo": "Tipo Bairoo",
+            "zona": "Zona",
+            "cep": "Cep",
+            "bloco": "Bloco",
+            "apto": "Apto",
+            "complemento": "Complemento",
+            "cidade": "Cidade",
+            "estado": "Estado",
+            "localizacao": "Localizacao",
+            "unidade": "Unidade",
+            "pessoa": "Pessoa"
+        }
+    }
+}

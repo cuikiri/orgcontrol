@@ -1,0 +1,10 @@
+{
+    "orgcontrolApp": {
+        "TipoBairro": {
+            "null": "",
+            "RESIDENCIAL": "RESIDENCIAL",
+            "COMERCIAL": "COMERCIAL",
+            "INDUSTRIAL": "INDUSTRIAL"
+        }
+    }
+}

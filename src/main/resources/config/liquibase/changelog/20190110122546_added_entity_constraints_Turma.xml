@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Turma.
+    -->
+    <changeSet id="20190110122546-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ensino_id"
+                                 baseTableName="turma"
+                                 constraintName="fk_turma_ensino_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ensino"/>
+
+        <addForeignKeyConstraint baseColumnNames="periodo_duracao_id"
+                                 baseTableName="turma"
+                                 constraintName="fk_turma_periodo_duracao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="periodo_duracao"/>
+
+        <addForeignKeyConstraint baseColumnNames="periodo_semana_id"
+                                 baseTableName="turma"
+                                 constraintName="fk_turma_periodo_semana_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="periodo_semana"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_curso_id"
+                                 baseTableName="turma"
+                                 constraintName="fk_turma_tipo_curso_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_curso"/>
+
+        <addForeignKeyConstraint baseColumnNames="curso_id"
+                                 baseTableName="turma"
+                                 constraintName="fk_turma_curso_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="curso"/>
+
+        <addForeignKeyConstraint baseColumnNames="modulo_id"
+                                 baseTableName="turma"
+                                 constraintName="fk_turma_modulo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="modulo"/>
+
+        <addForeignKeyConstraint baseColumnNames="turmas_id"
+                                 baseTableName="turma_horario_materia"
+                                 constraintName="fk_turma_horario_materia_turmas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="turma"/>
+        <addForeignKeyConstraint baseColumnNames="horario_materias_id"
+                                 baseTableName="turma_horario_materia"
+                                 constraintName="fk_turma_horario_materia_horario_materias_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="horario_materia"/>
+        
+        <addForeignKeyConstraint baseColumnNames="turmas_id"
+                                 baseTableName="turma_periodo_atividade"
+                                 constraintName="fk_turma_periodo_atividade_turmas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="turma"/>
+        <addForeignKeyConstraint baseColumnNames="periodo_atividades_id"
+                                 baseTableName="turma_periodo_atividade"
+                                 constraintName="fk_turma_periodo_atividade_periodo_atividades_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="periodo_atividade"/>
+        
+    </changeSet>
+</databaseChangeLog>

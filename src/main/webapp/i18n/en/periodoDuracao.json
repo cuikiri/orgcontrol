@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "periodoDuracao": {
+            "home": {
+                "title": "Periodo Duracaos",
+                "createLabel": "Create a new Periodo Duracao",
+                "createOrEditLabel": "Create or edit a Periodo Duracao"
+            },
+            "created": "A new Periodo Duracao is created with identifier {{ param }}",
+            "updated": "A Periodo Duracao is updated with identifier {{ param }}",
+            "deleted": "A Periodo Duracao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Periodo Duracao {{ id }}?"
+            },
+            "detail": {
+                "title": "Periodo Duracao"
+            },
+            "nome": "Nome",
+            "dataInicio": "Data Inicio",
+            "dataFim": "Data Fim",
+            "obs": "Obs",
+            "calendarioInstituicao": "Calendario Instituicao"
+        }
+    }
+}

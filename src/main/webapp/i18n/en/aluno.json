@@ -1,0 +1,42 @@
+{
+    "orgcontrolApp": {
+        "aluno": {
+            "home": {
+                "title": "Alunos",
+                "createLabel": "Create a new Aluno",
+                "createOrEditLabel": "Create or edit a Aluno"
+            },
+            "created": "A new Aluno is created with identifier {{ param }}",
+            "updated": "A Aluno is updated with identifier {{ param }}",
+            "deleted": "A Aluno is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Aluno"
+            },
+            "apelido": "Apelido",
+            "numeroIrmaos": "Numero Irmaos",
+            "obs": "Obs",
+            "pessoa": "Pessoa",
+            "mae": "Mae",
+            "pai": "Pai",
+            "dadosMedico": "Dados Medico",
+            "irmao": "Irmao",
+            "locomocao": "Locomocao",
+            "advertencia": "Advertencia",
+            "avaliacaoEconomica": "Avaliacao Economica",
+            "acompanhamentoAluno": "Acompanhamento Aluno",
+            "acompanhamentoEscolarAluno": "Acompanhamento Escolar Aluno",
+            "caracteristicasPsiquicas": "Caracteristicas Psiquicas",
+            "raca": "Raca",
+            "sexo": "Sexo",
+            "religiao": "Religiao",
+            "unidade": "Unidade",
+            "diario": "Diario",
+            "responsavel": "Responsavel",
+            "atividade": "Atividade",
+            "fechamentoBimestre": "Fechamento Bimestre"
+        }
+    }
+}

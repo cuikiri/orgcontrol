@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "modulo": {
+            "home": {
+                "title": "Modulos",
+                "createLabel": "Criar novo Modulo",
+                "createOrEditLabel": "Criar ou editar Modulo"
+            },
+            "created": "Um novo Modulo foi criado com o identificador {{ param }}",
+            "updated": "Um Modulo foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Modulo foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Modulo {{ id }}?"
+            },
+            "detail": {
+                "title": "Modulo"
+            },
+            "nome": "Nome",
+            "obs": "Obs"
+        }
+    }
+}

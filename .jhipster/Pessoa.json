@@ -1,0 +1,98 @@
+{
+    "name": "Pessoa",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "telefone",
+            "otherEntityName": "telefone",
+            "otherEntityRelationshipName": "pessoa"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "email",
+            "otherEntityName": "email",
+            "otherEntityRelationshipName": "pessoa"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "endereco",
+            "otherEntityName": "endereco",
+            "otherEntityRelationshipName": "pessoa"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "documento",
+            "otherEntityName": "documento",
+            "otherEntityRelationshipName": "pessoa"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "pessoa",
+            "relationshipName": "aviso",
+            "otherEntityName": "aviso",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "colaborador",
+            "otherEntityName": "colaborador",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "pessoa"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "responsavel",
+            "otherEntityName": "responsavel",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "pessoa"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "pessoa"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "alunoMae",
+            "otherEntityName": "aluno",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "mae"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "alunoPai",
+            "otherEntityName": "aluno",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "pai"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "alunoIrmao",
+            "otherEntityName": "aluno",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122439",
+    "entityTableName": "pessoa",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

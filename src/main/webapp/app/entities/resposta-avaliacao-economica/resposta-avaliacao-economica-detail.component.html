@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="respostaAvaliacaoEconomica">
+            <h2><span jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.detail.title">Resposta Avaliacao Economica</span> {{respostaAvaliacaoEconomica.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.data">Data</span></dt>
+                <dd>
+                    <span>{{respostaAvaliacaoEconomica.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.obs">Obs</span></dt>
+                <dd>
+                    <span>{{respostaAvaliacaoEconomica.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.respAvalDescritivaEconomica">Resp Aval Descritiva Economica</span></dt>
+                <dd>
+                    <div *ngIf="respostaAvaliacaoEconomica.respAvalDescritivaEconomica">
+                        <a [routerLink]="['/resp-aval-descritiva-economica', respostaAvaliacaoEconomica.respAvalDescritivaEconomica?.id, 'view']">{{respostaAvaliacaoEconomica.respAvalDescritivaEconomica?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.respAvalOptativaEconomica">Resp Aval Optativa Economica</span></dt>
+                <dd>
+                    <div *ngIf="respostaAvaliacaoEconomica.respAvalOptativaEconomica">
+                        <a [routerLink]="['/resp-aval-optativa-economica', respostaAvaliacaoEconomica.respAvalOptativaEconomica?.id, 'view']">{{respostaAvaliacaoEconomica.respAvalOptativaEconomica?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.conceito">Conceito</span></dt>
+                <dd>
+                    <div *ngIf="respostaAvaliacaoEconomica.conceito">
+                        <a [routerLink]="['/conceito', respostaAvaliacaoEconomica.conceito?.id, 'view']">{{respostaAvaliacaoEconomica.conceito?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.itemAvaliacaoEconomica">Item Avaliacao Economica</span></dt>
+                <dd>
+                    <div *ngIf="respostaAvaliacaoEconomica.itemAvaliacaoEconomica">
+                        <a [routerLink]="['/item-avaliacao-economica', respostaAvaliacaoEconomica.itemAvaliacaoEconomica?.id, 'view']">{{respostaAvaliacaoEconomica.itemAvaliacaoEconomica?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resposta-avaliacao-economica', respostaAvaliacaoEconomica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="instituicao">
+            <h2><span jhiTranslate="orgcontrolApp.instituicao.detail.title">Instituicao</span> {{instituicao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.instituicao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{instituicao.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.instituicao.razaoSocial">Razao Social</span></dt>
+                <dd>
+                    <span>{{instituicao.razaoSocial}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.instituicao.cnpj">Cnpj</span></dt>
+                <dd>
+                    <span>{{instituicao.cnpj}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.instituicao.site">Site</span></dt>
+                <dd>
+                    <span>{{instituicao.site}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.instituicao.blog">Blog</span></dt>
+                <dd>
+                    <span>{{instituicao.blog}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/instituicao', instituicao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+{
+    "name": "MateriaAcompanhamento",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bimestreAcompanhamento",
+            "otherEntityName": "bimestreAcompanhamento",
+            "otherEntityRelationshipName": "materiaAcompanhamento"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "acompanhamentoEscolarAluno",
+            "otherEntityName": "acompanhamentoEscolarAluno",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122533",
+    "entityTableName": "materia_acompanhamento",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

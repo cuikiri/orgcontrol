@@ -1,0 +1,10 @@
+{
+    "orgcontrolApp": {
+        "TipoEmail": {
+            "null": "",
+            "PESSOAL": "PESSOAL",
+            "COMERCIAL": "COMERCIAL",
+            "OUTROS": "OUTROS"
+        }
+    }
+}

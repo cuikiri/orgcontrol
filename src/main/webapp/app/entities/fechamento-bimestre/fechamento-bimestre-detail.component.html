@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fechamentoBimestre">
+            <h2><span jhiTranslate="orgcontrolApp.fechamentoBimestre.detail.title">Fechamento Bimestre</span> {{fechamentoBimestre.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.fechamentoBimestre.frequencia">Frequencia</span></dt>
+                <dd>
+                    <span>{{fechamentoBimestre.frequencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.fechamentoBimestre.ausencia">Ausencia</span></dt>
+                <dd>
+                    <span>{{fechamentoBimestre.ausencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.fechamentoBimestre.totalAtividades">Total Atividades</span></dt>
+                <dd>
+                    <span>{{fechamentoBimestre.totalAtividades}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.fechamentoBimestre.porcentagemFrequencia">Porcentagem Frequencia</span></dt>
+                <dd>
+                    <span>{{fechamentoBimestre.porcentagemFrequencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.fechamentoBimestre.porcentagemAusequencia">Porcentagem Ausequencia</span></dt>
+                <dd>
+                    <span>{{fechamentoBimestre.porcentagemAusequencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.fechamentoBimestre.conceito">Conceito</span></dt>
+                <dd>
+                    <div *ngIf="fechamentoBimestre.conceito">
+                        <a [routerLink]="['/conceito', fechamentoBimestre.conceito?.id, 'view']">{{fechamentoBimestre.conceito?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.fechamentoBimestre.aluno">Aluno</span></dt>
+                <dd>
+                    <span *ngFor="let aluno of fechamentoBimestre.alunos; let last = last">
+                        <a [routerLink]="['/aluno', aluno?.id, 'view' ]">{{aluno.nome}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fechamento-bimestre', fechamentoBimestre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

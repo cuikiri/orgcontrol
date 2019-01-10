@@ -1,0 +1,74 @@
+{
+    "name": "HorarioMateria",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "horaInicio",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 5
+        },
+        {
+            "fieldName": "horaFim",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 5
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "materia",
+            "otherEntityName": "materia",
+            "otherEntityField": "abreviatura",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "horarioMateria"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "diaSemana",
+            "otherEntityName": "diaSemana",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "horarioMateria"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "turma",
+            "otherEntityName": "turma",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "horarioMateria"
+        }
+    ],
+    "changelogDate": "20190110122551",
+    "entityTableName": "horario_materia",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

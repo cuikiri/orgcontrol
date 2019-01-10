@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity DadoBiologico.
+    -->
+    <changeSet id="20190110122513-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipoado_biologico_id"
+                                 baseTableName="dado_biologico"
+                                 constraintName="fk_dado_biologico_tipoado_biologico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipoado_biologico"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="observacaoCoordenador">
+            <h2><span jhiTranslate="orgcontrolApp.observacaoCoordenador.detail.title">Observacao Coordenador</span> {{observacaoCoordenador.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.observacaoCoordenador.data">Data</span></dt>
+                <dd>
+                    <span>{{observacaoCoordenador.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.observacaoCoordenador.nome">Nome</span></dt>
+                <dd>
+                    <span>{{observacaoCoordenador.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.observacaoCoordenador.obs">Obs</span></dt>
+                <dd>
+                    <span>{{observacaoCoordenador.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.observacaoCoordenador.bimestre">Bimestre</span></dt>
+                <dd>
+                    <div *ngIf="observacaoCoordenador.bimestre">
+                        <a [routerLink]="['/bimestre', observacaoCoordenador.bimestre?.id, 'view']">{{observacaoCoordenador.bimestre?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/observacao-coordenador', observacaoCoordenador.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

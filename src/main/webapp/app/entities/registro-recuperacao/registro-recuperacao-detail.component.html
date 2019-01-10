@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="registroRecuperacao">
+            <h2><span jhiTranslate="orgcontrolApp.registroRecuperacao.detail.title">Registro Recuperacao</span> {{registroRecuperacao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.registroRecuperacao.data">Data</span></dt>
+                <dd>
+                    <span>{{registroRecuperacao.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.registroRecuperacao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{registroRecuperacao.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.registroRecuperacao.obs">Obs</span></dt>
+                <dd>
+                    <span>{{registroRecuperacao.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.registroRecuperacao.bimestre">Bimestre</span></dt>
+                <dd>
+                    <div *ngIf="registroRecuperacao.bimestre">
+                        <a [routerLink]="['/bimestre', registroRecuperacao.bimestre?.id, 'view']">{{registroRecuperacao.bimestre?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/registro-recuperacao', registroRecuperacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,161 @@
+{
+    "name": "Aluno",
+    "fields": [
+        {
+            "fieldName": "apelido",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "numeroIrmaos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mae",
+            "otherEntityName": "pessoa",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "alunoMae"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pai",
+            "otherEntityName": "pessoa",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "alunoPai"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dadosMedico",
+            "otherEntityName": "dadosMedico",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "irmao",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "alunoIrmao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locomocao",
+            "otherEntityName": "locomocao",
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "advertencia",
+            "otherEntityName": "advertencia",
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "avaliacaoEconomica",
+            "otherEntityName": "avaliacaoEconomica",
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "acompanhamentoAluno",
+            "otherEntityName": "acompanhamentoAluno",
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "acompanhamentoEscolarAluno",
+            "otherEntityName": "acompanhamentoEscolarAluno",
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "caracteristicasPsiquicas",
+            "otherEntityName": "caracteristicasPsiquicas",
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "raca",
+            "otherEntityName": "raca",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "sexo",
+            "otherEntityName": "sexo",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "religiao",
+            "otherEntityName": "religiao",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "responsavel",
+            "otherEntityName": "responsavel",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "atividade",
+            "otherEntityName": "atividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "fechamentoBimestre",
+            "otherEntityName": "fechamentoBimestre",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "aluno"
+        }
+    ],
+    "changelogDate": "20190110122523",
+    "entityTableName": "aluno",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

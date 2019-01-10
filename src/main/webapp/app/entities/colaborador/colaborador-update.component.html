@@ -1,0 +1,154 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-colaborador-heading" jhiTranslate="orgcontrolApp.colaborador.home.createOrEditLabel">Create or edit a Colaborador</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!colaborador.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="colaborador.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.dataCadastro" for="field_dataCadastro">Data Cadastro</label>
+                    <div class="input-group">
+                        <input id="field_dataCadastro" type="text" class="form-control" name="dataCadastro" ngbDatepicker  #dataCadastroDp="ngbDatepicker" [(ngModel)]="colaborador.dataCadastro"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataCadastroDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataCadastro?.dirty && editForm.controls.dataCadastro?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataCadastro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.dataAdmissao" for="field_dataAdmissao">Data Admissao</label>
+                    <div class="input-group">
+                        <input id="field_dataAdmissao" type="text" class="form-control" name="dataAdmissao" ngbDatepicker  #dataAdmissaoDp="ngbDatepicker" [(ngModel)]="colaborador.dataAdmissao"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataAdmissaoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataAdmissao?.dirty && editForm.controls.dataAdmissao?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataAdmissao?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.salario" for="field_salario">Salario</label>
+                    <input type="number" class="form-control" name="salario" id="field_salario"
+                        [(ngModel)]="colaborador.salario" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.pai" for="field_pai">Pai</label>
+                    <input type="text" class="form-control" name="pai" id="field_pai"
+                        [(ngModel)]="colaborador.pai" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.pai?.dirty && editForm.controls.pai?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.pai?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.mae" for="field_mae">Mae</label>
+                    <input type="text" class="form-control" name="mae" id="field_mae"
+                        [(ngModel)]="colaborador.mae" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.mae?.dirty && editForm.controls.mae?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mae?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.conjuge" for="field_conjuge">Conjuge</label>
+                    <input type="text" class="form-control" name="conjuge" id="field_conjuge"
+                        [(ngModel)]="colaborador.conjuge" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.conjuge?.dirty && editForm.controls.conjuge?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.conjuge?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="colaborador.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.tipoContratacao" for="field_tipoContratacao">Tipo Contratacao</label>
+                    <select class="form-control" id="field_tipoContratacao" name="tipoContratacao" [(ngModel)]="colaborador.tipoContratacao">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoContratacaoOption.id === colaborador.tipoContratacao?.id ? colaborador.tipoContratacao : tipoContratacaoOption" *ngFor="let tipoContratacaoOption of tipocontratacaos; trackBy: trackTipoContratacaoById">{{tipoContratacaoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.tipoColaborador" for="field_tipoColaborador">Tipo Colaborador</label>
+                    <select class="form-control" id="field_tipoColaborador" name="tipoColaborador" [(ngModel)]="colaborador.tipoColaborador">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoColaboradorOption.id === colaborador.tipoColaborador?.id ? colaborador.tipoColaborador : tipoColaboradorOption" *ngFor="let tipoColaboradorOption of tipocolaboradors; trackBy: trackTipoColaboradorById">{{tipoColaboradorOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.estadoCivil" for="field_estadoCivil">Estado Civil</label>
+                    <select class="form-control" id="field_estadoCivil" name="estadoCivil" [(ngModel)]="colaborador.estadoCivil">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="estadoCivilOption.id === colaborador.estadoCivil?.id ? colaborador.estadoCivil : estadoCivilOption" *ngFor="let estadoCivilOption of estadocivils; trackBy: trackEstadoCivilById">{{estadoCivilOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.pessoa" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" [(ngModel)]="colaborador.pessoa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pessoaOption.id === colaborador.pessoa?.id ? colaborador.pessoa : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackPessoaById">{{pessoaOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.dadosMedico" for="field_dadosMedico">Dados Medico</label>
+                    <select class="form-control" id="field_dadosMedico" name="dadosMedico" [(ngModel)]="colaborador.dadosMedico">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dadosMedicoOption.id === colaborador.dadosMedico?.id ? colaborador.dadosMedico : dadosMedicoOption" *ngFor="let dadosMedicoOption of dadosmedicos; trackBy: trackDadosMedicoById">{{dadosMedicoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.instituicao" for="field_instituicao">Instituicao</label>
+                    <select class="form-control" id="field_instituicao" name="instituicao" [(ngModel)]="colaborador.instituicao" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="instituicaoOption.id === colaborador.instituicao?.id ? colaborador.instituicao : instituicaoOption" *ngFor="let instituicaoOption of instituicaos; trackBy: trackInstituicaoById">{{instituicaoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.colaborador.unidade" for="field_unidade">Unidade</label>
+                    <select class="form-control" id="field_unidade" name="unidade" [(ngModel)]="colaborador.unidade" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unidadeOption.id === colaborador.unidade?.id ? colaborador.unidade : unidadeOption" *ngFor="let unidadeOption of unidades; trackBy: trackUnidadeById">{{unidadeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

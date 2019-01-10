@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "registroRecuperacao": {
+            "home": {
+                "title": "Registro Recuperacaos",
+                "createLabel": "Crear nuevo Registro Recuperacao",
+                "createOrEditLabel": "Crear o editar Registro Recuperacao"
+            },
+            "created": "Un nuevo Registro Recuperacao ha sido creado con el identificador {{ param }}",
+            "updated": "Un Registro Recuperacao ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Registro Recuperacao ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Registro Recuperacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Registro Recuperacao"
+            },
+            "data": "Data",
+            "nome": "Nome",
+            "obs": "Obs",
+            "diario": "Diario",
+            "bimestre": "Bimestre"
+        }
+    }
+}

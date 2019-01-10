@@ -1,0 +1,28 @@
+{
+    "orgcontrolApp": {
+        "exameMedico": {
+            "home": {
+                "title": "Exame Medicos",
+                "createLabel": "Create a new Exame Medico",
+                "createOrEditLabel": "Create or edit a Exame Medico"
+            },
+            "created": "A new Exame Medico is created with identifier {{ param }}",
+            "updated": "A Exame Medico is updated with identifier {{ param }}",
+            "deleted": "A Exame Medico is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Exame Medico {{ id }}?"
+            },
+            "detail": {
+                "title": "Exame Medico"
+            },
+            "nomeMedico": "Nome Medico",
+            "crmMedico": "Crm Medico",
+            "especialidadeMedico": "Especialidade Medico",
+            "idadePaciente": "Idade Paciente",
+            "obs": "Obs",
+            "biotipo": "Biotipo",
+            "doenca": "Doenca",
+            "dadosMedico": "Dados Medico"
+        }
+    }
+}

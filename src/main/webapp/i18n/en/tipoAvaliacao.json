@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoAvaliacao": {
+            "home": {
+                "title": "Tipo Avaliacaos",
+                "createLabel": "Create a new Tipo Avaliacao",
+                "createOrEditLabel": "Create or edit a Tipo Avaliacao"
+            },
+            "created": "A new Tipo Avaliacao is created with identifier {{ param }}",
+            "updated": "A Tipo Avaliacao is updated with identifier {{ param }}",
+            "deleted": "A Tipo Avaliacao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipo Avaliacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Avaliacao"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "avaliacao": "Avaliacao"
+        }
+    }
+}

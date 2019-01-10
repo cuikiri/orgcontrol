@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "bimestreAcompanhamento": {
+            "home": {
+                "title": "Bimestre Acompanhamentos",
+                "createLabel": "Criar novo Bimestre Acompanhamento",
+                "createOrEditLabel": "Criar ou editar Bimestre Acompanhamento"
+            },
+            "created": "Um novo Bimestre Acompanhamento foi criado com o identificador {{ param }}",
+            "updated": "Um Bimestre Acompanhamento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Bimestre Acompanhamento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Bimestre Acompanhamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Bimestre Acompanhamento"
+            },
+            "nome": "Nome",
+            "numero": "Numero",
+            "obs": "Obs",
+            "conceitoAcompanhamento": "Conceito Acompanhamento",
+            "materiaAcompanhamento": "Materia Acompanhamento"
+        }
+    }
+}

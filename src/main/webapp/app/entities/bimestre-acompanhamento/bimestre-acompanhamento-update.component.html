@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-bimestre-acompanhamento-heading" jhiTranslate="orgcontrolApp.bimestreAcompanhamento.home.createOrEditLabel">Create or edit a Bimestre Acompanhamento</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!bimestreAcompanhamento.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="bimestreAcompanhamento.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestreAcompanhamento.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="bimestreAcompanhamento.nome" required maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestreAcompanhamento.numero" for="field_numero">Numero</label>
+                    <input type="number" class="form-control" name="numero" id="field_numero"
+                        [(ngModel)]="bimestreAcompanhamento.numero" required/>
+                    <div [hidden]="!(editForm.controls.numero?.dirty && editForm.controls.numero?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numero?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numero?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestreAcompanhamento.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="bimestreAcompanhamento.obs" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.bimestreAcompanhamento.materiaAcompanhamento" for="field_materiaAcompanhamento">Materia Acompanhamento</label>
+                    <select class="form-control" id="field_materiaAcompanhamento" name="materiaAcompanhamento" [(ngModel)]="bimestreAcompanhamento.materiaAcompanhamento" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="materiaAcompanhamentoOption.id === bimestreAcompanhamento.materiaAcompanhamento?.id ? bimestreAcompanhamento.materiaAcompanhamento : materiaAcompanhamentoOption" *ngFor="let materiaAcompanhamentoOption of materiaacompanhamentos; trackBy: trackMateriaAcompanhamentoById">{{materiaAcompanhamentoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+{
+    "name": "Conceito",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "nota",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 10
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoConceito",
+            "otherEntityName": "tipoConceito",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "conceito"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "fechamentoBimestre",
+            "otherEntityName": "fechamentoBimestre",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "conceito"
+        }
+    ],
+    "changelogDate": "20190110122544",
+    "entityTableName": "conceito",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

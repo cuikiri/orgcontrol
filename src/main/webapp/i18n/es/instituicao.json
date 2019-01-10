@@ -1,0 +1,29 @@
+{
+    "orgcontrolApp": {
+        "instituicao": {
+            "home": {
+                "title": "Instituicaos",
+                "createLabel": "Crear nuevo Instituicao",
+                "createOrEditLabel": "Crear o editar Instituicao"
+            },
+            "created": "Un nuevo Instituicao ha sido creado con el identificador {{ param }}",
+            "updated": "Un Instituicao ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Instituicao ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Instituicao {{ id }}?"
+            },
+            "detail": {
+                "title": "Instituicao"
+            },
+            "nome": "Nome",
+            "razaoSocial": "Razao Social",
+            "cnpj": "Cnpj",
+            "site": "Site",
+            "blog": "Blog",
+            "unidade": "Unidade",
+            "eleicao": "Eleicao",
+            "colaborador": "Colaborador",
+            "calendarioInstituicao": "Calendario Instituicao"
+        }
+    }
+}

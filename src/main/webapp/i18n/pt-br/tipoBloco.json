@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "tipoBloco": {
+            "home": {
+                "title": "Tipo Blocos",
+                "createLabel": "Criar novo Tipo Bloco",
+                "createOrEditLabel": "Criar ou editar Tipo Bloco"
+            },
+            "created": "Um novo Tipo Bloco foi criado com o identificador {{ param }}",
+            "updated": "Um Tipo Bloco foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Tipo Bloco foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Tipo Bloco {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Bloco"
+            },
+            "nome": "Nome",
+            "bloco": "Bloco"
+        }
+    }
+}

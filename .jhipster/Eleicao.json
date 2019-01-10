@@ -1,0 +1,101 @@
+{
+    "name": "Eleicao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "anoEleicao",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dataPleito",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "totalEleitores",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "totaVotos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "local",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "hora",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "chapaGanhadora",
+            "otherEntityName": "chapa",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "eleicaoGanhadora"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "chapa",
+            "otherEntityName": "chapa",
+            "otherEntityRelationshipName": "eleicao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "instituicao",
+            "otherEntityName": "instituicao",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122451",
+    "entityTableName": "eleicao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

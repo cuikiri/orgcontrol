@@ -1,0 +1,88 @@
+{
+    "name": "Atividade",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "resumo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoAtividade",
+            "otherEntityName": "tipoAtividade",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "atividade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "conteudoProgramatico",
+            "otherEntityName": "conteudoProgramatico",
+            "otherEntityRelationshipName": "atividade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "acompanhamentoAtividade",
+            "otherEntityName": "acompanhamentoAtividade",
+            "otherEntityRelationshipName": "atividade"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "atividade",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bimestre",
+            "otherEntityName": "bimestre",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122601",
+    "entityTableName": "atividade",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

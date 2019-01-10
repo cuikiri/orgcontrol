@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "email": {
+            "home": {
+                "title": "Emails",
+                "createLabel": "Crear nuevo Email",
+                "createOrEditLabel": "Crear o editar Email"
+            },
+            "created": "Un nuevo Email ha sido creado con el identificador {{ param }}",
+            "updated": "Un Email ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Email ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Email {{ id }}?"
+            },
+            "detail": {
+                "title": "Email"
+            },
+            "tipoEmail": "Tipo Email",
+            "descricao": "Descricao",
+            "pessoa": "Pessoa",
+            "unidade": "Unidade"
+        }
+    }
+}

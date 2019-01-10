@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "tipoAcompanhamentoAluno": {
+            "home": {
+                "title": "Tipo Acompanhamento Alunos",
+                "createLabel": "Criar novo Tipo Acompanhamento Aluno",
+                "createOrEditLabel": "Criar ou editar Tipo Acompanhamento Aluno"
+            },
+            "created": "Um novo Tipo Acompanhamento Aluno foi criado com o identificador {{ param }}",
+            "updated": "Um Tipo Acompanhamento Aluno foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Tipo Acompanhamento Aluno foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Tipo Acompanhamento Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Acompanhamento Aluno"
+            },
+            "nome": "Nome",
+            "acompanhamentoAluno": "Acompanhamento Aluno"
+        }
+    }
+}

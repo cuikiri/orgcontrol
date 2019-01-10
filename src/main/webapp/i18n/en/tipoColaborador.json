@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoColaborador": {
+            "home": {
+                "title": "Tipo Colaboradors",
+                "createLabel": "Create a new Tipo Colaborador",
+                "createOrEditLabel": "Create or edit a Tipo Colaborador"
+            },
+            "created": "A new Tipo Colaborador is created with identifier {{ param }}",
+            "updated": "A Tipo Colaborador is updated with identifier {{ param }}",
+            "deleted": "A Tipo Colaborador is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipo Colaborador {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Colaborador"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "colaborador": "Colaborador"
+        }
+    }
+}

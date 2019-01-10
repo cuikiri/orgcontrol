@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "respAvalOptativaEconomica": {
+            "home": {
+                "title": "Resp Aval Optativa Economicas",
+                "createLabel": "Criar novo Resp Aval Optativa Economica",
+                "createOrEditLabel": "Criar ou editar Resp Aval Optativa Economica"
+            },
+            "created": "Um novo Resp Aval Optativa Economica foi criado com o identificador {{ param }}",
+            "updated": "Um Resp Aval Optativa Economica foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Resp Aval Optativa Economica foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Resp Aval Optativa Economica {{ id }}?"
+            },
+            "detail": {
+                "title": "Resp Aval Optativa Economica"
+            },
+            "data": "Data",
+            "opcaoResposta": "Opcao Resposta",
+            "itemAvaliacaoEconomica": "Item Avaliacao Economica",
+            "respostaAvaliacaoEconomica": "Resposta Avaliacao Economica"
+        }
+    }
+}

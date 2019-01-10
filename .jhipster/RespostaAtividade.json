@@ -1,0 +1,59 @@
+{
+    "name": "RespostaAtividade",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAtivDescritiva",
+            "otherEntityName": "respAtivDescritiva",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "respostaAtividade"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAtivOptativa",
+            "otherEntityName": "respAtivOptativa",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "respostaAtividade"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "conceito",
+            "otherEntityName": "conceito",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "itemAcompanhamentoAtividade",
+            "otherEntityName": "itemAcompanhamentoAtividade",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122607",
+    "entityTableName": "resposta_atividade",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

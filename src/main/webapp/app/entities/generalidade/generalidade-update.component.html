@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-generalidade-heading" jhiTranslate="orgcontrolApp.generalidade.home.createOrEditLabel">Create or edit a Generalidade</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!generalidade.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="generalidade.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.generalidade.codigo" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                        [(ngModel)]="generalidade.codigo" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.codigo?.dirty && editForm.controls.codigo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codigo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codigo?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.generalidade.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="generalidade.nome" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.generalidade.diario" for="field_diario">Diario</label>
+                    <select class="form-control" id="field_diario" name="diario" [(ngModel)]="generalidade.diario" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="diarioOption.id === generalidade.diario?.id ? generalidade.diario : diarioOption" *ngFor="let diarioOption of diarios; trackBy: trackDiarioById">{{diarioOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.generalidade.bimestre" for="field_bimestre">Bimestre</label>
+                    <select class="form-control" id="field_bimestre" name="bimestre" [(ngModel)]="generalidade.bimestre" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bimestreOption.id === generalidade.bimestre?.id ? generalidade.bimestre : bimestreOption" *ngFor="let bimestreOption of bimestres; trackBy: trackBimestreById">{{bimestreOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

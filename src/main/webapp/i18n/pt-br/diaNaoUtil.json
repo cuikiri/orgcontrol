@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "diaNaoUtil": {
+            "home": {
+                "title": "Dia Nao Utils",
+                "createLabel": "Criar novo Dia Nao Util",
+                "createOrEditLabel": "Criar ou editar Dia Nao Util"
+            },
+            "created": "Um novo Dia Nao Util foi criado com o identificador {{ param }}",
+            "updated": "Um Dia Nao Util foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Dia Nao Util foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Dia Nao Util {{ id }}?"
+            },
+            "detail": {
+                "title": "Dia Nao Util"
+            },
+            "nome": "Nome",
+            "data": "Data",
+            "motivoDiaNaoUtil": "Motivo Dia Nao Util",
+            "calendarioInstituicao": "Calendario Instituicao"
+        }
+    }
+}

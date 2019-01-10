@@ -1,0 +1,27 @@
+{
+    "orgcontrolApp": {
+        "itemAvaliacao": {
+            "home": {
+                "title": "Item Avaliacaos",
+                "createLabel": "Crear nuevo Item Avaliacao",
+                "createOrEditLabel": "Crear o editar Item Avaliacao"
+            },
+            "created": "Un nuevo Item Avaliacao ha sido creado con el identificador {{ param }}",
+            "updated": "Un Item Avaliacao ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Item Avaliacao ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Item Avaliacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Item Avaliacao"
+            },
+            "tipoResposta": "Tipo Resposta",
+            "questao": "Questao",
+            "obs": "Obs",
+            "respAvalDescritiva": "Resp Aval Descritiva",
+            "respAvalOptativa": "Resp Aval Optativa",
+            "respostaAvaliacao": "Resposta Avaliacao",
+            "avaliacao": "Avaliacao"
+        }
+    }
+}

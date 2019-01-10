@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "ensino": {
+            "home": {
+                "title": "Ensinos",
+                "createLabel": "Criar novo Ensino",
+                "createOrEditLabel": "Criar ou editar Ensino"
+            },
+            "created": "Um novo Ensino foi criado com o identificador {{ param }}",
+            "updated": "Um Ensino foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Ensino foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Ensino {{ id }}?"
+            },
+            "detail": {
+                "title": "Ensino"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "colaborador": "Colaborador"
+        }
+    }
+}

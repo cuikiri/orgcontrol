@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "observacaoCoordenador": {
+            "home": {
+                "title": "Observacao Coordenadors",
+                "createLabel": "Criar novo Observacao Coordenador",
+                "createOrEditLabel": "Criar ou editar Observacao Coordenador"
+            },
+            "created": "Um novo Observacao Coordenador foi criado com o identificador {{ param }}",
+            "updated": "Um Observacao Coordenador foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Observacao Coordenador foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Observacao Coordenador {{ id }}?"
+            },
+            "detail": {
+                "title": "Observacao Coordenador"
+            },
+            "data": "Data",
+            "nome": "Nome",
+            "obs": "Obs",
+            "diario": "Diario",
+            "bimestre": "Bimestre"
+        }
+    }
+}

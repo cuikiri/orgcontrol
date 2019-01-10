@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "respAtivDescritiva": {
+            "home": {
+                "title": "Resp Ativ Descritivas",
+                "createLabel": "Create a new Resp Ativ Descritiva",
+                "createOrEditLabel": "Create or edit a Resp Ativ Descritiva"
+            },
+            "created": "A new Resp Ativ Descritiva is created with identifier {{ param }}",
+            "updated": "A Resp Ativ Descritiva is updated with identifier {{ param }}",
+            "deleted": "A Resp Ativ Descritiva is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resp Ativ Descritiva {{ id }}?"
+            },
+            "detail": {
+                "title": "Resp Ativ Descritiva"
+            },
+            "data": "Data",
+            "resposta": "Resposta",
+            "itemAcompanhamentoAtividade": "Item Acompanhamento Atividade",
+            "respostaAtividade": "Resposta Atividade"
+        }
+    }
+}

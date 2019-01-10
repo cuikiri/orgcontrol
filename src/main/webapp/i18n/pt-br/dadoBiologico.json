@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "dadoBiologico": {
+            "home": {
+                "title": "Dado Biologicos",
+                "createLabel": "Criar novo Dado Biologico",
+                "createOrEditLabel": "Criar ou editar Dado Biologico"
+            },
+            "created": "Um novo Dado Biologico foi criado com o identificador {{ param }}",
+            "updated": "Um Dado Biologico foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Dado Biologico foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Dado Biologico {{ id }}?"
+            },
+            "detail": {
+                "title": "Dado Biologico"
+            },
+            "valor": "Valor",
+            "obs": "Obs",
+            "tipoadoBiologico": "Tipoado Biologico",
+            "dadosMedico": "Dados Medico"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "name": "FechamentoBimestre",
+    "fields": [
+        {
+            "fieldName": "frequencia",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ausencia",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "totalAtividades",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "porcentagemFrequencia",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "porcentagemAusequencia",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "conceito",
+            "otherEntityName": "conceito",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "fechamentoBimestre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "avaliacao",
+            "otherEntityName": "avaliacao",
+            "otherEntityRelationshipName": "fechamentoBimestre"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "fechamentoBimestre",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bimestre",
+            "otherEntityName": "bimestre",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "fechamentoBimestre"
+        }
+    ],
+    "changelogDate": "20190110122612",
+    "entityTableName": "fechamento_bimestre",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

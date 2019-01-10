@@ -1,0 +1,33 @@
+{
+    "orgcontrolApp": {
+        "diario": {
+            "home": {
+                "title": "Diarios",
+                "createLabel": "Criar novo Diario",
+                "createOrEditLabel": "Criar ou editar Diario"
+            },
+            "created": "Um novo Diario foi criado com o identificador {{ param }}",
+            "updated": "Um Diario foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Diario foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Diario {{ id }}?"
+            },
+            "detail": {
+                "title": "Diario"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "materia": "Materia",
+            "observacaoProfessor": "Observacao Professor",
+            "observacaoCoordenador": "Observacao Coordenador",
+            "registroRecuperacao": "Registro Recuperacao",
+            "colaborador": "Colaborador",
+            "generalidade": "Generalidade",
+            "anotacao": "Anotacao",
+            "aluno": "Aluno",
+            "atividade": "Atividade",
+            "bimestre": "Bimestre",
+            "turma": "Turma"
+        }
+    }
+}

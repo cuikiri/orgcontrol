@@ -1,0 +1,12 @@
+{
+    "orgcontrolApp": {
+        "TipoTelefone": {
+            "null": "",
+            "CELULAR": "CELULAR",
+            "FAX": "FAX",
+            "RESIDENCIAL": "RESIDENCIAL",
+            "COMERCIAL": "COMERCIAL",
+            "OUTROS": "OUTROS"
+        }
+    }
+}

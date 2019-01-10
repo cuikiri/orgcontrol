@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="parteBloco">
+            <h2><span jhiTranslate="orgcontrolApp.parteBloco.detail.title">Parte Bloco</span> {{parteBloco.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.parteBloco.abreviatura">Abreviatura</span></dt>
+                <dd>
+                    <span>{{parteBloco.abreviatura}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.parteBloco.nome">Nome</span></dt>
+                <dd>
+                    <span>{{parteBloco.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.parteBloco.andar">Andar</span></dt>
+                <dd>
+                    <span>{{parteBloco.andar}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.parteBloco.numero">Numero</span></dt>
+                <dd>
+                    <span>{{parteBloco.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.parteBloco.obs">Obs</span></dt>
+                <dd>
+                    <span>{{parteBloco.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.parteBloco.tipoParteBloco">Tipo Parte Bloco</span></dt>
+                <dd>
+                    <div *ngIf="parteBloco.tipoParteBloco">
+                        <a [routerLink]="['/tipo-parte-bloco', parteBloco.tipoParteBloco?.id, 'view']">{{parteBloco.tipoParteBloco?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.parteBloco.bloco">Bloco</span></dt>
+                <dd>
+                    <div *ngIf="parteBloco.bloco">
+                        <a [routerLink]="['/bloco', parteBloco.bloco?.id, 'view']">{{parteBloco.bloco?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/parte-bloco', parteBloco.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

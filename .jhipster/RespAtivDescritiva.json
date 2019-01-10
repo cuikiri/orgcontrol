@@ -1,0 +1,46 @@
+{
+    "name": "RespAtivDescritiva",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "resposta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "itemAcompanhamentoAtividade",
+            "otherEntityName": "itemAcompanhamentoAtividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAtivDescritiva"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respostaAtividade",
+            "otherEntityName": "respostaAtividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAtivDescritiva"
+        }
+    ],
+    "changelogDate": "20190110122608",
+    "entityTableName": "resp_ativ_descritiva",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

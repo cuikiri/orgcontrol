@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "doenca": {
+            "home": {
+                "title": "Doencas",
+                "createLabel": "Create a new Doenca",
+                "createOrEditLabel": "Create or edit a Doenca"
+            },
+            "created": "A new Doenca is created with identifier {{ param }}",
+            "updated": "A Doenca is updated with identifier {{ param }}",
+            "deleted": "A Doenca is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Doenca {{ id }}?"
+            },
+            "detail": {
+                "title": "Doenca"
+            },
+            "nome": "Nome",
+            "sintoma": "Sintoma",
+            "precaucoes": "Precaucoes",
+            "socorro": "Socorro",
+            "obs": "Obs",
+            "exameMedico": "Exame Medico"
+        }
+    }
+}

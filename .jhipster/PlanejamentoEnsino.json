@@ -1,0 +1,53 @@
+{
+    "name": "PlanejamentoEnsino",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "objetivo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "itemPlanejamentoEnsino",
+            "otherEntityName": "itemPlanejamentoEnsino",
+            "otherEntityRelationshipName": "planejamentoEnsino"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "calendarioInstituicao",
+            "otherEntityName": "calendarioInstituicao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122459",
+    "entityTableName": "planejamento_ensino",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

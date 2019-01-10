@@ -1,0 +1,28 @@
+{
+    "orgcontrolApp": {
+        "dadosMedico": {
+            "home": {
+                "title": "Dados Medicos",
+                "createLabel": "Criar novo Dados Medico",
+                "createOrEditLabel": "Criar ou editar Dados Medico"
+            },
+            "created": "Um novo Dados Medico foi criado com o identificador {{ param }}",
+            "updated": "Um Dados Medico foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Dados Medico foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Dados Medico {{ id }}?"
+            },
+            "detail": {
+                "title": "Dados Medico"
+            },
+            "data": "Data",
+            "obs": "Obs",
+            "dadoBiologico": "Dado Biologico",
+            "problemaFisico": "Problema Fisico",
+            "vacina": "Vacina",
+            "exameMedico": "Exame Medico",
+            "colaborador": "Colaborador",
+            "aluno": "Aluno"
+        }
+    }
+}

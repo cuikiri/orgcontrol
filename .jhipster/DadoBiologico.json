@@ -1,0 +1,48 @@
+{
+    "name": "DadoBiologico",
+    "fields": [
+        {
+            "fieldName": "valor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoadoBiologico",
+            "otherEntityName": "tipoadoBiologico",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "dadoBiologico"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dadosMedico",
+            "otherEntityName": "dadosMedico",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "dadoBiologico"
+        }
+    ],
+    "changelogDate": "20190110122513",
+    "entityTableName": "dado_biologico",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

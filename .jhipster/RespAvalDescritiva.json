@@ -1,0 +1,46 @@
+{
+    "name": "RespAvalDescritiva",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "resposta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "itemAvaliacao",
+            "otherEntityName": "itemAvaliacao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalDescritiva"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respostaAvaliacao",
+            "otherEntityName": "respostaAvaliacao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalDescritiva"
+        }
+    ],
+    "changelogDate": "20190110122617",
+    "entityTableName": "resp_aval_descritiva",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

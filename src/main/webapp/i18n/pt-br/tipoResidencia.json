@@ -1,0 +1,11 @@
+{
+    "orgcontrolApp": {
+        "TipoResidencia": {
+            "null": "",
+            "CASA": "CASA",
+            "APARTAMENTO": "APARTAMENTO",
+            "SITIO": "SITIO",
+            "FAZENDA": "FAZENDA"
+        }
+    }
+}

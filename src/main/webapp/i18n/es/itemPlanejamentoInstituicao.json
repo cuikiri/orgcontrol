@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "itemPlanejamentoInstituicao": {
+            "home": {
+                "title": "Item Planejamento Instituicaos",
+                "createLabel": "Crear nuevo Item Planejamento Instituicao",
+                "createOrEditLabel": "Crear o editar Item Planejamento Instituicao"
+            },
+            "created": "Un nuevo Item Planejamento Instituicao ha sido creado con el identificador {{ param }}",
+            "updated": "Un Item Planejamento Instituicao ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Item Planejamento Instituicao ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Item Planejamento Instituicao {{ id }}?"
+            },
+            "detail": {
+                "title": "Item Planejamento Instituicao"
+            },
+            "nome": "Nome",
+            "descricao": "Descricao",
+            "planejamentoInstituicao": "Planejamento Instituicao"
+        }
+    }
+}

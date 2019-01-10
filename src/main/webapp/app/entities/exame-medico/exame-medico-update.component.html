@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-exame-medico-heading" jhiTranslate="orgcontrolApp.exameMedico.home.createOrEditLabel">Create or edit a Exame Medico</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!exameMedico.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="exameMedico.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.exameMedico.nomeMedico" for="field_nomeMedico">Nome Medico</label>
+                    <input type="text" class="form-control" name="nomeMedico" id="field_nomeMedico"
+                        [(ngModel)]="exameMedico.nomeMedico" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nomeMedico?.dirty && editForm.controls.nomeMedico?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomeMedico?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomeMedico?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.exameMedico.crmMedico" for="field_crmMedico">Crm Medico</label>
+                    <input type="text" class="form-control" name="crmMedico" id="field_crmMedico"
+                        [(ngModel)]="exameMedico.crmMedico" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.crmMedico?.dirty && editForm.controls.crmMedico?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.crmMedico?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.exameMedico.especialidadeMedico" for="field_especialidadeMedico">Especialidade Medico</label>
+                    <input type="text" class="form-control" name="especialidadeMedico" id="field_especialidadeMedico"
+                        [(ngModel)]="exameMedico.especialidadeMedico" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.especialidadeMedico?.dirty && editForm.controls.especialidadeMedico?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.especialidadeMedico?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.exameMedico.idadePaciente" for="field_idadePaciente">Idade Paciente</label>
+                    <input type="number" class="form-control" name="idadePaciente" id="field_idadePaciente"
+                        [(ngModel)]="exameMedico.idadePaciente" required/>
+                    <div [hidden]="!(editForm.controls.idadePaciente?.dirty && editForm.controls.idadePaciente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.idadePaciente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.idadePaciente?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.exameMedico.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="exameMedico.obs" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="orgcontrolApp.exameMedico.doenca" for="field_doenca">Doenca</label>
+                    <select class="form-control" id="field_doenca" multiple name="doenca" [(ngModel)]="exameMedico.doencas">
+                        <option [ngValue]="getSelected(exameMedico.doencas, doencaOption)" *ngFor="let doencaOption of doencas; trackBy: trackDoencaById">{{doencaOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.exameMedico.dadosMedico" for="field_dadosMedico">Dados Medico</label>
+                    <select class="form-control" id="field_dadosMedico" name="dadosMedico" [(ngModel)]="exameMedico.dadosMedico" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dadosMedicoOption.id === exameMedico.dadosMedico?.id ? exameMedico.dadosMedico : dadosMedicoOption" *ngFor="let dadosMedicoOption of dadosmedicos; trackBy: trackDadosMedicoById">{{dadosMedicoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

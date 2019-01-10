@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-agenda-colaborador-heading" jhiTranslate="orgcontrolApp.agendaColaborador.home.createOrEditLabel">Create or edit a Agenda Colaborador</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!agendaColaborador.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="agendaColaborador.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="agendaColaborador.nome" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.horaInicio" for="field_horaInicio">Hora Inicio</label>
+                    <input type="text" class="form-control" name="horaInicio" id="field_horaInicio"
+                        [(ngModel)]="agendaColaborador.horaInicio" maxlength="5"/>
+                    <div [hidden]="!(editForm.controls.horaInicio?.dirty && editForm.controls.horaInicio?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaInicio?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.horaFim" for="field_horaFim">Hora Fim</label>
+                    <input type="text" class="form-control" name="horaFim" id="field_horaFim"
+                        [(ngModel)]="agendaColaborador.horaFim" maxlength="5"/>
+                    <div [hidden]="!(editForm.controls.horaFim?.dirty && editForm.controls.horaFim?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaFim?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.horaAlmocoInicio" for="field_horaAlmocoInicio">Hora Almoco Inicio</label>
+                    <input type="text" class="form-control" name="horaAlmocoInicio" id="field_horaAlmocoInicio"
+                        [(ngModel)]="agendaColaborador.horaAlmocoInicio" maxlength="5"/>
+                    <div [hidden]="!(editForm.controls.horaAlmocoInicio?.dirty && editForm.controls.horaAlmocoInicio?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaAlmocoInicio?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.horaAlmocoFim" for="field_horaAlmocoFim">Hora Almoco Fim</label>
+                    <input type="text" class="form-control" name="horaAlmocoFim" id="field_horaAlmocoFim"
+                        [(ngModel)]="agendaColaborador.horaAlmocoFim" maxlength="5"/>
+                    <div [hidden]="!(editForm.controls.horaAlmocoFim?.dirty && editForm.controls.horaAlmocoFim?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaAlmocoFim?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="agendaColaborador.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.diaSemana" for="field_diaSemana">Dia Semana</label>
+                    <select class="form-control" id="field_diaSemana" name="diaSemana" [(ngModel)]="agendaColaborador.diaSemana" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="diaSemanaOption.id === agendaColaborador.diaSemana?.id ? agendaColaborador.diaSemana : diaSemanaOption" *ngFor="let diaSemanaOption of diasemanas; trackBy: trackDiaSemanaById">{{diaSemanaOption.abreviatura}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.agendaColaborador.colaborador" for="field_colaborador">Colaborador</label>
+                    <select class="form-control" id="field_colaborador" name="colaborador" [(ngModel)]="agendaColaborador.colaborador" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="colaboradorOption.id === agendaColaborador.colaborador?.id ? agendaColaborador.colaborador : colaboradorOption" *ngFor="let colaboradorOption of colaboradors; trackBy: trackColaboradorById">{{colaboradorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

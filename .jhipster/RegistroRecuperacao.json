@@ -1,0 +1,52 @@
+{
+    "name": "RegistroRecuperacao",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "registroRecuperacao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bimestre",
+            "otherEntityName": "bimestre",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122557",
+    "entityTableName": "registro_recuperacao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

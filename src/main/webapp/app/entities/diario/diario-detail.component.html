@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="diario">
+            <h2><span jhiTranslate="orgcontrolApp.diario.detail.title">Diario</span> {{diario.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.diario.nome">Nome</span></dt>
+                <dd>
+                    <span>{{diario.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.diario.obs">Obs</span></dt>
+                <dd>
+                    <span>{{diario.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.diario.materia">Materia</span></dt>
+                <dd>
+                    <div *ngIf="diario.materia">
+                        <a [routerLink]="['/materia', diario.materia?.id, 'view']">{{diario.materia?.abreviatura}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.diario.observacaoProfessor">Observacao Professor</span></dt>
+                <dd>
+                    <div *ngIf="diario.observacaoProfessor">
+                        <a [routerLink]="['/observacao-professor', diario.observacaoProfessor?.id, 'view']">{{diario.observacaoProfessor?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.diario.observacaoCoordenador">Observacao Coordenador</span></dt>
+                <dd>
+                    <div *ngIf="diario.observacaoCoordenador">
+                        <a [routerLink]="['/observacao-coordenador', diario.observacaoCoordenador?.id, 'view']">{{diario.observacaoCoordenador?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.diario.registroRecuperacao">Registro Recuperacao</span></dt>
+                <dd>
+                    <div *ngIf="diario.registroRecuperacao">
+                        <a [routerLink]="['/registro-recuperacao', diario.registroRecuperacao?.id, 'view']">{{diario.registroRecuperacao?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.diario.colaborador">Colaborador</span></dt>
+                <dd>
+                    <div *ngIf="diario.colaborador">
+                        <a [routerLink]="['/colaborador', diario.colaborador?.id, 'view']">{{diario.colaborador?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.diario.turma">Turma</span></dt>
+                <dd>
+                    <div *ngIf="diario.turma">
+                        <a [routerLink]="['/turma', diario.turma?.id, 'view']">{{diario.turma?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/diario', diario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

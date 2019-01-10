@@ -1,0 +1,28 @@
+{
+    "orgcontrolApp": {
+        "parteBloco": {
+            "home": {
+                "title": "Parte Blocos",
+                "createLabel": "Criar novo Parte Bloco",
+                "createOrEditLabel": "Criar ou editar Parte Bloco"
+            },
+            "created": "Um novo Parte Bloco foi criado com o identificador {{ param }}",
+            "updated": "Um Parte Bloco foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Parte Bloco foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Parte Bloco {{ id }}?"
+            },
+            "detail": {
+                "title": "Parte Bloco"
+            },
+            "abreviatura": "Abreviatura",
+            "nome": "Nome",
+            "andar": "Andar",
+            "numero": "Numero",
+            "obs": "Obs",
+            "tipoParteBloco": "Tipo Parte Bloco",
+            "periodoAtividade": "Periodo Atividade",
+            "bloco": "Bloco"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Bloco.
+    -->
+    <changeSet id="20190110122447-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_bloco_id"
+                                 baseTableName="bloco"
+                                 constraintName="fk_bloco_tipo_bloco_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_bloco"/>
+
+        <addForeignKeyConstraint baseColumnNames="localizacao_id"
+                                 baseTableName="bloco"
+                                 constraintName="fk_bloco_localizacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="localizacao"/>
+
+        <addForeignKeyConstraint baseColumnNames="unidade_id"
+                                 baseTableName="bloco"
+                                 constraintName="fk_bloco_unidade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unidade"/>
+
+    </changeSet>
+</databaseChangeLog>

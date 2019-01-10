@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "fotoDocumento": {
+            "home": {
+                "title": "Foto Documentos",
+                "createLabel": "Criar novo Foto Documento",
+                "createOrEditLabel": "Criar ou editar Foto Documento"
+            },
+            "created": "Um novo Foto Documento foi criado com o identificador {{ param }}",
+            "updated": "Um Foto Documento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Foto Documento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Foto Documento {{ id }}?"
+            },
+            "detail": {
+                "title": "Foto Documento"
+            },
+            "foto": "Foto",
+            "documento": "Documento"
+        }
+    }
+}

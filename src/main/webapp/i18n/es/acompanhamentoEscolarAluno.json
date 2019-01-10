@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "acompanhamentoEscolarAluno": {
+            "home": {
+                "title": "Acompanhamento Escolar Alunos",
+                "createLabel": "Crear nuevo Acompanhamento Escolar Aluno",
+                "createOrEditLabel": "Crear o editar Acompanhamento Escolar Aluno"
+            },
+            "created": "Un nuevo Acompanhamento Escolar Aluno ha sido creado con el identificador {{ param }}",
+            "updated": "Un Acompanhamento Escolar Aluno ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Acompanhamento Escolar Aluno ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Acompanhamento Escolar Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Acompanhamento Escolar Aluno"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "materiaAcompanhamento": "Materia Acompanhamento",
+            "aluno": "Aluno"
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="email">
+            <h2><span jhiTranslate="orgcontrolApp.email.detail.title">Email</span> {{email.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.email.tipoEmail">Tipo Email</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.TipoEmail.' + email.tipoEmail}}">{{email.tipoEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.email.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{email.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.email.pessoa">Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="email.pessoa">
+                        <a [routerLink]="['/pessoa', email.pessoa?.id, 'view']">{{email.pessoa?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.email.unidade">Unidade</span></dt>
+                <dd>
+                    <div *ngIf="email.unidade">
+                        <a [routerLink]="['/unidade', email.unidade?.id, 'view']">{{email.unidade?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/email', email.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

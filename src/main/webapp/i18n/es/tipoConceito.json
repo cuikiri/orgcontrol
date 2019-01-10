@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoConceito": {
+            "home": {
+                "title": "Tipo Conceitos",
+                "createLabel": "Crear nuevo Tipo Conceito",
+                "createOrEditLabel": "Crear o editar Tipo Conceito"
+            },
+            "created": "Un nuevo Tipo Conceito ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo Conceito ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo Conceito ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tipo Conceito {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Conceito"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "conceito": "Conceito"
+        }
+    }
+}

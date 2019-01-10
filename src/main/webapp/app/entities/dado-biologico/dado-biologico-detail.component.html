@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dadoBiologico">
+            <h2><span jhiTranslate="orgcontrolApp.dadoBiologico.detail.title">Dado Biologico</span> {{dadoBiologico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.dadoBiologico.valor">Valor</span></dt>
+                <dd>
+                    <span>{{dadoBiologico.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.dadoBiologico.obs">Obs</span></dt>
+                <dd>
+                    <span>{{dadoBiologico.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.dadoBiologico.tipoadoBiologico">Tipoado Biologico</span></dt>
+                <dd>
+                    <div *ngIf="dadoBiologico.tipoadoBiologico">
+                        <a [routerLink]="['/tipoado-biologico', dadoBiologico.tipoadoBiologico?.id, 'view']">{{dadoBiologico.tipoadoBiologico?.nome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dado-biologico', dadoBiologico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

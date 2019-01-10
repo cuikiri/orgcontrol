@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "conteudoProgramatico": {
+            "home": {
+                "title": "Conteudo Programaticos",
+                "createLabel": "Create a new Conteudo Programatico",
+                "createOrEditLabel": "Create or edit a Conteudo Programatico"
+            },
+            "created": "A new Conteudo Programatico is created with identifier {{ param }}",
+            "updated": "A Conteudo Programatico is updated with identifier {{ param }}",
+            "deleted": "A Conteudo Programatico is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Conteudo Programatico {{ id }}?"
+            },
+            "detail": {
+                "title": "Conteudo Programatico"
+            },
+            "data": "Data",
+            "descricao": "Descricao",
+            "atividade": "Atividade"
+        }
+    }
+}

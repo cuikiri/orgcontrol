@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="doenca">
+            <h2><span jhiTranslate="orgcontrolApp.doenca.detail.title">Doenca</span> {{doenca.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.doenca.nome">Nome</span></dt>
+                <dd>
+                    <span>{{doenca.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.doenca.sintoma">Sintoma</span></dt>
+                <dd>
+                    <span>{{doenca.sintoma}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.doenca.precaucoes">Precaucoes</span></dt>
+                <dd>
+                    <span>{{doenca.precaucoes}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.doenca.socorro">Socorro</span></dt>
+                <dd>
+                    <span>{{doenca.socorro}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.doenca.obs">Obs</span></dt>
+                <dd>
+                    <span>{{doenca.obs}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/doenca', doenca.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

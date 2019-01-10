@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoAcompanhamentoAtividade">
+            <h2><span jhiTranslate="orgcontrolApp.tipoAcompanhamentoAtividade.detail.title">Tipo Acompanhamento Atividade</span> {{tipoAcompanhamentoAtividade.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.tipoAcompanhamentoAtividade.nome">Nome</span></dt>
+                <dd>
+                    <span>{{tipoAcompanhamentoAtividade.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.tipoAcompanhamentoAtividade.obs">Obs</span></dt>
+                <dd>
+                    <span>{{tipoAcompanhamentoAtividade.obs}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-acompanhamento-atividade', tipoAcompanhamentoAtividade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

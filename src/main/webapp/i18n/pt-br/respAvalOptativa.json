@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "respAvalOptativa": {
+            "home": {
+                "title": "Resp Aval Optativas",
+                "createLabel": "Criar novo Resp Aval Optativa",
+                "createOrEditLabel": "Criar ou editar Resp Aval Optativa"
+            },
+            "created": "Um novo Resp Aval Optativa foi criado com o identificador {{ param }}",
+            "updated": "Um Resp Aval Optativa foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Resp Aval Optativa foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Resp Aval Optativa {{ id }}?"
+            },
+            "detail": {
+                "title": "Resp Aval Optativa"
+            },
+            "data": "Data",
+            "opcaoResposta": "Opcao Resposta",
+            "itemAvaliacao": "Item Avaliacao",
+            "respostaAvaliacao": "Resposta Avaliacao"
+        }
+    }
+}

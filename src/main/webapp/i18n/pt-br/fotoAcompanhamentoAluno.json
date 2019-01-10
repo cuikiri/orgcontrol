@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "fotoAcompanhamentoAluno": {
+            "home": {
+                "title": "Foto Acompanhamento Alunos",
+                "createLabel": "Criar novo Foto Acompanhamento Aluno",
+                "createOrEditLabel": "Criar ou editar Foto Acompanhamento Aluno"
+            },
+            "created": "Um novo Foto Acompanhamento Aluno foi criado com o identificador {{ param }}",
+            "updated": "Um Foto Acompanhamento Aluno foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Foto Acompanhamento Aluno foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Foto Acompanhamento Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Foto Acompanhamento Aluno"
+            },
+            "foto": "Foto",
+            "acompanhamentoAluno": "Acompanhamento Aluno"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "matricula": {
+            "home": {
+                "title": "Matriculas",
+                "createLabel": "Crear nuevo Matricula",
+                "createOrEditLabel": "Crear o editar Matricula"
+            },
+            "created": "Un nuevo Matricula ha sido creado con el identificador {{ param }}",
+            "updated": "Un Matricula ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Matricula ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Matricula {{ id }}?"
+            },
+            "detail": {
+                "title": "Matricula"
+            },
+            "data": "Data",
+            "obs": "Obs",
+            "aluno": "Aluno",
+            "turma": "Turma"
+        }
+    }
+}

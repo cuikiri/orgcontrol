@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "uf": {
+            "home": {
+                "title": "Ufs",
+                "createLabel": "Create a new Uf",
+                "createOrEditLabel": "Create or edit a Uf"
+            },
+            "created": "A new Uf is created with identifier {{ param }}",
+            "updated": "A Uf is updated with identifier {{ param }}",
+            "deleted": "A Uf is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Uf {{ id }}?"
+            },
+            "detail": {
+                "title": "Uf"
+            },
+            "nome": "Nome",
+            "estdo": "Estdo",
+            "regiao": "Regiao",
+            "endereco": "Endereco"
+        }
+    }
+}

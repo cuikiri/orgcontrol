@@ -1,0 +1,69 @@
+{
+    "name": "ItemAvaliacao",
+    "fields": [
+        {
+            "fieldName": "tipoResposta",
+            "fieldType": "TipoResposta",
+            "fieldValues": "DESCRITIVA,OPTATIVA,MULT_OPTATIVA",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "questao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAvalDescritiva",
+            "otherEntityName": "respAvalDescritiva",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "itemAvaliacao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAvalOptativa",
+            "otherEntityName": "respAvalOptativa",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "itemAvaliacao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "respostaAvaliacao",
+            "otherEntityName": "respostaAvaliacao",
+            "otherEntityRelationshipName": "itemAvaliacao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "avaliacao",
+            "otherEntityName": "avaliacao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122615",
+    "entityTableName": "item_avaliacao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Diario.
+    -->
+    <changeSet id="20190110122554-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="materia_id"
+                                 baseTableName="diario"
+                                 constraintName="fk_diario_materia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="materia"/>
+
+        <addForeignKeyConstraint baseColumnNames="observacao_professor_id"
+                                 baseTableName="diario"
+                                 constraintName="fk_diario_observacao_professor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="observacao_professor"/>
+
+        <addForeignKeyConstraint baseColumnNames="observacao_coordenador_id"
+                                 baseTableName="diario"
+                                 constraintName="fk_diario_observacao_coordenador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="observacao_coordenador"/>
+
+        <addForeignKeyConstraint baseColumnNames="registro_recuperacao_id"
+                                 baseTableName="diario"
+                                 constraintName="fk_diario_registro_recuperacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="registro_recuperacao"/>
+
+        <addForeignKeyConstraint baseColumnNames="colaborador_id"
+                                 baseTableName="diario"
+                                 constraintName="fk_diario_colaborador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="colaborador"/>
+
+        <addForeignKeyConstraint baseColumnNames="turma_id"
+                                 baseTableName="diario"
+                                 constraintName="fk_diario_turma_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="turma"/>
+
+    </changeSet>
+</databaseChangeLog>

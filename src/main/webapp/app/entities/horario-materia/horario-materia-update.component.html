@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-horario-materia-heading" jhiTranslate="orgcontrolApp.horarioMateria.home.createOrEditLabel">Create or edit a Horario Materia</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!horarioMateria.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="horarioMateria.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.horarioMateria.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="horarioMateria.nome" required maxlength="20"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.horarioMateria.horaInicio" for="field_horaInicio">Hora Inicio</label>
+                    <input type="text" class="form-control" name="horaInicio" id="field_horaInicio"
+                        [(ngModel)]="horarioMateria.horaInicio" required maxlength="5"/>
+                    <div [hidden]="!(editForm.controls.horaInicio?.dirty && editForm.controls.horaInicio?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaInicio?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaInicio?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.horarioMateria.horaFim" for="field_horaFim">Hora Fim</label>
+                    <input type="text" class="form-control" name="horaFim" id="field_horaFim"
+                        [(ngModel)]="horarioMateria.horaFim" required maxlength="5"/>
+                    <div [hidden]="!(editForm.controls.horaFim?.dirty && editForm.controls.horaFim?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaFim?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horaFim?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.horarioMateria.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="horarioMateria.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.horarioMateria.materia" for="field_materia">Materia</label>
+                    <select class="form-control" id="field_materia" name="materia" [(ngModel)]="horarioMateria.materia">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="materiaOption.id === horarioMateria.materia?.id ? horarioMateria.materia : materiaOption" *ngFor="let materiaOption of materias; trackBy: trackMateriaById">{{materiaOption.abreviatura}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.horarioMateria.diaSemana" for="field_diaSemana">Dia Semana</label>
+                    <select class="form-control" id="field_diaSemana" name="diaSemana" [(ngModel)]="horarioMateria.diaSemana">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="diaSemanaOption.id === horarioMateria.diaSemana?.id ? horarioMateria.diaSemana : diaSemanaOption" *ngFor="let diaSemanaOption of diasemanas; trackBy: trackDiaSemanaById">{{diaSemanaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

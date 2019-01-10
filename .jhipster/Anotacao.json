@@ -1,0 +1,30 @@
+{
+    "name": "Anotacao",
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122559",
+    "entityTableName": "anotacao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

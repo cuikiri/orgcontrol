@@ -1,0 +1,27 @@
+{
+    "orgcontrolApp": {
+        "horarioMateria": {
+            "home": {
+                "title": "Horario Materias",
+                "createLabel": "Criar novo Horario Materia",
+                "createOrEditLabel": "Criar ou editar Horario Materia"
+            },
+            "created": "Um novo Horario Materia foi criado com o identificador {{ param }}",
+            "updated": "Um Horario Materia foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Horario Materia foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Horario Materia {{ id }}?"
+            },
+            "detail": {
+                "title": "Horario Materia"
+            },
+            "nome": "Nome",
+            "horaInicio": "Hora Inicio",
+            "horaFim": "Hora Fim",
+            "obs": "Obs",
+            "materia": "Materia",
+            "diaSemana": "Dia Semana",
+            "turma": "Turma"
+        }
+    }
+}

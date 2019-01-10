@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-email-heading" jhiTranslate="orgcontrolApp.email.home.createOrEditLabel">Create or edit a Email</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!email.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="email.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.email.tipoEmail" for="field_tipoEmail">Tipo Email</label>
+                    <select class="form-control" name="tipoEmail" [(ngModel)]="email.tipoEmail" id="field_tipoEmail"  required>
+                        <option value="PESSOAL">{{'orgcontrolApp.TipoEmail.PESSOAL' | translate}}</option>
+                        <option value="COMERCIAL">{{'orgcontrolApp.TipoEmail.COMERCIAL' | translate}}</option>
+                        <option value="OUTROS">{{'orgcontrolApp.TipoEmail.OUTROS' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.tipoEmail?.dirty && editForm.controls.tipoEmail?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tipoEmail?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.email.descricao" for="field_descricao">Descricao</label>
+                    <input type="text" class="form-control" name="descricao" id="field_descricao"
+                        [(ngModel)]="email.descricao" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.descricao?.dirty && editForm.controls.descricao?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.descricao?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.descricao?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.email.pessoa" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" [(ngModel)]="email.pessoa" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pessoaOption.id === email.pessoa?.id ? email.pessoa : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackPessoaById">{{pessoaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.email.unidade" for="field_unidade">Unidade</label>
+                    <select class="form-control" id="field_unidade" name="unidade" [(ngModel)]="email.unidade" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unidadeOption.id === email.unidade?.id ? email.unidade : unidadeOption" *ngFor="let unidadeOption of unidades; trackBy: trackUnidadeById">{{unidadeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

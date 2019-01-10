@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoContratacao": {
+            "home": {
+                "title": "Tipo Contratacaos",
+                "createLabel": "Create a new Tipo Contratacao",
+                "createOrEditLabel": "Create or edit a Tipo Contratacao"
+            },
+            "created": "A new Tipo Contratacao is created with identifier {{ param }}",
+            "updated": "A Tipo Contratacao is updated with identifier {{ param }}",
+            "deleted": "A Tipo Contratacao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipo Contratacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Contratacao"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "colaborador": "Colaborador"
+        }
+    }
+}

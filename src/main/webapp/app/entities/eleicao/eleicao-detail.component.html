@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="eleicao">
+            <h2><span jhiTranslate="orgcontrolApp.eleicao.detail.title">Eleicao</span> {{eleicao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{eleicao.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.dataCadastro">Data Cadastro</span></dt>
+                <dd>
+                    <span>{{eleicao.dataCadastro}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.anoEleicao">Ano Eleicao</span></dt>
+                <dd>
+                    <span>{{eleicao.anoEleicao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.dataPleito">Data Pleito</span></dt>
+                <dd>
+                    <span>{{eleicao.dataPleito}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.totalEleitores">Total Eleitores</span></dt>
+                <dd>
+                    <span>{{eleicao.totalEleitores}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.totaVotos">Tota Votos</span></dt>
+                <dd>
+                    <span>{{eleicao.totaVotos}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.local">Local</span></dt>
+                <dd>
+                    <span>{{eleicao.local}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.hora">Hora</span></dt>
+                <dd>
+                    <span>{{eleicao.hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.obs">Obs</span></dt>
+                <dd>
+                    <span>{{eleicao.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.chapaGanhadora">Chapa Ganhadora</span></dt>
+                <dd>
+                    <div *ngIf="eleicao.chapaGanhadora">
+                        <a [routerLink]="['/chapa', eleicao.chapaGanhadora?.id, 'view']">{{eleicao.chapaGanhadora?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.instituicao">Instituicao</span></dt>
+                <dd>
+                    <div *ngIf="eleicao.instituicao">
+                        <a [routerLink]="['/instituicao', eleicao.instituicao?.id, 'view']">{{eleicao.instituicao?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.eleicao.unidade">Unidade</span></dt>
+                <dd>
+                    <div *ngIf="eleicao.unidade">
+                        <a [routerLink]="['/unidade', eleicao.unidade?.id, 'view']">{{eleicao.unidade?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/eleicao', eleicao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

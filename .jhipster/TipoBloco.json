@@ -1,0 +1,32 @@
+{
+    "name": "TipoBloco",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bloco",
+            "otherEntityName": "bloco",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoBloco"
+        }
+    ],
+    "changelogDate": "20190110122448",
+    "entityTableName": "tipo_bloco",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-biotipo-heading" jhiTranslate="orgcontrolApp.biotipo.home.createOrEditLabel">Create or edit a Biotipo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!biotipo.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="biotipo.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.biotipo.valor" for="field_valor">Valor</label>
+                    <input type="number" class="form-control" name="valor" id="field_valor"
+                        [(ngModel)]="biotipo.valor" required/>
+                    <div [hidden]="!(editForm.controls.valor?.dirty && editForm.controls.valor?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.valor?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.valor?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.biotipo.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="biotipo.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.biotipo.tipoBiotipo" for="field_tipoBiotipo">Tipo Biotipo</label>
+                    <select class="form-control" id="field_tipoBiotipo" name="tipoBiotipo" [(ngModel)]="biotipo.tipoBiotipo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoBiotipoOption.id === biotipo.tipoBiotipo?.id ? biotipo.tipoBiotipo : tipoBiotipoOption" *ngFor="let tipoBiotipoOption of tipobiotipos; trackBy: trackTipoBiotipoById">{{tipoBiotipoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.biotipo.exameMedico" for="field_exameMedico">Exame Medico</label>
+                    <select class="form-control" id="field_exameMedico" name="exameMedico" [(ngModel)]="biotipo.exameMedico" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="exameMedicoOption.id === biotipo.exameMedico?.id ? biotipo.exameMedico : exameMedicoOption" *ngFor="let exameMedicoOption of examemedicos; trackBy: trackExameMedicoById">{{exameMedicoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

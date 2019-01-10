@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoBiotipo": {
+            "home": {
+                "title": "Tipo Biotipos",
+                "createLabel": "Crear nuevo Tipo Biotipo",
+                "createOrEditLabel": "Crear o editar Tipo Biotipo"
+            },
+            "created": "Un nuevo Tipo Biotipo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo Biotipo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo Biotipo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tipo Biotipo {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Biotipo"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "biotipo": "Biotipo"
+        }
+    }
+}

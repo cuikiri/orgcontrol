@@ -1,0 +1,32 @@
+{
+    "name": "TipoAcompanhamentoAluno",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "acompanhamentoAluno",
+            "otherEntityName": "acompanhamentoAluno",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoAcompanhamentoAluno"
+        }
+    ],
+    "changelogDate": "20190110122530",
+    "entityTableName": "tipo_acompanhamento_aluno",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

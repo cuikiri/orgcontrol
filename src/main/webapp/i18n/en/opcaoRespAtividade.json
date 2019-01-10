@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "opcaoRespAtividade": {
+            "home": {
+                "title": "Opcao Resp Atividades",
+                "createLabel": "Create a new Opcao Resp Atividade",
+                "createOrEditLabel": "Create or edit a Opcao Resp Atividade"
+            },
+            "created": "A new Opcao Resp Atividade is created with identifier {{ param }}",
+            "updated": "A Opcao Resp Atividade is updated with identifier {{ param }}",
+            "deleted": "A Opcao Resp Atividade is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Opcao Resp Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Opcao Resp Atividade"
+            },
+            "opcao": "Opcao",
+            "obs": "Obs",
+            "opcaoResposta": "Opcao Resposta"
+        }
+    }
+}

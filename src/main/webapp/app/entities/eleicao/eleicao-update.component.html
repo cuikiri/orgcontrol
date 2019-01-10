@@ -1,0 +1,144 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-eleicao-heading" jhiTranslate="orgcontrolApp.eleicao.home.createOrEditLabel">Create or edit a Eleicao</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!eleicao.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="eleicao.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="eleicao.nome" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.dataCadastro" for="field_dataCadastro">Data Cadastro</label>
+                    <div class="input-group">
+                        <input id="field_dataCadastro" type="text" class="form-control" name="dataCadastro" ngbDatepicker  #dataCadastroDp="ngbDatepicker" [(ngModel)]="eleicao.dataCadastro"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataCadastroDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataCadastro?.dirty && editForm.controls.dataCadastro?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataCadastro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.anoEleicao" for="field_anoEleicao">Ano Eleicao</label>
+                    <input type="number" class="form-control" name="anoEleicao" id="field_anoEleicao"
+                        [(ngModel)]="eleicao.anoEleicao" required/>
+                    <div [hidden]="!(editForm.controls.anoEleicao?.dirty && editForm.controls.anoEleicao?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.anoEleicao?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.anoEleicao?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.dataPleito" for="field_dataPleito">Data Pleito</label>
+                    <div class="input-group">
+                        <input id="field_dataPleito" type="text" class="form-control" name="dataPleito" ngbDatepicker  #dataPleitoDp="ngbDatepicker" [(ngModel)]="eleicao.dataPleito"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataPleitoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.totalEleitores" for="field_totalEleitores">Total Eleitores</label>
+                    <input type="number" class="form-control" name="totalEleitores" id="field_totalEleitores"
+                        [(ngModel)]="eleicao.totalEleitores" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.totaVotos" for="field_totaVotos">Tota Votos</label>
+                    <input type="number" class="form-control" name="totaVotos" id="field_totaVotos"
+                        [(ngModel)]="eleicao.totaVotos" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.local" for="field_local">Local</label>
+                    <input type="text" class="form-control" name="local" id="field_local"
+                        [(ngModel)]="eleicao.local" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.local?.dirty && editForm.controls.local?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.local?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.hora" for="field_hora">Hora</label>
+                    <input type="text" class="form-control" name="hora" id="field_hora"
+                        [(ngModel)]="eleicao.hora" maxlength="5"/>
+                    <div [hidden]="!(editForm.controls.hora?.dirty && editForm.controls.hora?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.hora?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="eleicao.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.chapaGanhadora" for="field_chapaGanhadora">Chapa Ganhadora</label>
+                    <select class="form-control" id="field_chapaGanhadora" name="chapaGanhadora" [(ngModel)]="eleicao.chapaGanhadora">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="chapaOption.id === eleicao.chapaGanhadora?.id ? eleicao.chapaGanhadora : chapaOption" *ngFor="let chapaOption of chapaganhadoras; trackBy: trackChapaById">{{chapaOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.instituicao" for="field_instituicao">Instituicao</label>
+                    <select class="form-control" id="field_instituicao" name="instituicao" [(ngModel)]="eleicao.instituicao" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="instituicaoOption.id === eleicao.instituicao?.id ? eleicao.instituicao : instituicaoOption" *ngFor="let instituicaoOption of instituicaos; trackBy: trackInstituicaoById">{{instituicaoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.eleicao.unidade" for="field_unidade">Unidade</label>
+                    <select class="form-control" id="field_unidade" name="unidade" [(ngModel)]="eleicao.unidade" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unidadeOption.id === eleicao.unidade?.id ? eleicao.unidade : unidadeOption" *ngFor="let unidadeOption of unidades; trackBy: trackUnidadeById">{{unidadeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

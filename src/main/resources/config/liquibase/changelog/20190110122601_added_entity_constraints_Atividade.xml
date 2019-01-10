@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Atividade.
+    -->
+    <changeSet id="20190110122601-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_atividade_id"
+                                 baseTableName="atividade"
+                                 constraintName="fk_atividade_tipo_atividade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_atividade"/>
+
+        <addForeignKeyConstraint baseColumnNames="atividades_id"
+                                 baseTableName="atividade_aluno"
+                                 constraintName="fk_atividade_aluno_atividades_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="atividade"/>
+        <addForeignKeyConstraint baseColumnNames="alunos_id"
+                                 baseTableName="atividade_aluno"
+                                 constraintName="fk_atividade_aluno_alunos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aluno"/>
+        
+        <addForeignKeyConstraint baseColumnNames="diario_id"
+                                 baseTableName="atividade"
+                                 constraintName="fk_atividade_diario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="diario"/>
+
+        <addForeignKeyConstraint baseColumnNames="bimestre_id"
+                                 baseTableName="atividade"
+                                 constraintName="fk_atividade_bimestre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bimestre"/>
+
+    </changeSet>
+</databaseChangeLog>

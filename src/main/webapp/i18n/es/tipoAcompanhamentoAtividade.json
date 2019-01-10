@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoAcompanhamentoAtividade": {
+            "home": {
+                "title": "Tipo Acompanhamento Atividades",
+                "createLabel": "Crear nuevo Tipo Acompanhamento Atividade",
+                "createOrEditLabel": "Crear o editar Tipo Acompanhamento Atividade"
+            },
+            "created": "Un nuevo Tipo Acompanhamento Atividade ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo Acompanhamento Atividade ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo Acompanhamento Atividade ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tipo Acompanhamento Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Acompanhamento Atividade"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "acompanhamentoAtividade": "Acompanhamento Atividade"
+        }
+    }
+}

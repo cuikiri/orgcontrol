@@ -1,0 +1,90 @@
+{
+    "name": "Turma",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "ano",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "otherEntityRelationshipName": "turma"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ensino",
+            "otherEntityName": "ensino",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "periodoDuracao",
+            "otherEntityName": "periodoDuracao",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "periodoSemana",
+            "otherEntityName": "periodoSemana",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tipoCurso",
+            "otherEntityName": "tipoCurso",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "curso",
+            "otherEntityName": "curso",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "modulo",
+            "otherEntityName": "modulo",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "horarioMateria",
+            "otherEntityName": "horarioMateria",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "turma",
+            "relationshipName": "periodoAtividade",
+            "otherEntityName": "periodoAtividade",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190110122546",
+    "entityTableName": "turma",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

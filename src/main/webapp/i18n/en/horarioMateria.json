@@ -1,0 +1,27 @@
+{
+    "orgcontrolApp": {
+        "horarioMateria": {
+            "home": {
+                "title": "Horario Materias",
+                "createLabel": "Create a new Horario Materia",
+                "createOrEditLabel": "Create or edit a Horario Materia"
+            },
+            "created": "A new Horario Materia is created with identifier {{ param }}",
+            "updated": "A Horario Materia is updated with identifier {{ param }}",
+            "deleted": "A Horario Materia is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Horario Materia {{ id }}?"
+            },
+            "detail": {
+                "title": "Horario Materia"
+            },
+            "nome": "Nome",
+            "horaInicio": "Hora Inicio",
+            "horaFim": "Hora Fim",
+            "obs": "Obs",
+            "materia": "Materia",
+            "diaSemana": "Dia Semana",
+            "turma": "Turma"
+        }
+    }
+}

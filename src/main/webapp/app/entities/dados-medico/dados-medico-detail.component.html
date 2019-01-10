@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dadosMedico">
+            <h2><span jhiTranslate="orgcontrolApp.dadosMedico.detail.title">Dados Medico</span> {{dadosMedico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.dadosMedico.data">Data</span></dt>
+                <dd>
+                    <span>{{dadosMedico.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.dadosMedico.obs">Obs</span></dt>
+                <dd>
+                    <span>{{dadosMedico.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.dadosMedico.dadoBiologico">Dado Biologico</span></dt>
+                <dd>
+                    <div *ngIf="dadosMedico.dadoBiologico">
+                        <a [routerLink]="['/dado-biologico', dadosMedico.dadoBiologico?.id, 'view']">{{dadosMedico.dadoBiologico?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dados-medico', dadosMedico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Colaborador.
+    -->
+    <changeSet id="20190110122505-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_contratacao_id"
+                                 baseTableName="colaborador"
+                                 constraintName="fk_colaborador_tipo_contratacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_contratacao"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_colaborador_id"
+                                 baseTableName="colaborador"
+                                 constraintName="fk_colaborador_tipo_colaborador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_colaborador"/>
+
+        <addForeignKeyConstraint baseColumnNames="estado_civil_id"
+                                 baseTableName="colaborador"
+                                 constraintName="fk_colaborador_estado_civil_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="estado_civil"/>
+
+        <addForeignKeyConstraint baseColumnNames="pessoa_id"
+                                 baseTableName="colaborador"
+                                 constraintName="fk_colaborador_pessoa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pessoa"/>
+
+        <addForeignKeyConstraint baseColumnNames="dados_medico_id"
+                                 baseTableName="colaborador"
+                                 constraintName="fk_colaborador_dados_medico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dados_medico"/>
+
+        <addForeignKeyConstraint baseColumnNames="instituicao_id"
+                                 baseTableName="colaborador"
+                                 constraintName="fk_colaborador_instituicao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="instituicao"/>
+
+        <addForeignKeyConstraint baseColumnNames="unidade_id"
+                                 baseTableName="colaborador"
+                                 constraintName="fk_colaborador_unidade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unidade"/>
+
+    </changeSet>
+</databaseChangeLog>

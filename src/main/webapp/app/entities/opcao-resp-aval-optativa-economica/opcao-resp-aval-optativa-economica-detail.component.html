@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opcaoRespAvalOptativaEconomica">
+            <h2><span jhiTranslate="orgcontrolApp.opcaoRespAvalOptativaEconomica.detail.title">Opcao Resp Aval Optativa Economica</span> {{opcaoRespAvalOptativaEconomica.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.opcaoRespAvalOptativaEconomica.opcao">Opcao</span></dt>
+                <dd>
+                    <span>{{opcaoRespAvalOptativaEconomica.opcao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.opcaoRespAvalOptativaEconomica.obs">Obs</span></dt>
+                <dd>
+                    <span>{{opcaoRespAvalOptativaEconomica.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.opcaoRespAvalOptativaEconomica.opcaoResposta">Opcao Resposta</span></dt>
+                <dd>
+                    <div *ngIf="opcaoRespAvalOptativaEconomica.opcaoResposta">
+                        <a [routerLink]="['/resp-aval-optativa-economica', opcaoRespAvalOptativaEconomica.opcaoResposta?.id, 'view']">{{opcaoRespAvalOptativaEconomica.opcaoResposta?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opcao-resp-aval-optativa-economica', opcaoRespAvalOptativaEconomica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.chapa.home.title">Chapas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-chapa" [routerLink]="['/chapa/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.chapa.home.createLabel">
+            Create new Chapa
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="chapas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.chapa.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataCadastro"><span jhiTranslate="orgcontrolApp.chapa.dataCadastro">Data Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totaVotos"><span jhiTranslate="orgcontrolApp.chapa.totaVotos">Tota Votos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vencedor"><span jhiTranslate="orgcontrolApp.chapa.vencedor">Vencedor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.chapa.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="eleicao.id"><span jhiTranslate="orgcontrolApp.chapa.eleicao">Eleicao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let chapa of chapas ;trackBy: trackId">
+                <td><a [routerLink]="['/chapa', chapa.id, 'view' ]">{{chapa.id}}</a></td>
+                <td>{{chapa.nome}}</td>
+                <td>{{chapa.dataCadastro | date:'mediumDate'}}</td>
+                <td>{{chapa.totaVotos}}</td>
+                <td>{{chapa.vencedor}}</td>
+                <td>{{chapa.obs}}</td>
+                <td>
+                    <div *ngIf="chapa.eleicao">
+                        <a [routerLink]="['../eleicao', chapa.eleicao?.id, 'view' ]" >{{chapa.eleicao?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/chapa', chapa.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/chapa', chapa.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'chapa/'+ chapa.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="chapas && chapas.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

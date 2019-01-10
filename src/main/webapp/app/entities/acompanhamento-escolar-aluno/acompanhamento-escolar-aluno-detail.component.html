@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="acompanhamentoEscolarAluno">
+            <h2><span jhiTranslate="orgcontrolApp.acompanhamentoEscolarAluno.detail.title">Acompanhamento Escolar Aluno</span> {{acompanhamentoEscolarAluno.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoEscolarAluno.nome">Nome</span></dt>
+                <dd>
+                    <span>{{acompanhamentoEscolarAluno.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoEscolarAluno.obs">Obs</span></dt>
+                <dd>
+                    <span>{{acompanhamentoEscolarAluno.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoEscolarAluno.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="acompanhamentoEscolarAluno.aluno">
+                        <a [routerLink]="['/aluno', acompanhamentoEscolarAluno.aluno?.id, 'view']">{{acompanhamentoEscolarAluno.aluno?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/acompanhamento-escolar-aluno', acompanhamentoEscolarAluno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

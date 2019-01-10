@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="acompanhamentoAluno">
+            <h2><span jhiTranslate="orgcontrolApp.acompanhamentoAluno.detail.title">Acompanhamento Aluno</span> {{acompanhamentoAluno.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAluno.nome">Nome</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAluno.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAluno.numero">Numero</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAluno.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAluno.obs">Obs</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAluno.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAluno.fotoAcompanhamentoAluno">Foto Acompanhamento Aluno</span></dt>
+                <dd>
+                    <div *ngIf="acompanhamentoAluno.fotoAcompanhamentoAluno">
+                        <a [routerLink]="['/foto-acompanhamento-aluno', acompanhamentoAluno.fotoAcompanhamentoAluno?.id, 'view']">{{acompanhamentoAluno.fotoAcompanhamentoAluno?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAluno.tipoAcompanhamentoAluno">Tipo Acompanhamento Aluno</span></dt>
+                <dd>
+                    <div *ngIf="acompanhamentoAluno.tipoAcompanhamentoAluno">
+                        <a [routerLink]="['/tipo-acompanhamento-aluno', acompanhamentoAluno.tipoAcompanhamentoAluno?.id, 'view']">{{acompanhamentoAluno.tipoAcompanhamentoAluno?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAluno.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="acompanhamentoAluno.aluno">
+                        <a [routerLink]="['/aluno', acompanhamentoAluno.aluno?.id, 'view']">{{acompanhamentoAluno.aluno?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/acompanhamento-aluno', acompanhamentoAluno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

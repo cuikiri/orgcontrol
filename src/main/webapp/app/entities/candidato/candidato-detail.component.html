@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="candidato">
+            <h2><span jhiTranslate="orgcontrolApp.candidato.detail.title">Candidato</span> {{candidato.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.candidato.apelido">Apelido</span></dt>
+                <dd>
+                    <span>{{candidato.apelido}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.candidato.dataCadastro">Data Cadastro</span></dt>
+                <dd>
+                    <span>{{candidato.dataCadastro}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.candidato.obs">Obs</span></dt>
+                <dd>
+                    <span>{{candidato.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.candidato.cargo">Cargo</span></dt>
+                <dd>
+                    <div *ngIf="candidato.cargo">
+                        <a [routerLink]="['/cargo', candidato.cargo?.id, 'view']">{{candidato.cargo?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.candidato.colaborador">Colaborador</span></dt>
+                <dd>
+                    <div *ngIf="candidato.colaborador">
+                        <a [routerLink]="['/colaborador', candidato.colaborador?.id, 'view']">{{candidato.colaborador?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.candidato.chapa">Chapa</span></dt>
+                <dd>
+                    <div *ngIf="candidato.chapa">
+                        <a [routerLink]="['/chapa', candidato.chapa?.id, 'view']">{{candidato.chapa?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/candidato', candidato.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

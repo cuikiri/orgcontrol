@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-item-acompanhamento-atividade-heading" jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.home.createOrEditLabel">Create or edit a Item Acompanhamento Atividade</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!itemAcompanhamentoAtividade.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="itemAcompanhamentoAtividade.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.tipoResposta" for="field_tipoResposta">Tipo Resposta</label>
+                    <select class="form-control" name="tipoResposta" [(ngModel)]="itemAcompanhamentoAtividade.tipoResposta" id="field_tipoResposta"  required>
+                        <option value="DESCRITIVA">{{'orgcontrolApp.TipoResposta.DESCRITIVA' | translate}}</option>
+                        <option value="OPTATIVA">{{'orgcontrolApp.TipoResposta.OPTATIVA' | translate}}</option>
+                        <option value="MULT_OPTATIVA">{{'orgcontrolApp.TipoResposta.MULT_OPTATIVA' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.tipoResposta?.dirty && editForm.controls.tipoResposta?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tipoResposta?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.questao" for="field_questao">Questao</label>
+                    <input type="text" class="form-control" name="questao" id="field_questao"
+                        [(ngModel)]="itemAcompanhamentoAtividade.questao" required maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.questao?.dirty && editForm.controls.questao?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.questao?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.questao?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="itemAcompanhamentoAtividade.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.respAtivDescritiva" for="field_respAtivDescritiva">Resp Ativ Descritiva</label>
+                    <select class="form-control" id="field_respAtivDescritiva" name="respAtivDescritiva" [(ngModel)]="itemAcompanhamentoAtividade.respAtivDescritiva">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="respAtivDescritivaOption.id === itemAcompanhamentoAtividade.respAtivDescritiva?.id ? itemAcompanhamentoAtividade.respAtivDescritiva : respAtivDescritivaOption" *ngFor="let respAtivDescritivaOption of respativdescritivas; trackBy: trackRespAtivDescritivaById">{{respAtivDescritivaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.respAtivOptativa" for="field_respAtivOptativa">Resp Ativ Optativa</label>
+                    <select class="form-control" id="field_respAtivOptativa" name="respAtivOptativa" [(ngModel)]="itemAcompanhamentoAtividade.respAtivOptativa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="respAtivOptativaOption.id === itemAcompanhamentoAtividade.respAtivOptativa?.id ? itemAcompanhamentoAtividade.respAtivOptativa : respAtivOptativaOption" *ngFor="let respAtivOptativaOption of respativoptativas; trackBy: trackRespAtivOptativaById">{{respAtivOptativaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.acompanhamentoAtividade" for="field_acompanhamentoAtividade">Acompanhamento Atividade</label>
+                    <select class="form-control" id="field_acompanhamentoAtividade" name="acompanhamentoAtividade" [(ngModel)]="itemAcompanhamentoAtividade.acompanhamentoAtividade" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="acompanhamentoAtividadeOption.id === itemAcompanhamentoAtividade.acompanhamentoAtividade?.id ? itemAcompanhamentoAtividade.acompanhamentoAtividade : acompanhamentoAtividadeOption" *ngFor="let acompanhamentoAtividadeOption of acompanhamentoatividades; trackBy: trackAcompanhamentoAtividadeById">{{acompanhamentoAtividadeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

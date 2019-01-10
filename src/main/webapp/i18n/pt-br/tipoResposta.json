@@ -1,0 +1,10 @@
+{
+    "orgcontrolApp": {
+        "TipoResposta": {
+            "null": "",
+            "DESCRITIVA": "DESCRITIVA",
+            "OPTATIVA": "OPTATIVA",
+            "MULT_OPTATIVA": "MULT_OPTATIVA"
+        }
+    }
+}

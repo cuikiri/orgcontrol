@@ -1,0 +1,43 @@
+{
+    "name": "RespAvalOptativaEconomica",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "opcaoResposta",
+            "otherEntityName": "opcaoRespAvalOptativaEconomica",
+            "otherEntityRelationshipName": "opcaoResposta"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "itemAvaliacaoEconomica",
+            "otherEntityName": "itemAvaliacaoEconomica",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalOptativaEconomica"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respostaAvaliacaoEconomica",
+            "otherEntityName": "respostaAvaliacaoEconomica",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalOptativaEconomica"
+        }
+    ],
+    "changelogDate": "20190110122542",
+    "entityTableName": "resp_aval_optativa_economica",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

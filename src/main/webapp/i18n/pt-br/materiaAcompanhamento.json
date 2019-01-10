@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "materiaAcompanhamento": {
+            "home": {
+                "title": "Materia Acompanhamentos",
+                "createLabel": "Criar novo Materia Acompanhamento",
+                "createOrEditLabel": "Criar ou editar Materia Acompanhamento"
+            },
+            "created": "Um novo Materia Acompanhamento foi criado com o identificador {{ param }}",
+            "updated": "Um Materia Acompanhamento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Materia Acompanhamento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Materia Acompanhamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Materia Acompanhamento"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "bimestreAcompanhamento": "Bimestre Acompanhamento",
+            "acompanhamentoEscolarAluno": "Acompanhamento Escolar Aluno"
+        }
+    }
+}

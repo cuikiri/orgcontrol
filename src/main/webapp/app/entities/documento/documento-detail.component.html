@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="documento">
+            <h2><span jhiTranslate="orgcontrolApp.documento.detail.title">Documento</span> {{documento.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.documento.nome">Nome</span></dt>
+                <dd>
+                    <span>{{documento.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.documento.numero">Numero</span></dt>
+                <dd>
+                    <span>{{documento.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.documento.obs">Obs</span></dt>
+                <dd>
+                    <span>{{documento.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.documento.tipoDocumento">Tipo Documento</span></dt>
+                <dd>
+                    <div *ngIf="documento.tipoDocumento">
+                        <a [routerLink]="['/tipo-documento', documento.tipoDocumento?.id, 'view']">{{documento.tipoDocumento?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.documento.fotoDocumento">Foto Documento</span></dt>
+                <dd>
+                    <div *ngIf="documento.fotoDocumento">
+                        <a [routerLink]="['/foto-documento', documento.fotoDocumento?.id, 'view']">{{documento.fotoDocumento?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.documento.pessoa">Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="documento.pessoa">
+                        <a [routerLink]="['/pessoa', documento.pessoa?.id, 'view']">{{documento.pessoa?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.documento.colaborador">Colaborador</span></dt>
+                <dd>
+                    <div *ngIf="documento.colaborador">
+                        <a [routerLink]="['/colaborador', documento.colaborador?.id, 'view']">{{documento.colaborador?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.documento.dependenteLegal">Dependente Legal</span></dt>
+                <dd>
+                    <div *ngIf="documento.dependenteLegal">
+                        <a [routerLink]="['/dependente-legal', documento.dependenteLegal?.id, 'view']">{{documento.dependenteLegal?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/documento', documento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

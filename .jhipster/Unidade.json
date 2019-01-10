@@ -1,0 +1,89 @@
+{
+    "name": "Unidade",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "endereco",
+            "otherEntityName": "endereco",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoUnidade",
+            "otherEntityName": "tipoUnidade",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bloco",
+            "otherEntityName": "bloco",
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "email",
+            "otherEntityName": "email",
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "eleicao",
+            "otherEntityName": "eleicao",
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "telefone",
+            "otherEntityName": "telefone",
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "colaborador",
+            "otherEntityName": "colaborador",
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "calendarioInstituicao",
+            "otherEntityName": "calendarioInstituicao",
+            "otherEntityRelationshipName": "unidade"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "instituicao",
+            "otherEntityName": "instituicao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122445",
+    "entityTableName": "unidade",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

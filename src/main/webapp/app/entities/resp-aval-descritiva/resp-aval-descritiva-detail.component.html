@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="respAvalDescritiva">
+            <h2><span jhiTranslate="orgcontrolApp.respAvalDescritiva.detail.title">Resp Aval Descritiva</span> {{respAvalDescritiva.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.respAvalDescritiva.data">Data</span></dt>
+                <dd>
+                    <span>{{respAvalDescritiva.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.respAvalDescritiva.resposta">Resposta</span></dt>
+                <dd>
+                    <span>{{respAvalDescritiva.resposta}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resp-aval-descritiva', respAvalDescritiva.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

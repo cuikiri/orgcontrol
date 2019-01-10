@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity MotivoDiaNaoUtil.
+    -->
+    <changeSet id="20190110122504-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dia_nao_util_id"
+                                 baseTableName="motivo_dia_nao_util"
+                                 constraintName="fk_motivo_dia_nao_util_dia_nao_util_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dia_nao_util"/>
+
+    </changeSet>
+</databaseChangeLog>

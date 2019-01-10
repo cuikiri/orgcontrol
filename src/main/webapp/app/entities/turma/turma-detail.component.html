@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turma">
+            <h2><span jhiTranslate="orgcontrolApp.turma.detail.title">Turma</span> {{turma.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.turma.nome">Nome</span></dt>
+                <dd>
+                    <span>{{turma.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.ano">Ano</span></dt>
+                <dd>
+                    <span>{{turma.ano}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.ensino">Ensino</span></dt>
+                <dd>
+                    <div *ngIf="turma.ensino">
+                        <a [routerLink]="['/ensino', turma.ensino?.id, 'view']">{{turma.ensino?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.periodoDuracao">Periodo Duracao</span></dt>
+                <dd>
+                    <div *ngIf="turma.periodoDuracao">
+                        <a [routerLink]="['/periodo-duracao', turma.periodoDuracao?.id, 'view']">{{turma.periodoDuracao?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.periodoSemana">Periodo Semana</span></dt>
+                <dd>
+                    <div *ngIf="turma.periodoSemana">
+                        <a [routerLink]="['/periodo-semana', turma.periodoSemana?.id, 'view']">{{turma.periodoSemana?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.tipoCurso">Tipo Curso</span></dt>
+                <dd>
+                    <div *ngIf="turma.tipoCurso">
+                        <a [routerLink]="['/tipo-curso', turma.tipoCurso?.id, 'view']">{{turma.tipoCurso?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.curso">Curso</span></dt>
+                <dd>
+                    <div *ngIf="turma.curso">
+                        <a [routerLink]="['/curso', turma.curso?.id, 'view']">{{turma.curso?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.modulo">Modulo</span></dt>
+                <dd>
+                    <div *ngIf="turma.modulo">
+                        <a [routerLink]="['/modulo', turma.modulo?.id, 'view']">{{turma.modulo?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.horarioMateria">Horario Materia</span></dt>
+                <dd>
+                    <span *ngFor="let horarioMateria of turma.horarioMaterias; let last = last">
+                        <a [routerLink]="['/horario-materia', horarioMateria?.id, 'view' ]">{{horarioMateria.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.turma.periodoAtividade">Periodo Atividade</span></dt>
+                <dd>
+                    <span *ngFor="let periodoAtividade of turma.periodoAtividades; let last = last">
+                        <a [routerLink]="['/periodo-atividade', periodoAtividade?.id, 'view' ]">{{periodoAtividade.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turma', turma.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+    "name": "TipoParteBloco",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "parteBloco",
+            "otherEntityName": "parteBloco",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoParteBloco"
+        }
+    ],
+    "changelogDate": "20190110122450",
+    "entityTableName": "tipo_parte_bloco",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

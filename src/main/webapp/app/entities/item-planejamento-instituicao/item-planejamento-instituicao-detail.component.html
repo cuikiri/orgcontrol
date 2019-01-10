@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemPlanejamentoInstituicao">
+            <h2><span jhiTranslate="orgcontrolApp.itemPlanejamentoInstituicao.detail.title">Item Planejamento Instituicao</span> {{itemPlanejamentoInstituicao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.itemPlanejamentoInstituicao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{itemPlanejamentoInstituicao.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemPlanejamentoInstituicao.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{itemPlanejamentoInstituicao.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemPlanejamentoInstituicao.planejamentoInstituicao">Planejamento Instituicao</span></dt>
+                <dd>
+                    <div *ngIf="itemPlanejamentoInstituicao.planejamentoInstituicao">
+                        <a [routerLink]="['/planejamento-instituicao', itemPlanejamentoInstituicao.planejamentoInstituicao?.id, 'view']">{{itemPlanejamentoInstituicao.planejamentoInstituicao?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-planejamento-instituicao', itemPlanejamentoInstituicao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

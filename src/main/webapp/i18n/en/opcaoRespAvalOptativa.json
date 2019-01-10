@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "opcaoRespAvalOptativa": {
+            "home": {
+                "title": "Opcao Resp Aval Optativas",
+                "createLabel": "Create a new Opcao Resp Aval Optativa",
+                "createOrEditLabel": "Create or edit a Opcao Resp Aval Optativa"
+            },
+            "created": "A new Opcao Resp Aval Optativa is created with identifier {{ param }}",
+            "updated": "A Opcao Resp Aval Optativa is updated with identifier {{ param }}",
+            "deleted": "A Opcao Resp Aval Optativa is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Opcao Resp Aval Optativa {{ id }}?"
+            },
+            "detail": {
+                "title": "Opcao Resp Aval Optativa"
+            },
+            "opcao": "Opcao",
+            "obs": "Obs",
+            "opcaoResposta": "Opcao Resposta"
+        }
+    }
+}

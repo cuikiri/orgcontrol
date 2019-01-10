@@ -1,0 +1,36 @@
+{
+    "orgcontrolApp": {
+        "bimestre": {
+            "home": {
+                "title": "Bimestres",
+                "createLabel": "Crear nuevo Bimestre",
+                "createOrEditLabel": "Crear o editar Bimestre"
+            },
+            "created": "Un nuevo Bimestre ha sido creado con el identificador {{ param }}",
+            "updated": "Un Bimestre ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Bimestre ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Bimestre {{ id }}?"
+            },
+            "detail": {
+                "title": "Bimestre"
+            },
+            "abreviatura": "Abreviatura",
+            "nome": "Nome",
+            "componente": "Componente",
+            "dataInicio": "Data Inicio",
+            "dataFim": "Data Fim",
+            "numero": "Numero",
+            "atividadesPrevistas": "Atividades Previstas",
+            "atividadesDadas": "Atividades Dadas",
+            "atividadesRepostas": "Atividades Repostas",
+            "fechamentoBimestre": "Fechamento Bimestre",
+            "atividade": "Atividade",
+            "generalidade": "Generalidade",
+            "observacaoProfessor": "Observacao Professor",
+            "observacaoCoordenador": "Observacao Coordenador",
+            "registroRecuperacao": "Registro Recuperacao",
+            "diario": "Diario"
+        }
+    }
+}

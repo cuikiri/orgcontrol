@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "conceitoAcompanhamento": {
+            "home": {
+                "title": "Conceito Acompanhamentos",
+                "createLabel": "Crear nuevo Conceito Acompanhamento",
+                "createOrEditLabel": "Crear o editar Conceito Acompanhamento"
+            },
+            "created": "Un nuevo Conceito Acompanhamento ha sido creado con el identificador {{ param }}",
+            "updated": "Un Conceito Acompanhamento ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Conceito Acompanhamento ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Conceito Acompanhamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Conceito Acompanhamento"
+            },
+            "nome": "Nome",
+            "nota": "Nota",
+            "obs": "Obs",
+            "bimestreAcompanhamento": "Bimestre Acompanhamento"
+        }
+    }
+}

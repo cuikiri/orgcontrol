@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.itemPlanejamentoAtividade.home.title">Item Planejamento Atividades</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-item-planejamento-atividade" [routerLink]="['/item-planejamento-atividade/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.itemPlanejamentoAtividade.home.createLabel">
+            Create new Item Planejamento Atividade
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="itemPlanejamentoAtividades">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.itemPlanejamentoAtividade.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descricao"><span jhiTranslate="orgcontrolApp.itemPlanejamentoAtividade.descricao">Descricao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="planejamentoAtividade.id"><span jhiTranslate="orgcontrolApp.itemPlanejamentoAtividade.planejamentoAtividade">Planejamento Atividade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let itemPlanejamentoAtividade of itemPlanejamentoAtividades ;trackBy: trackId">
+                <td><a [routerLink]="['/item-planejamento-atividade', itemPlanejamentoAtividade.id, 'view' ]">{{itemPlanejamentoAtividade.id}}</a></td>
+                <td>{{itemPlanejamentoAtividade.nome}}</td>
+                <td>{{itemPlanejamentoAtividade.descricao}}</td>
+                <td>
+                    <div *ngIf="itemPlanejamentoAtividade.planejamentoAtividade">
+                        <a [routerLink]="['../planejamento-atividade', itemPlanejamentoAtividade.planejamentoAtividade?.id, 'view' ]" >{{itemPlanejamentoAtividade.planejamentoAtividade?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/item-planejamento-atividade', itemPlanejamentoAtividade.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/item-planejamento-atividade', itemPlanejamentoAtividade.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'item-planejamento-atividade/'+ itemPlanejamentoAtividade.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="itemPlanejamentoAtividades && itemPlanejamentoAtividades.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

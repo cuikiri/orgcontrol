@@ -1,0 +1,29 @@
+{
+    "orgcontrolApp": {
+        "fechamentoBimestre": {
+            "home": {
+                "title": "Fechamento Bimestres",
+                "createLabel": "Create a new Fechamento Bimestre",
+                "createOrEditLabel": "Create or edit a Fechamento Bimestre"
+            },
+            "created": "A new Fechamento Bimestre is created with identifier {{ param }}",
+            "updated": "A Fechamento Bimestre is updated with identifier {{ param }}",
+            "deleted": "A Fechamento Bimestre is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fechamento Bimestre {{ id }}?"
+            },
+            "detail": {
+                "title": "Fechamento Bimestre"
+            },
+            "frequencia": "Frequencia",
+            "ausencia": "Ausencia",
+            "totalAtividades": "Total Atividades",
+            "porcentagemFrequencia": "Porcentagem Frequencia",
+            "porcentagemAusequencia": "Porcentagem Ausequencia",
+            "conceito": "Conceito",
+            "avaliacao": "Avaliacao",
+            "aluno": "Aluno",
+            "bimestre": "Bimestre"
+        }
+    }
+}

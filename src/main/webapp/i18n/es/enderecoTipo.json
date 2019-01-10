@@ -1,0 +1,10 @@
+{
+    "orgcontrolApp": {
+        "EnderecoTipo": {
+            "null": "",
+            "RESIDENCIAL": "RESIDENCIAL",
+            "COMERCIAL": "COMERCIAL",
+            "ESTUDANTIL": "ESTUDANTIL"
+        }
+    }
+}

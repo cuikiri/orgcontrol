@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.aluno.home.title">Alunos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-aluno" [routerLink]="['/aluno/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.aluno.home.createLabel">
+            Create new Aluno
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="alunos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apelido"><span jhiTranslate="orgcontrolApp.aluno.apelido">Apelido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroIrmaos"><span jhiTranslate="orgcontrolApp.aluno.numeroIrmaos">Numero Irmaos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.aluno.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pessoa.nome"><span jhiTranslate="orgcontrolApp.aluno.pessoa">Pessoa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mae.nome"><span jhiTranslate="orgcontrolApp.aluno.mae">Mae</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pai.nome"><span jhiTranslate="orgcontrolApp.aluno.pai">Pai</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dadosMedico.id"><span jhiTranslate="orgcontrolApp.aluno.dadosMedico">Dados Medico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="raca.nome"><span jhiTranslate="orgcontrolApp.aluno.raca">Raca</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sexo.nome"><span jhiTranslate="orgcontrolApp.aluno.sexo">Sexo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="religiao.nome"><span jhiTranslate="orgcontrolApp.aluno.religiao">Religiao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="unidade.id"><span jhiTranslate="orgcontrolApp.aluno.unidade">Unidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diario.id"><span jhiTranslate="orgcontrolApp.aluno.diario">Diario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let aluno of alunos ;trackBy: trackId">
+                <td><a [routerLink]="['/aluno', aluno.id, 'view' ]">{{aluno.id}}</a></td>
+                <td>{{aluno.apelido}}</td>
+                <td>{{aluno.numeroIrmaos}}</td>
+                <td>{{aluno.obs}}</td>
+                <td>
+                    <div *ngIf="aluno.pessoa">
+                        <a [routerLink]="['../pessoa', aluno.pessoa?.id, 'view' ]" >{{aluno.pessoa?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.mae">
+                        <a [routerLink]="['../pessoa', aluno.mae?.id, 'view' ]" >{{aluno.mae?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.pai">
+                        <a [routerLink]="['../pessoa', aluno.pai?.id, 'view' ]" >{{aluno.pai?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.dadosMedico">
+                        <a [routerLink]="['../dados-medico', aluno.dadosMedico?.id, 'view' ]" >{{aluno.dadosMedico?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.raca">
+                        <a [routerLink]="['../raca', aluno.raca?.id, 'view' ]" >{{aluno.raca?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.sexo">
+                        <a [routerLink]="['../sexo', aluno.sexo?.id, 'view' ]" >{{aluno.sexo?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.religiao">
+                        <a [routerLink]="['../religiao', aluno.religiao?.id, 'view' ]" >{{aluno.religiao?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.unidade">
+                        <a [routerLink]="['../unidade', aluno.unidade?.id, 'view' ]" >{{aluno.unidade?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aluno.diario">
+                        <a [routerLink]="['../diario', aluno.diario?.id, 'view' ]" >{{aluno.diario?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/aluno', aluno.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/aluno', aluno.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'aluno/'+ aluno.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="alunos && alunos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

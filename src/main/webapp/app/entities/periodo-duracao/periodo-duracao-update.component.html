@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-periodo-duracao-heading" jhiTranslate="orgcontrolApp.periodoDuracao.home.createOrEditLabel">Create or edit a Periodo Duracao</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!periodoDuracao.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="periodoDuracao.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.periodoDuracao.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="periodoDuracao.nome" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.periodoDuracao.dataInicio" for="field_dataInicio">Data Inicio</label>
+                    <div class="input-group">
+                        <input id="field_dataInicio" type="text" class="form-control" name="dataInicio" ngbDatepicker  #dataInicioDp="ngbDatepicker" [(ngModel)]="periodoDuracao.dataInicio"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataInicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataInicio?.dirty && editForm.controls.dataInicio?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataInicio?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.periodoDuracao.dataFim" for="field_dataFim">Data Fim</label>
+                    <div class="input-group">
+                        <input id="field_dataFim" type="text" class="form-control" name="dataFim" ngbDatepicker  #dataFimDp="ngbDatepicker" [(ngModel)]="periodoDuracao.dataFim"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataFimDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataFim?.dirty && editForm.controls.dataFim?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataFim?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.periodoDuracao.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="periodoDuracao.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.periodoDuracao.calendarioInstituicao" for="field_calendarioInstituicao">Calendario Instituicao</label>
+                    <select class="form-control" id="field_calendarioInstituicao" name="calendarioInstituicao" [(ngModel)]="periodoDuracao.calendarioInstituicao" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="calendarioInstituicaoOption.id === periodoDuracao.calendarioInstituicao?.id ? periodoDuracao.calendarioInstituicao : calendarioInstituicaoOption" *ngFor="let calendarioInstituicaoOption of calendarioinstituicaos; trackBy: trackCalendarioInstituicaoById">{{calendarioInstituicaoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

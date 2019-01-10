@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "planejamentoEnsino": {
+            "home": {
+                "title": "Planejamento Ensinos",
+                "createLabel": "Criar novo Planejamento Ensino",
+                "createOrEditLabel": "Criar ou editar Planejamento Ensino"
+            },
+            "created": "Um novo Planejamento Ensino foi criado com o identificador {{ param }}",
+            "updated": "Um Planejamento Ensino foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Planejamento Ensino foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Planejamento Ensino {{ id }}?"
+            },
+            "detail": {
+                "title": "Planejamento Ensino"
+            },
+            "nome": "Nome",
+            "objetivo": "Objetivo",
+            "obs": "Obs",
+            "itemPlanejamentoEnsino": "Item Planejamento Ensino",
+            "calendarioInstituicao": "Calendario Instituicao"
+        }
+    }
+}

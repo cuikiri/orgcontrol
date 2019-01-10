@@ -1,0 +1,81 @@
+{
+    "name": "Instituicao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "razaoSocial",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "cnpj",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "site",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "blog",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "otherEntityRelationshipName": "instituicao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "eleicao",
+            "otherEntityName": "eleicao",
+            "otherEntityRelationshipName": "instituicao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "colaborador",
+            "otherEntityName": "colaborador",
+            "otherEntityRelationshipName": "instituicao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "calendarioInstituicao",
+            "otherEntityName": "calendarioInstituicao",
+            "otherEntityRelationshipName": "instituicao"
+        }
+    ],
+    "changelogDate": "20190110122444",
+    "entityTableName": "instituicao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

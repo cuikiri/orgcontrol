@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aluno">
+            <h2><span jhiTranslate="orgcontrolApp.aluno.detail.title">Aluno</span> {{aluno.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.aluno.apelido">Apelido</span></dt>
+                <dd>
+                    <span>{{aluno.apelido}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.numeroIrmaos">Numero Irmaos</span></dt>
+                <dd>
+                    <span>{{aluno.numeroIrmaos}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.obs">Obs</span></dt>
+                <dd>
+                    <span>{{aluno.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.pessoa">Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="aluno.pessoa">
+                        <a [routerLink]="['/pessoa', aluno.pessoa?.id, 'view']">{{aluno.pessoa?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.mae">Mae</span></dt>
+                <dd>
+                    <div *ngIf="aluno.mae">
+                        <a [routerLink]="['/pessoa', aluno.mae?.id, 'view']">{{aluno.mae?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.pai">Pai</span></dt>
+                <dd>
+                    <div *ngIf="aluno.pai">
+                        <a [routerLink]="['/pessoa', aluno.pai?.id, 'view']">{{aluno.pai?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.dadosMedico">Dados Medico</span></dt>
+                <dd>
+                    <div *ngIf="aluno.dadosMedico">
+                        <a [routerLink]="['/dados-medico', aluno.dadosMedico?.id, 'view']">{{aluno.dadosMedico?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.raca">Raca</span></dt>
+                <dd>
+                    <div *ngIf="aluno.raca">
+                        <a [routerLink]="['/raca', aluno.raca?.id, 'view']">{{aluno.raca?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.sexo">Sexo</span></dt>
+                <dd>
+                    <div *ngIf="aluno.sexo">
+                        <a [routerLink]="['/sexo', aluno.sexo?.id, 'view']">{{aluno.sexo?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.religiao">Religiao</span></dt>
+                <dd>
+                    <div *ngIf="aluno.religiao">
+                        <a [routerLink]="['/religiao', aluno.religiao?.id, 'view']">{{aluno.religiao?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.unidade">Unidade</span></dt>
+                <dd>
+                    <div *ngIf="aluno.unidade">
+                        <a [routerLink]="['/unidade', aluno.unidade?.id, 'view']">{{aluno.unidade?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.aluno.diario">Diario</span></dt>
+                <dd>
+                    <div *ngIf="aluno.diario">
+                        <a [routerLink]="['/diario', aluno.diario?.id, 'view']">{{aluno.diario?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aluno', aluno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

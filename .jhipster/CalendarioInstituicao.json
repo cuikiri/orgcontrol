@@ -1,0 +1,75 @@
+{
+    "name": "CalendarioInstituicao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "diaNaoUtil",
+            "otherEntityName": "diaNaoUtil",
+            "otherEntityRelationshipName": "calendarioInstituicao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "periodoDuracao",
+            "otherEntityName": "periodoDuracao",
+            "otherEntityRelationshipName": "calendarioInstituicao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "planejamentoInstituicao",
+            "otherEntityName": "planejamentoInstituicao",
+            "otherEntityRelationshipName": "calendarioInstituicao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "planejamentoEnsino",
+            "otherEntityName": "planejamentoEnsino",
+            "otherEntityRelationshipName": "calendarioInstituicao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "planejamentoAtividade",
+            "otherEntityName": "planejamentoAtividade",
+            "otherEntityRelationshipName": "calendarioInstituicao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "instituicao",
+            "otherEntityName": "instituicao",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122455",
+    "entityTableName": "calendario_instituicao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

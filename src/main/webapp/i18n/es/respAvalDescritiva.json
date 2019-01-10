@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "respAvalDescritiva": {
+            "home": {
+                "title": "Resp Aval Descritivas",
+                "createLabel": "Crear nuevo Resp Aval Descritiva",
+                "createOrEditLabel": "Crear o editar Resp Aval Descritiva"
+            },
+            "created": "Un nuevo Resp Aval Descritiva ha sido creado con el identificador {{ param }}",
+            "updated": "Un Resp Aval Descritiva ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Resp Aval Descritiva ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Resp Aval Descritiva {{ id }}?"
+            },
+            "detail": {
+                "title": "Resp Aval Descritiva"
+            },
+            "data": "Data",
+            "resposta": "Resposta",
+            "itemAvaliacao": "Item Avaliacao",
+            "respostaAvaliacao": "Resposta Avaliacao"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "orgcontrolApp": {
+        "TipoAviso": {
+            "null": "",
+            "IMPORTANTE": "IMPORTANTE",
+            "URGENTE": "URGENTE",
+            "NORMAL": "NORMAL"
+        }
+    }
+}

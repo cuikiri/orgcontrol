@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "respostaAvaliacao": {
+            "home": {
+                "title": "Resposta Avaliacaos",
+                "createLabel": "Create a new Resposta Avaliacao",
+                "createOrEditLabel": "Create or edit a Resposta Avaliacao"
+            },
+            "created": "A new Resposta Avaliacao is created with identifier {{ param }}",
+            "updated": "A Resposta Avaliacao is updated with identifier {{ param }}",
+            "deleted": "A Resposta Avaliacao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resposta Avaliacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Resposta Avaliacao"
+            },
+            "data": "Data",
+            "obs": "Obs",
+            "respAvalDescritiva": "Resp Aval Descritiva",
+            "respAvalOptativa": "Resp Aval Optativa",
+            "conceito": "Conceito",
+            "itemAvaliacao": "Item Avaliacao"
+        }
+    }
+}

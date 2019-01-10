@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "tipoParteBloco": {
+            "home": {
+                "title": "Tipo Parte Blocos",
+                "createLabel": "Crear nuevo Tipo Parte Bloco",
+                "createOrEditLabel": "Crear o editar Tipo Parte Bloco"
+            },
+            "created": "Un nuevo Tipo Parte Bloco ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo Parte Bloco ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo Parte Bloco ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tipo Parte Bloco {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Parte Bloco"
+            },
+            "nome": "Nome",
+            "parteBloco": "Parte Bloco"
+        }
+    }
+}

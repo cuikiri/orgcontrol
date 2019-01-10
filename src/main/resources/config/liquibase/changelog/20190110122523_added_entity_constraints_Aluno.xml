@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Aluno.
+    -->
+    <changeSet id="20190110122523-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="pessoa_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_pessoa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pessoa"/>
+
+        <addForeignKeyConstraint baseColumnNames="mae_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_mae_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pessoa"/>
+
+        <addForeignKeyConstraint baseColumnNames="pai_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_pai_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pessoa"/>
+
+        <addForeignKeyConstraint baseColumnNames="dados_medico_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_dados_medico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dados_medico"/>
+
+        <addForeignKeyConstraint baseColumnNames="raca_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_raca_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="raca"/>
+
+        <addForeignKeyConstraint baseColumnNames="sexo_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_sexo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sexo"/>
+
+        <addForeignKeyConstraint baseColumnNames="religiao_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_religiao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="religiao"/>
+
+        <addForeignKeyConstraint baseColumnNames="unidade_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_unidade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unidade"/>
+
+        <addForeignKeyConstraint baseColumnNames="diario_id"
+                                 baseTableName="aluno"
+                                 constraintName="fk_aluno_diario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="diario"/>
+
+    </changeSet>
+</databaseChangeLog>

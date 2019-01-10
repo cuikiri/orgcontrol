@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "tipoCurso": {
+            "home": {
+                "title": "Tipo Cursos",
+                "createLabel": "Criar novo Tipo Curso",
+                "createOrEditLabel": "Criar ou editar Tipo Curso"
+            },
+            "created": "Um novo Tipo Curso foi criado com o identificador {{ param }}",
+            "updated": "Um Tipo Curso foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Tipo Curso foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Tipo Curso {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Curso"
+            },
+            "nome": "Nome",
+            "obs": "Obs"
+        }
+    }
+}

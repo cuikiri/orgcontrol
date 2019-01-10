@@ -1,0 +1,52 @@
+{
+    "name": "DependenteLegal",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "dataNascimento",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "documento",
+            "otherEntityName": "documento",
+            "otherEntityRelationshipName": "dependenteLegal"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "colaborador",
+            "otherEntityName": "colaborador",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122510",
+    "entityTableName": "dependente_legal",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

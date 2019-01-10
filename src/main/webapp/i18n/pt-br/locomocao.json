@@ -1,0 +1,22 @@
+{
+    "orgcontrolApp": {
+        "locomocao": {
+            "home": {
+                "title": "Locomocaos",
+                "createLabel": "Criar novo Locomocao",
+                "createOrEditLabel": "Criar ou editar Locomocao"
+            },
+            "created": "Um novo Locomocao foi criado com o identificador {{ param }}",
+            "updated": "Um Locomocao foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Locomocao foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Locomocao {{ id }}?"
+            },
+            "detail": {
+                "title": "Locomocao"
+            },
+            "nome": "Nome",
+            "aluno": "Aluno"
+        }
+    }
+}

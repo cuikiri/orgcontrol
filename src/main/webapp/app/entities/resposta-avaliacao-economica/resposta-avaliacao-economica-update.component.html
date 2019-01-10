@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-resposta-avaliacao-economica-heading" jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.home.createOrEditLabel">Create or edit a Resposta Avaliacao Economica</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!respostaAvaliacaoEconomica.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="respostaAvaliacaoEconomica.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.data" for="field_data">Data</label>
+                    <div class="input-group">
+                        <input id="field_data" type="text" class="form-control" name="data" ngbDatepicker  #dataDp="ngbDatepicker" [(ngModel)]="respostaAvaliacaoEconomica.data"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.data?.dirty && editForm.controls.data?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.data?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="respostaAvaliacaoEconomica.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.respAvalDescritivaEconomica" for="field_respAvalDescritivaEconomica">Resp Aval Descritiva Economica</label>
+                    <select class="form-control" id="field_respAvalDescritivaEconomica" name="respAvalDescritivaEconomica" [(ngModel)]="respostaAvaliacaoEconomica.respAvalDescritivaEconomica">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="respAvalDescritivaEconomicaOption.id === respostaAvaliacaoEconomica.respAvalDescritivaEconomica?.id ? respostaAvaliacaoEconomica.respAvalDescritivaEconomica : respAvalDescritivaEconomicaOption" *ngFor="let respAvalDescritivaEconomicaOption of respavaldescritivaeconomicas; trackBy: trackRespAvalDescritivaEconomicaById">{{respAvalDescritivaEconomicaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.respAvalOptativaEconomica" for="field_respAvalOptativaEconomica">Resp Aval Optativa Economica</label>
+                    <select class="form-control" id="field_respAvalOptativaEconomica" name="respAvalOptativaEconomica" [(ngModel)]="respostaAvaliacaoEconomica.respAvalOptativaEconomica">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="respAvalOptativaEconomicaOption.id === respostaAvaliacaoEconomica.respAvalOptativaEconomica?.id ? respostaAvaliacaoEconomica.respAvalOptativaEconomica : respAvalOptativaEconomicaOption" *ngFor="let respAvalOptativaEconomicaOption of respavaloptativaeconomicas; trackBy: trackRespAvalOptativaEconomicaById">{{respAvalOptativaEconomicaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.conceito" for="field_conceito">Conceito</label>
+                    <select class="form-control" id="field_conceito" name="conceito" [(ngModel)]="respostaAvaliacaoEconomica.conceito" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conceitoOption.id === respostaAvaliacaoEconomica.conceito?.id ? respostaAvaliacaoEconomica.conceito : conceitoOption" *ngFor="let conceitoOption of conceitos; trackBy: trackConceitoById">{{conceitoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacaoEconomica.itemAvaliacaoEconomica" for="field_itemAvaliacaoEconomica">Item Avaliacao Economica</label>
+                    <select class="form-control" id="field_itemAvaliacaoEconomica" name="itemAvaliacaoEconomica" [(ngModel)]="respostaAvaliacaoEconomica.itemAvaliacaoEconomica" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="itemAvaliacaoEconomicaOption.id === respostaAvaliacaoEconomica.itemAvaliacaoEconomica?.id ? respostaAvaliacaoEconomica.itemAvaliacaoEconomica : itemAvaliacaoEconomicaOption" *ngFor="let itemAvaliacaoEconomicaOption of itemavaliacaoeconomicas; trackBy: trackItemAvaliacaoEconomicaById">{{itemAvaliacaoEconomicaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

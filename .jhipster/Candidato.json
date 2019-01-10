@@ -1,0 +1,62 @@
+{
+    "name": "Candidato",
+    "fields": [
+        {
+            "fieldName": "apelido",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "cargo",
+            "otherEntityName": "cargo",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "candidato"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "colaborador",
+            "otherEntityName": "colaborador",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "candidato"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "chapa",
+            "otherEntityName": "chapa",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122453",
+    "entityTableName": "candidato",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

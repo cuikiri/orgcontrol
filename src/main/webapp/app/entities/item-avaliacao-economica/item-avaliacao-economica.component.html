@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.home.title">Item Avaliacao Economicas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-item-avaliacao-economica" [routerLink]="['/item-avaliacao-economica/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.home.createLabel">
+            Create new Item Avaliacao Economica
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="itemAvaliacaoEconomicas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoResposta"><span jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.tipoResposta">Tipo Resposta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="questao"><span jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.questao">Questao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="respAvalDescritivaEconomica.id"><span jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.respAvalDescritivaEconomica">Resp Aval Descritiva Economica</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="respAvalOptativaEconomica.id"><span jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.respAvalOptativaEconomica">Resp Aval Optativa Economica</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="avaliacaoEconomica.id"><span jhiTranslate="orgcontrolApp.itemAvaliacaoEconomica.avaliacaoEconomica">Avaliacao Economica</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let itemAvaliacaoEconomica of itemAvaliacaoEconomicas ;trackBy: trackId">
+                <td><a [routerLink]="['/item-avaliacao-economica', itemAvaliacaoEconomica.id, 'view' ]">{{itemAvaliacaoEconomica.id}}</a></td>
+                <td jhiTranslate="{{'orgcontrolApp.TipoResposta.' + itemAvaliacaoEconomica.tipoResposta}}">{{itemAvaliacaoEconomica.tipoResposta}}</td>
+                <td>{{itemAvaliacaoEconomica.questao}}</td>
+                <td>{{itemAvaliacaoEconomica.obs}}</td>
+                <td>
+                    <div *ngIf="itemAvaliacaoEconomica.respAvalDescritivaEconomica">
+                        <a [routerLink]="['../resp-aval-descritiva-economica', itemAvaliacaoEconomica.respAvalDescritivaEconomica?.id, 'view' ]" >{{itemAvaliacaoEconomica.respAvalDescritivaEconomica?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="itemAvaliacaoEconomica.respAvalOptativaEconomica">
+                        <a [routerLink]="['../resp-aval-optativa-economica', itemAvaliacaoEconomica.respAvalOptativaEconomica?.id, 'view' ]" >{{itemAvaliacaoEconomica.respAvalOptativaEconomica?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="itemAvaliacaoEconomica.avaliacaoEconomica">
+                        <a [routerLink]="['../avaliacao-economica', itemAvaliacaoEconomica.avaliacaoEconomica?.id, 'view' ]" >{{itemAvaliacaoEconomica.avaliacaoEconomica?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/item-avaliacao-economica', itemAvaliacaoEconomica.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/item-avaliacao-economica', itemAvaliacaoEconomica.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'item-avaliacao-economica/'+ itemAvaliacaoEconomica.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="itemAvaliacaoEconomicas && itemAvaliacaoEconomicas.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

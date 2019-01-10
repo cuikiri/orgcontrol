@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="conceito">
+            <h2><span jhiTranslate="orgcontrolApp.conceito.detail.title">Conceito</span> {{conceito.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.conceito.nome">Nome</span></dt>
+                <dd>
+                    <span>{{conceito.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.conceito.nota">Nota</span></dt>
+                <dd>
+                    <span>{{conceito.nota}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.conceito.tipoConceito">Tipo Conceito</span></dt>
+                <dd>
+                    <div *ngIf="conceito.tipoConceito">
+                        <a [routerLink]="['/tipo-conceito', conceito.tipoConceito?.id, 'view']">{{conceito.tipoConceito?.nome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/conceito', conceito.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

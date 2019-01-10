@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AcompanhamentoAtividade.
+    -->
+    <changeSet id="20190110122604-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_acompanhamento_atividade_id"
+                                 baseTableName="acompanhamento_atividade"
+                                 constraintName="fk_acompanhamento_atividade_tipo_acompanhamento_atividade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_acompanhamento_atividade"/>
+
+        <addForeignKeyConstraint baseColumnNames="atividade_id"
+                                 baseTableName="acompanhamento_atividade"
+                                 constraintName="fk_acompanhamento_atividade_atividade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="atividade"/>
+
+    </changeSet>
+</databaseChangeLog>

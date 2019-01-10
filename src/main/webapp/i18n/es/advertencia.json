@@ -1,0 +1,27 @@
+{
+    "orgcontrolApp": {
+        "advertencia": {
+            "home": {
+                "title": "Advertencias",
+                "createLabel": "Crear nuevo Advertencia",
+                "createOrEditLabel": "Crear o editar Advertencia"
+            },
+            "created": "Un nuevo Advertencia ha sido creado con el identificador {{ param }}",
+            "updated": "Un Advertencia ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Advertencia ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Advertencia {{ id }}?"
+            },
+            "detail": {
+                "title": "Advertencia"
+            },
+            "nome": "Nome",
+            "data": "Data",
+            "dataAdvertencia": "Data Advertencia",
+            "horaAdvertencia": "Hora Advertencia",
+            "resumo": "Resumo",
+            "obs": "Obs",
+            "aluno": "Aluno"
+        }
+    }
+}

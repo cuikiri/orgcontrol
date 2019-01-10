@@ -1,0 +1,21 @@
+{
+    "orgcontrolApp": {
+        "religiao": {
+            "home": {
+                "title": "Religiaos",
+                "createLabel": "Create a new Religiao",
+                "createOrEditLabel": "Create or edit a Religiao"
+            },
+            "created": "A new Religiao is created with identifier {{ param }}",
+            "updated": "A Religiao is updated with identifier {{ param }}",
+            "deleted": "A Religiao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Religiao {{ id }}?"
+            },
+            "detail": {
+                "title": "Religiao"
+            },
+            "nome": "Nome"
+        }
+    }
+}

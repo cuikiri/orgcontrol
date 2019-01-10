@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.agendaColaborador.home.title">Agenda Colaboradors</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-agenda-colaborador" [routerLink]="['/agenda-colaborador/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.agendaColaborador.home.createLabel">
+            Create new Agenda Colaborador
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="agendaColaboradors">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.agendaColaborador.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horaInicio"><span jhiTranslate="orgcontrolApp.agendaColaborador.horaInicio">Hora Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horaFim"><span jhiTranslate="orgcontrolApp.agendaColaborador.horaFim">Hora Fim</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horaAlmocoInicio"><span jhiTranslate="orgcontrolApp.agendaColaborador.horaAlmocoInicio">Hora Almoco Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horaAlmocoFim"><span jhiTranslate="orgcontrolApp.agendaColaborador.horaAlmocoFim">Hora Almoco Fim</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.agendaColaborador.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diaSemana.abreviatura"><span jhiTranslate="orgcontrolApp.agendaColaborador.diaSemana">Dia Semana</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="colaborador.id"><span jhiTranslate="orgcontrolApp.agendaColaborador.colaborador">Colaborador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let agendaColaborador of agendaColaboradors ;trackBy: trackId">
+                <td><a [routerLink]="['/agenda-colaborador', agendaColaborador.id, 'view' ]">{{agendaColaborador.id}}</a></td>
+                <td>{{agendaColaborador.nome}}</td>
+                <td>{{agendaColaborador.horaInicio}}</td>
+                <td>{{agendaColaborador.horaFim}}</td>
+                <td>{{agendaColaborador.horaAlmocoInicio}}</td>
+                <td>{{agendaColaborador.horaAlmocoFim}}</td>
+                <td>{{agendaColaborador.obs}}</td>
+                <td>
+                    <div *ngIf="agendaColaborador.diaSemana">
+                        <a [routerLink]="['../dia-semana', agendaColaborador.diaSemana?.id, 'view' ]" >{{agendaColaborador.diaSemana?.abreviatura}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="agendaColaborador.colaborador">
+                        <a [routerLink]="['../colaborador', agendaColaborador.colaborador?.id, 'view' ]" >{{agendaColaborador.colaborador?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/agenda-colaborador', agendaColaborador.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/agenda-colaborador', agendaColaborador.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'agenda-colaborador/'+ agendaColaborador.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="agendaColaboradors && agendaColaboradors.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

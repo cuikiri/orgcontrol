@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="atividade">
+            <h2><span jhiTranslate="orgcontrolApp.atividade.detail.title">Atividade</span> {{atividade.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.atividade.nome">Nome</span></dt>
+                <dd>
+                    <span>{{atividade.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.atividade.data">Data</span></dt>
+                <dd>
+                    <span>{{atividade.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.atividade.resumo">Resumo</span></dt>
+                <dd>
+                    <span>{{atividade.resumo}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.atividade.obs">Obs</span></dt>
+                <dd>
+                    <span>{{atividade.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.atividade.tipoAtividade">Tipo Atividade</span></dt>
+                <dd>
+                    <div *ngIf="atividade.tipoAtividade">
+                        <a [routerLink]="['/tipo-atividade', atividade.tipoAtividade?.id, 'view']">{{atividade.tipoAtividade?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.atividade.aluno">Aluno</span></dt>
+                <dd>
+                    <span *ngFor="let aluno of atividade.alunos; let last = last">
+                        <a [routerLink]="['/aluno', aluno?.id, 'view' ]">{{aluno.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.atividade.diario">Diario</span></dt>
+                <dd>
+                    <div *ngIf="atividade.diario">
+                        <a [routerLink]="['/diario', atividade.diario?.id, 'view']">{{atividade.diario?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.atividade.bimestre">Bimestre</span></dt>
+                <dd>
+                    <div *ngIf="atividade.bimestre">
+                        <a [routerLink]="['/bimestre', atividade.bimestre?.id, 'view']">{{atividade.bimestre?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/atividade', atividade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

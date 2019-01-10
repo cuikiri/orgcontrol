@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoAvaliacaoEconomica": {
+            "home": {
+                "title": "Tipo Avaliacao Economicas",
+                "createLabel": "Create a new Tipo Avaliacao Economica",
+                "createOrEditLabel": "Create or edit a Tipo Avaliacao Economica"
+            },
+            "created": "A new Tipo Avaliacao Economica is created with identifier {{ param }}",
+            "updated": "A Tipo Avaliacao Economica is updated with identifier {{ param }}",
+            "deleted": "A Tipo Avaliacao Economica is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipo Avaliacao Economica {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Avaliacao Economica"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "avaliacaoEconomica": "Avaliacao Economica"
+        }
+    }
+}

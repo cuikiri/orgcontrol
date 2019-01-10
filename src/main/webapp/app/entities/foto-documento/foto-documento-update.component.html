@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-foto-documento-heading" jhiTranslate="orgcontrolApp.fotoDocumento.home.createOrEditLabel">Create or edit a Foto Documento</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fotoDocumento.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fotoDocumento.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.fotoDocumento.foto" for="field_foto">Foto</label>
+                    <div>
+                        <img [src]="'data:' + fotoDocumento.fotoContentType + ';base64,' + fotoDocumento.foto" style="max-height: 100px;" *ngIf="fotoDocumento.foto" alt="fotoDocumento image"/>
+                        <div *ngIf="fotoDocumento.foto" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{fotoDocumento.fotoContentType}}, {{byteSize(fotoDocumento.foto)}}</span>
+                            <button type="button" (click)="clearInputImage('foto', 'fotoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto" (change)="setFileData($event, fotoDocumento, 'foto', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto" id="field_foto"
+                        [(ngModel)]="fotoDocumento.foto" required/>
+                    <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                        [(ngModel)]="fotoDocumento.fotoContentType" />
+                    <div [hidden]="!(editForm.controls.foto?.dirty && editForm.controls.foto?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.foto?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

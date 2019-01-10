@@ -1,0 +1,43 @@
+{
+    "name": "RespAvalOptativa",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "opcaoResposta",
+            "otherEntityName": "opcaoRespAvalOptativa",
+            "otherEntityRelationshipName": "opcaoResposta"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "itemAvaliacao",
+            "otherEntityName": "itemAvaliacao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalOptativa"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respostaAvaliacao",
+            "otherEntityName": "respostaAvaliacao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "respAvalOptativa"
+        }
+    ],
+    "changelogDate": "20190110122618",
+    "entityTableName": "resp_aval_optativa",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

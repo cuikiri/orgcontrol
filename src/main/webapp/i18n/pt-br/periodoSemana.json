@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "periodoSemana": {
+            "home": {
+                "title": "Periodo Semanas",
+                "createLabel": "Criar novo Periodo Semana",
+                "createOrEditLabel": "Criar ou editar Periodo Semana"
+            },
+            "created": "Um novo Periodo Semana foi criado com o identificador {{ param }}",
+            "updated": "Um Periodo Semana foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Periodo Semana foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Periodo Semana {{ id }}?"
+            },
+            "detail": {
+                "title": "Periodo Semana"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "diaSemana": "Dia Semana"
+        }
+    }
+}

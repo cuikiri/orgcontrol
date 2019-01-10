@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="horarioMateria">
+            <h2><span jhiTranslate="orgcontrolApp.horarioMateria.detail.title">Horario Materia</span> {{horarioMateria.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.horarioMateria.nome">Nome</span></dt>
+                <dd>
+                    <span>{{horarioMateria.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.horarioMateria.horaInicio">Hora Inicio</span></dt>
+                <dd>
+                    <span>{{horarioMateria.horaInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.horarioMateria.horaFim">Hora Fim</span></dt>
+                <dd>
+                    <span>{{horarioMateria.horaFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.horarioMateria.obs">Obs</span></dt>
+                <dd>
+                    <span>{{horarioMateria.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.horarioMateria.materia">Materia</span></dt>
+                <dd>
+                    <div *ngIf="horarioMateria.materia">
+                        <a [routerLink]="['/materia', horarioMateria.materia?.id, 'view']">{{horarioMateria.materia?.abreviatura}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.horarioMateria.diaSemana">Dia Semana</span></dt>
+                <dd>
+                    <div *ngIf="horarioMateria.diaSemana">
+                        <a [routerLink]="['/dia-semana', horarioMateria.diaSemana?.id, 'view']">{{horarioMateria.diaSemana?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/horario-materia', horarioMateria.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

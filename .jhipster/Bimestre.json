@@ -1,0 +1,128 @@
+{
+    "name": "Bimestre",
+    "fields": [
+        {
+            "fieldName": "abreviatura",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "componente",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "dataInicio",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dataFim",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "atividadesPrevistas",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "atividadesDadas",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "atividadesRepostas",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "fechamentoBimestre",
+            "otherEntityName": "fechamentoBimestre",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bimestre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "atividade",
+            "otherEntityName": "atividade",
+            "otherEntityRelationshipName": "bimestre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "generalidade",
+            "otherEntityName": "generalidade",
+            "otherEntityRelationshipName": "bimestre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "observacaoProfessor",
+            "otherEntityName": "observacaoProfessor",
+            "otherEntityRelationshipName": "bimestre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "observacaoCoordenador",
+            "otherEntityName": "observacaoCoordenador",
+            "otherEntityRelationshipName": "bimestre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "registroRecuperacao",
+            "otherEntityName": "registroRecuperacao",
+            "otherEntityRelationshipName": "bimestre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122611",
+    "entityTableName": "bimestre",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

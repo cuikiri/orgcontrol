@@ -1,0 +1,44 @@
+{
+    "name": "DiaNaoUtil",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "motivoDiaNaoUtil",
+            "otherEntityName": "motivoDiaNaoUtil",
+            "otherEntityRelationshipName": "diaNaoUtil"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "calendarioInstituicao",
+            "otherEntityName": "calendarioInstituicao",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122503",
+    "entityTableName": "dia_nao_util",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

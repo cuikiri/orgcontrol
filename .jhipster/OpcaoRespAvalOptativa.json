@@ -1,0 +1,39 @@
+{
+    "name": "OpcaoRespAvalOptativa",
+    "fields": [
+        {
+            "fieldName": "opcao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "opcaoResposta",
+            "otherEntityName": "respAvalOptativa",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122619",
+    "entityTableName": "opcao_resp_aval_optativa",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

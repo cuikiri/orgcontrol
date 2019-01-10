@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-resposta-avaliacao-heading" jhiTranslate="orgcontrolApp.respostaAvaliacao.home.createOrEditLabel">Create or edit a Resposta Avaliacao</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!respostaAvaliacao.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="respostaAvaliacao.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacao.data" for="field_data">Data</label>
+                    <div class="input-group">
+                        <input id="field_data" type="text" class="form-control" name="data" ngbDatepicker  #dataDp="ngbDatepicker" [(ngModel)]="respostaAvaliacao.data"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.data?.dirty && editForm.controls.data?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.data?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacao.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="respostaAvaliacao.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacao.respAvalDescritiva" for="field_respAvalDescritiva">Resp Aval Descritiva</label>
+                    <select class="form-control" id="field_respAvalDescritiva" name="respAvalDescritiva" [(ngModel)]="respostaAvaliacao.respAvalDescritiva">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="respAvalDescritivaOption.id === respostaAvaliacao.respAvalDescritiva?.id ? respostaAvaliacao.respAvalDescritiva : respAvalDescritivaOption" *ngFor="let respAvalDescritivaOption of respavaldescritivas; trackBy: trackRespAvalDescritivaById">{{respAvalDescritivaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacao.respAvalOptativa" for="field_respAvalOptativa">Resp Aval Optativa</label>
+                    <select class="form-control" id="field_respAvalOptativa" name="respAvalOptativa" [(ngModel)]="respostaAvaliacao.respAvalOptativa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="respAvalOptativaOption.id === respostaAvaliacao.respAvalOptativa?.id ? respostaAvaliacao.respAvalOptativa : respAvalOptativaOption" *ngFor="let respAvalOptativaOption of respavaloptativas; trackBy: trackRespAvalOptativaById">{{respAvalOptativaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacao.conceito" for="field_conceito">Conceito</label>
+                    <select class="form-control" id="field_conceito" name="conceito" [(ngModel)]="respostaAvaliacao.conceito" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conceitoOption.id === respostaAvaliacao.conceito?.id ? respostaAvaliacao.conceito : conceitoOption" *ngFor="let conceitoOption of conceitos; trackBy: trackConceitoById">{{conceitoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.respostaAvaliacao.itemAvaliacao" for="field_itemAvaliacao">Item Avaliacao</label>
+                    <select class="form-control" id="field_itemAvaliacao" name="itemAvaliacao" [(ngModel)]="respostaAvaliacao.itemAvaliacao" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="itemAvaliacaoOption.id === respostaAvaliacao.itemAvaliacao?.id ? respostaAvaliacao.itemAvaliacao : itemAvaliacaoOption" *ngFor="let itemAvaliacaoOption of itemavaliacaos; trackBy: trackItemAvaliacaoById">{{itemAvaliacaoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

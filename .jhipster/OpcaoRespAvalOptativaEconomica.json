@@ -1,0 +1,39 @@
+{
+    "name": "OpcaoRespAvalOptativaEconomica",
+    "fields": [
+        {
+            "fieldName": "opcao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "opcaoResposta",
+            "otherEntityName": "respAvalOptativaEconomica",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122543",
+    "entityTableName": "opcao_resp_aval_optativa_economica",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

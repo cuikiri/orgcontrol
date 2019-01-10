@@ -1,0 +1,40 @@
+{
+    "orgcontrolApp": {
+        "colaborador": {
+            "home": {
+                "title": "Colaboradors",
+                "createLabel": "Create a new Colaborador",
+                "createOrEditLabel": "Create or edit a Colaborador"
+            },
+            "created": "A new Colaborador is created with identifier {{ param }}",
+            "updated": "A Colaborador is updated with identifier {{ param }}",
+            "deleted": "A Colaborador is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Colaborador {{ id }}?"
+            },
+            "detail": {
+                "title": "Colaborador"
+            },
+            "dataCadastro": "Data Cadastro",
+            "dataAdmissao": "Data Admissao",
+            "salario": "Salario",
+            "pai": "Pai",
+            "mae": "Mae",
+            "conjuge": "Conjuge",
+            "obs": "Obs",
+            "tipoContratacao": "Tipo Contratacao",
+            "tipoColaborador": "Tipo Colaborador",
+            "estadoCivil": "Estado Civil",
+            "pessoa": "Pessoa",
+            "dadosMedico": "Dados Medico",
+            "ensino": "Ensino",
+            "documento": "Documento",
+            "dependenteLegal": "Dependente Legal",
+            "agendaColaborador": "Agenda Colaborador",
+            "candidato": "Candidato",
+            "diario": "Diario",
+            "instituicao": "Instituicao",
+            "unidade": "Unidade"
+        }
+    }
+}

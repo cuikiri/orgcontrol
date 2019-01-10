@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="localizacao">
+            <h2><span jhiTranslate="orgcontrolApp.localizacao.detail.title">Localizacao</span> {{localizacao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.localizacao.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{localizacao.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.localizacao.latitude">Latitude</span></dt>
+                <dd>
+                    <span>{{localizacao.latitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.localizacao.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{localizacao.longitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.localizacao.altitude">Altitude</span></dt>
+                <dd>
+                    <span>{{localizacao.altitude}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/localizacao', localizacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+    "orgcontrolApp": {
+        "itemAcompanhamentoAtividade": {
+            "home": {
+                "title": "Item Acompanhamento Atividades",
+                "createLabel": "Crear nuevo Item Acompanhamento Atividade",
+                "createOrEditLabel": "Crear o editar Item Acompanhamento Atividade"
+            },
+            "created": "Un nuevo Item Acompanhamento Atividade ha sido creado con el identificador {{ param }}",
+            "updated": "Un Item Acompanhamento Atividade ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Item Acompanhamento Atividade ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Item Acompanhamento Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Item Acompanhamento Atividade"
+            },
+            "tipoResposta": "Tipo Resposta",
+            "questao": "Questao",
+            "obs": "Obs",
+            "respAtivDescritiva": "Resp Ativ Descritiva",
+            "respAtivOptativa": "Resp Ativ Optativa",
+            "respostaAtividade": "Resposta Atividade",
+            "acompanhamentoAtividade": "Acompanhamento Atividade"
+        }
+    }
+}

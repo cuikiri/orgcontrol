@@ -1,0 +1,47 @@
+{
+    "name": "Aviso",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "aviso",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "TipoAviso",
+            "fieldValues": "IMPORTANTE,URGENTE,NORMAL",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "aviso"
+        }
+    ],
+    "changelogDate": "20190110122440",
+    "entityTableName": "aviso",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

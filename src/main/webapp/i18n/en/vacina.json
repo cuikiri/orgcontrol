@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "vacina": {
+            "home": {
+                "title": "Vacinas",
+                "createLabel": "Create a new Vacina",
+                "createOrEditLabel": "Create or edit a Vacina"
+            },
+            "created": "A new Vacina is created with identifier {{ param }}",
+            "updated": "A Vacina is updated with identifier {{ param }}",
+            "deleted": "A Vacina is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vacina {{ id }}?"
+            },
+            "detail": {
+                "title": "Vacina"
+            },
+            "nome": "Nome",
+            "idade": "Idade",
+            "obs": "Obs",
+            "dadosMedico": "Dados Medico"
+        }
+    }
+}

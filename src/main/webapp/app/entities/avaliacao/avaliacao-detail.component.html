@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avaliacao">
+            <h2><span jhiTranslate="orgcontrolApp.avaliacao.detail.title">Avaliacao</span> {{avaliacao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{avaliacao.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.data">Data</span></dt>
+                <dd>
+                    <span>{{avaliacao.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.tema">Tema</span></dt>
+                <dd>
+                    <span>{{avaliacao.tema}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{avaliacao.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.dataInicio">Data Inicio</span></dt>
+                <dd>
+                    <span>{{avaliacao.dataInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.dataFim">Data Fim</span></dt>
+                <dd>
+                    <span>{{avaliacao.dataFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.obs">Obs</span></dt>
+                <dd>
+                    <span>{{avaliacao.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.tipoAvaliacao">Tipo Avaliacao</span></dt>
+                <dd>
+                    <div *ngIf="avaliacao.tipoAvaliacao">
+                        <a [routerLink]="['/tipo-avaliacao', avaliacao.tipoAvaliacao?.id, 'view']">{{avaliacao.tipoAvaliacao?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.avaliacao.fechamentoBimestre">Fechamento Bimestre</span></dt>
+                <dd>
+                    <div *ngIf="avaliacao.fechamentoBimestre">
+                        <a [routerLink]="['/fechamento-bimestre', avaliacao.fechamentoBimestre?.id, 'view']">{{avaliacao.fechamentoBimestre?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avaliacao', avaliacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

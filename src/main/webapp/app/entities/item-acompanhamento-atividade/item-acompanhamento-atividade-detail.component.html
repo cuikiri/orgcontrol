@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemAcompanhamentoAtividade">
+            <h2><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.detail.title">Item Acompanhamento Atividade</span> {{itemAcompanhamentoAtividade.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.tipoResposta">Tipo Resposta</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.TipoResposta.' + itemAcompanhamentoAtividade.tipoResposta}}">{{itemAcompanhamentoAtividade.tipoResposta}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.questao">Questao</span></dt>
+                <dd>
+                    <span>{{itemAcompanhamentoAtividade.questao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.obs">Obs</span></dt>
+                <dd>
+                    <span>{{itemAcompanhamentoAtividade.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.respAtivDescritiva">Resp Ativ Descritiva</span></dt>
+                <dd>
+                    <div *ngIf="itemAcompanhamentoAtividade.respAtivDescritiva">
+                        <a [routerLink]="['/resp-ativ-descritiva', itemAcompanhamentoAtividade.respAtivDescritiva?.id, 'view']">{{itemAcompanhamentoAtividade.respAtivDescritiva?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.respAtivOptativa">Resp Ativ Optativa</span></dt>
+                <dd>
+                    <div *ngIf="itemAcompanhamentoAtividade.respAtivOptativa">
+                        <a [routerLink]="['/resp-ativ-optativa', itemAcompanhamentoAtividade.respAtivOptativa?.id, 'view']">{{itemAcompanhamentoAtividade.respAtivOptativa?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAcompanhamentoAtividade.acompanhamentoAtividade">Acompanhamento Atividade</span></dt>
+                <dd>
+                    <div *ngIf="itemAcompanhamentoAtividade.acompanhamentoAtividade">
+                        <a [routerLink]="['/acompanhamento-atividade', itemAcompanhamentoAtividade.acompanhamentoAtividade?.id, 'view']">{{itemAcompanhamentoAtividade.acompanhamentoAtividade?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-acompanhamento-atividade', itemAcompanhamentoAtividade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

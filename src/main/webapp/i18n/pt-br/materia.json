@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "materia": {
+            "home": {
+                "title": "Materias",
+                "createLabel": "Criar novo Materia",
+                "createOrEditLabel": "Criar ou editar Materia"
+            },
+            "created": "Um novo Materia foi criado com o identificador {{ param }}",
+            "updated": "Um Materia foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Materia foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Materia {{ id }}?"
+            },
+            "detail": {
+                "title": "Materia"
+            },
+            "abreviatura": "Abreviatura",
+            "nome": "Nome",
+            "descricao": "Descricao",
+            "obs": "Obs",
+            "horarioMateria": "Horario Materia",
+            "diario": "Diario"
+        }
+    }
+}

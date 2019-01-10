@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="acompanhamentoAtividade">
+            <h2><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.detail.title">Acompanhamento Atividade</span> {{acompanhamentoAtividade.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.nome">Nome</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAtividade.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.data">Data</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAtividade.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.tema">Tema</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAtividade.tema}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAtividade.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.dataInicio">Data Inicio</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAtividade.dataInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.dataFim">Data Fim</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAtividade.dataFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.obs">Obs</span></dt>
+                <dd>
+                    <span>{{acompanhamentoAtividade.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.tipoAcompanhamentoAtividade">Tipo Acompanhamento Atividade</span></dt>
+                <dd>
+                    <div *ngIf="acompanhamentoAtividade.tipoAcompanhamentoAtividade">
+                        <a [routerLink]="['/tipo-acompanhamento-atividade', acompanhamentoAtividade.tipoAcompanhamentoAtividade?.id, 'view']">{{acompanhamentoAtividade.tipoAcompanhamentoAtividade?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.acompanhamentoAtividade.atividade">Atividade</span></dt>
+                <dd>
+                    <div *ngIf="acompanhamentoAtividade.atividade">
+                        <a [routerLink]="['/atividade', acompanhamentoAtividade.atividade?.id, 'view']">{{acompanhamentoAtividade.atividade?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/acompanhamento-atividade', acompanhamentoAtividade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

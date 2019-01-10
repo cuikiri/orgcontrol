@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="materiaAcompanhamento">
+            <h2><span jhiTranslate="orgcontrolApp.materiaAcompanhamento.detail.title">Materia Acompanhamento</span> {{materiaAcompanhamento.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.materiaAcompanhamento.nome">Nome</span></dt>
+                <dd>
+                    <span>{{materiaAcompanhamento.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.materiaAcompanhamento.obs">Obs</span></dt>
+                <dd>
+                    <span>{{materiaAcompanhamento.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.materiaAcompanhamento.acompanhamentoEscolarAluno">Acompanhamento Escolar Aluno</span></dt>
+                <dd>
+                    <div *ngIf="materiaAcompanhamento.acompanhamentoEscolarAluno">
+                        <a [routerLink]="['/acompanhamento-escolar-aluno', materiaAcompanhamento.acompanhamentoEscolarAluno?.id, 'view']">{{materiaAcompanhamento.acompanhamentoEscolarAluno?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/materia-acompanhamento', materiaAcompanhamento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

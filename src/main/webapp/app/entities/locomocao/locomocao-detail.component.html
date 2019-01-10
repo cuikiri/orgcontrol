@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="locomocao">
+            <h2><span jhiTranslate="orgcontrolApp.locomocao.detail.title">Locomocao</span> {{locomocao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.locomocao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{locomocao.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.locomocao.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="locomocao.aluno">
+                        <a [routerLink]="['/aluno', locomocao.aluno?.id, 'view']">{{locomocao.aluno?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/locomocao', locomocao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

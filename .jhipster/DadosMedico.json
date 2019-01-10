@@ -1,0 +1,71 @@
+{
+    "name": "DadosMedico",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dadoBiologico",
+            "otherEntityName": "dadoBiologico",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "dadosMedico"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "problemaFisico",
+            "otherEntityName": "problemaFisico",
+            "otherEntityRelationshipName": "dadosMedico"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vacina",
+            "otherEntityName": "vacina",
+            "otherEntityRelationshipName": "dadosMedico"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "exameMedico",
+            "otherEntityName": "exameMedico",
+            "otherEntityRelationshipName": "dadosMedico"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "colaborador",
+            "otherEntityName": "colaborador",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "dadosMedico"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "dadosMedico"
+        }
+    ],
+    "changelogDate": "20190110122511",
+    "entityTableName": "dados_medico",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

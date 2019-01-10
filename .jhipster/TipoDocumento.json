@@ -1,0 +1,31 @@
+{
+    "name": "TipoDocumento",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "documento",
+            "otherEntityName": "documento",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoDocumento"
+        }
+    ],
+    "changelogDate": "20190110122443",
+    "entityTableName": "tipo_documento",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

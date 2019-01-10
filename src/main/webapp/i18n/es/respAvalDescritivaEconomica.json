@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "respAvalDescritivaEconomica": {
+            "home": {
+                "title": "Resp Aval Descritiva Economicas",
+                "createLabel": "Crear nuevo Resp Aval Descritiva Economica",
+                "createOrEditLabel": "Crear o editar Resp Aval Descritiva Economica"
+            },
+            "created": "Un nuevo Resp Aval Descritiva Economica ha sido creado con el identificador {{ param }}",
+            "updated": "Un Resp Aval Descritiva Economica ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Resp Aval Descritiva Economica ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Resp Aval Descritiva Economica {{ id }}?"
+            },
+            "detail": {
+                "title": "Resp Aval Descritiva Economica"
+            },
+            "data": "Data",
+            "resposta": "Resposta",
+            "itemAvaliacaoEconomica": "Item Avaliacao Economica",
+            "respostaAvaliacaoEconomica": "Resposta Avaliacao Economica"
+        }
+    }
+}

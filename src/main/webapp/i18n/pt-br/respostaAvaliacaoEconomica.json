@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "respostaAvaliacaoEconomica": {
+            "home": {
+                "title": "Resposta Avaliacao Economicas",
+                "createLabel": "Criar novo Resposta Avaliacao Economica",
+                "createOrEditLabel": "Criar ou editar Resposta Avaliacao Economica"
+            },
+            "created": "Um novo Resposta Avaliacao Economica foi criado com o identificador {{ param }}",
+            "updated": "Um Resposta Avaliacao Economica foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Resposta Avaliacao Economica foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Resposta Avaliacao Economica {{ id }}?"
+            },
+            "detail": {
+                "title": "Resposta Avaliacao Economica"
+            },
+            "data": "Data",
+            "obs": "Obs",
+            "respAvalDescritivaEconomica": "Resp Aval Descritiva Economica",
+            "respAvalOptativaEconomica": "Resp Aval Optativa Economica",
+            "conceito": "Conceito",
+            "itemAvaliacaoEconomica": "Item Avaliacao Economica"
+        }
+    }
+}

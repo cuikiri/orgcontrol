@@ -1,0 +1,21 @@
+{
+    "orgcontrolApp": {
+        "sexo": {
+            "home": {
+                "title": "Sexos",
+                "createLabel": "Create a new Sexo",
+                "createOrEditLabel": "Create or edit a Sexo"
+            },
+            "created": "A new Sexo is created with identifier {{ param }}",
+            "updated": "A Sexo is updated with identifier {{ param }}",
+            "deleted": "A Sexo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sexo {{ id }}?"
+            },
+            "detail": {
+                "title": "Sexo"
+            },
+            "nome": "Nome"
+        }
+    }
+}

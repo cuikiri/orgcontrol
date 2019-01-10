@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="conteudoProgramatico">
+            <h2><span jhiTranslate="orgcontrolApp.conteudoProgramatico.detail.title">Conteudo Programatico</span> {{conteudoProgramatico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.conteudoProgramatico.data">Data</span></dt>
+                <dd>
+                    <span>{{conteudoProgramatico.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.conteudoProgramatico.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{conteudoProgramatico.descricao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.conteudoProgramatico.atividade">Atividade</span></dt>
+                <dd>
+                    <div *ngIf="conteudoProgramatico.atividade">
+                        <a [routerLink]="['/atividade', conteudoProgramatico.atividade?.id, 'view']">{{conteudoProgramatico.atividade?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/conteudo-programatico', conteudoProgramatico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

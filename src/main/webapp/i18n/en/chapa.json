@@ -1,0 +1,28 @@
+{
+    "orgcontrolApp": {
+        "chapa": {
+            "home": {
+                "title": "Chapas",
+                "createLabel": "Create a new Chapa",
+                "createOrEditLabel": "Create or edit a Chapa"
+            },
+            "created": "A new Chapa is created with identifier {{ param }}",
+            "updated": "A Chapa is updated with identifier {{ param }}",
+            "deleted": "A Chapa is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Chapa {{ id }}?"
+            },
+            "detail": {
+                "title": "Chapa"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "totaVotos": "Tota Votos",
+            "vencedor": "Vencedor",
+            "obs": "Obs",
+            "candidato": "Candidato",
+            "eleicaoGanhadora": "Eleicao Ganhadora",
+            "eleicao": "Eleicao"
+        }
+    }
+}

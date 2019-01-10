@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemAvaliacao">
+            <h2><span jhiTranslate="orgcontrolApp.itemAvaliacao.detail.title">Item Avaliacao</span> {{itemAvaliacao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.itemAvaliacao.tipoResposta">Tipo Resposta</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.TipoResposta.' + itemAvaliacao.tipoResposta}}">{{itemAvaliacao.tipoResposta}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAvaliacao.questao">Questao</span></dt>
+                <dd>
+                    <span>{{itemAvaliacao.questao}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAvaliacao.obs">Obs</span></dt>
+                <dd>
+                    <span>{{itemAvaliacao.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAvaliacao.respAvalDescritiva">Resp Aval Descritiva</span></dt>
+                <dd>
+                    <div *ngIf="itemAvaliacao.respAvalDescritiva">
+                        <a [routerLink]="['/resp-aval-descritiva', itemAvaliacao.respAvalDescritiva?.id, 'view']">{{itemAvaliacao.respAvalDescritiva?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAvaliacao.respAvalOptativa">Resp Aval Optativa</span></dt>
+                <dd>
+                    <div *ngIf="itemAvaliacao.respAvalOptativa">
+                        <a [routerLink]="['/resp-aval-optativa', itemAvaliacao.respAvalOptativa?.id, 'view']">{{itemAvaliacao.respAvalOptativa?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.itemAvaliacao.avaliacao">Avaliacao</span></dt>
+                <dd>
+                    <div *ngIf="itemAvaliacao.avaliacao">
+                        <a [routerLink]="['/avaliacao', itemAvaliacao.avaliacao?.id, 'view']">{{itemAvaliacao.avaliacao?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-avaliacao', itemAvaliacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

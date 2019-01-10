@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="planejamentoAtividade">
+            <h2><span jhiTranslate="orgcontrolApp.planejamentoAtividade.detail.title">Planejamento Atividade</span> {{planejamentoAtividade.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.planejamentoAtividade.nome">Nome</span></dt>
+                <dd>
+                    <span>{{planejamentoAtividade.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.planejamentoAtividade.objetivo">Objetivo</span></dt>
+                <dd>
+                    <span>{{planejamentoAtividade.objetivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.planejamentoAtividade.obs">Obs</span></dt>
+                <dd>
+                    <span>{{planejamentoAtividade.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.planejamentoAtividade.calendarioInstituicao">Calendario Instituicao</span></dt>
+                <dd>
+                    <div *ngIf="planejamentoAtividade.calendarioInstituicao">
+                        <a [routerLink]="['/calendario-instituicao', planejamentoAtividade.calendarioInstituicao?.id, 'view']">{{planejamentoAtividade.calendarioInstituicao?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/planejamento-atividade', planejamentoAtividade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

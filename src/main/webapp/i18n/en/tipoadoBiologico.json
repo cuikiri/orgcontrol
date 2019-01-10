@@ -1,0 +1,23 @@
+{
+    "orgcontrolApp": {
+        "tipoadoBiologico": {
+            "home": {
+                "title": "Tipoado Biologicos",
+                "createLabel": "Create a new Tipoado Biologico",
+                "createOrEditLabel": "Create or edit a Tipoado Biologico"
+            },
+            "created": "A new Tipoado Biologico is created with identifier {{ param }}",
+            "updated": "A Tipoado Biologico is updated with identifier {{ param }}",
+            "deleted": "A Tipoado Biologico is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipoado Biologico {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipoado Biologico"
+            },
+            "nome": "Nome",
+            "obs": "Obs",
+            "dadoBiologico": "Dado Biologico"
+        }
+    }
+}

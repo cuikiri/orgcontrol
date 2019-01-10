@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.turma.home.title">Turmas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-turma" [routerLink]="['/turma/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.turma.home.createLabel">
+            Create new Turma
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="turmas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.turma.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ano"><span jhiTranslate="orgcontrolApp.turma.ano">Ano</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ensino.nome"><span jhiTranslate="orgcontrolApp.turma.ensino">Ensino</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="periodoDuracao.nome"><span jhiTranslate="orgcontrolApp.turma.periodoDuracao">Periodo Duracao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="periodoSemana.nome"><span jhiTranslate="orgcontrolApp.turma.periodoSemana">Periodo Semana</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoCurso.nome"><span jhiTranslate="orgcontrolApp.turma.tipoCurso">Tipo Curso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="curso.nome"><span jhiTranslate="orgcontrolApp.turma.curso">Curso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="modulo.nome"><span jhiTranslate="orgcontrolApp.turma.modulo">Modulo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let turma of turmas ;trackBy: trackId">
+                <td><a [routerLink]="['/turma', turma.id, 'view' ]">{{turma.id}}</a></td>
+                <td>{{turma.nome}}</td>
+                <td>{{turma.ano}}</td>
+                <td>
+                    <div *ngIf="turma.ensino">
+                        <a [routerLink]="['../ensino', turma.ensino?.id, 'view' ]" >{{turma.ensino?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="turma.periodoDuracao">
+                        <a [routerLink]="['../periodo-duracao', turma.periodoDuracao?.id, 'view' ]" >{{turma.periodoDuracao?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="turma.periodoSemana">
+                        <a [routerLink]="['../periodo-semana', turma.periodoSemana?.id, 'view' ]" >{{turma.periodoSemana?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="turma.tipoCurso">
+                        <a [routerLink]="['../tipo-curso', turma.tipoCurso?.id, 'view' ]" >{{turma.tipoCurso?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="turma.curso">
+                        <a [routerLink]="['../curso', turma.curso?.id, 'view' ]" >{{turma.curso?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="turma.modulo">
+                        <a [routerLink]="['../modulo', turma.modulo?.id, 'view' ]" >{{turma.modulo?.nome}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/turma', turma.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/turma', turma.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'turma/'+ turma.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="turmas && turmas.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

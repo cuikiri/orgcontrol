@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-parte-bloco-heading" jhiTranslate="orgcontrolApp.parteBloco.home.createOrEditLabel">Create or edit a Parte Bloco</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!parteBloco.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="parteBloco.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.parteBloco.abreviatura" for="field_abreviatura">Abreviatura</label>
+                    <input type="text" class="form-control" name="abreviatura" id="field_abreviatura"
+                        [(ngModel)]="parteBloco.abreviatura" required maxlength="20"/>
+                    <div [hidden]="!(editForm.controls.abreviatura?.dirty && editForm.controls.abreviatura?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.abreviatura?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.abreviatura?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.parteBloco.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="parteBloco.nome" required/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.parteBloco.andar" for="field_andar">Andar</label>
+                    <input type="number" class="form-control" name="andar" id="field_andar"
+                        [(ngModel)]="parteBloco.andar" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.parteBloco.numero" for="field_numero">Numero</label>
+                    <input type="number" class="form-control" name="numero" id="field_numero"
+                        [(ngModel)]="parteBloco.numero" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.parteBloco.obs" for="field_obs">Obs</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                        [(ngModel)]="parteBloco.obs" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.obs?.dirty && editForm.controls.obs?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.obs?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.parteBloco.tipoParteBloco" for="field_tipoParteBloco">Tipo Parte Bloco</label>
+                    <select class="form-control" id="field_tipoParteBloco" name="tipoParteBloco" [(ngModel)]="parteBloco.tipoParteBloco">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoParteBlocoOption.id === parteBloco.tipoParteBloco?.id ? parteBloco.tipoParteBloco : tipoParteBlocoOption" *ngFor="let tipoParteBlocoOption of tipoparteblocos; trackBy: trackTipoParteBlocoById">{{tipoParteBlocoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.parteBloco.bloco" for="field_bloco">Bloco</label>
+                    <select class="form-control" id="field_bloco" name="bloco" [(ngModel)]="parteBloco.bloco" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="blocoOption.id === parteBloco.bloco?.id ? parteBloco.bloco : blocoOption" *ngFor="let blocoOption of blocos; trackBy: trackBlocoById">{{blocoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

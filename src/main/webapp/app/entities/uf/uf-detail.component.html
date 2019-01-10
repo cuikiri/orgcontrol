@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="uf">
+            <h2><span jhiTranslate="orgcontrolApp.uf.detail.title">Uf</span> {{uf.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.uf.nome">Nome</span></dt>
+                <dd>
+                    <span>{{uf.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.uf.estdo">Estdo</span></dt>
+                <dd>
+                    <span>{{uf.estdo}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.uf.regiao">Regiao</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'orgcontrolApp.Regiao.' + uf.regiao}}">{{uf.regiao}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/uf', uf.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

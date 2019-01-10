@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fotoAcompanhamentoAluno">
+            <h2><span jhiTranslate="orgcontrolApp.fotoAcompanhamentoAluno.detail.title">Foto Acompanhamento Aluno</span> {{fotoAcompanhamentoAluno.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.fotoAcompanhamentoAluno.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="fotoAcompanhamentoAluno.foto">
+                        <a (click)="openFile(fotoAcompanhamentoAluno.fotoContentType, fotoAcompanhamentoAluno.foto)">
+                            <img [src]="'data:' + fotoAcompanhamentoAluno.fotoContentType + ';base64,' + fotoAcompanhamentoAluno.foto" style="max-width: 100%;" alt="fotoAcompanhamentoAluno image"/>
+                        </a>
+                        {{fotoAcompanhamentoAluno.fotoContentType}}, {{byteSize(fotoAcompanhamentoAluno.foto)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/foto-acompanhamento-aluno', fotoAcompanhamentoAluno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

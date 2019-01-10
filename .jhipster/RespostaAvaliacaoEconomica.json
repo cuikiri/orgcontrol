@@ -1,0 +1,59 @@
+{
+    "name": "RespostaAvaliacaoEconomica",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAvalDescritivaEconomica",
+            "otherEntityName": "respAvalDescritivaEconomica",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "respostaAvaliacaoEconomica"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "respAvalOptativaEconomica",
+            "otherEntityName": "respAvalOptativaEconomica",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "respostaAvaliacaoEconomica"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "conceito",
+            "otherEntityName": "conceito",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "itemAvaliacaoEconomica",
+            "otherEntityName": "itemAvaliacaoEconomica",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122540",
+    "entityTableName": "resposta_avaliacao_economica",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

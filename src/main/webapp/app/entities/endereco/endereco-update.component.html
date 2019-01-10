@@ -1,0 +1,200 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-endereco-heading" jhiTranslate="orgcontrolApp.endereco.home.createOrEditLabel">Create or edit a Endereco</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!endereco.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="endereco.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.tipoResidencia" for="field_tipoResidencia">Tipo Residencia</label>
+                    <select class="form-control" name="tipoResidencia" [(ngModel)]="endereco.tipoResidencia" id="field_tipoResidencia" >
+                        <option value="CASA">{{'orgcontrolApp.TipoResidencia.CASA' | translate}}</option>
+                        <option value="APARTAMENTO">{{'orgcontrolApp.TipoResidencia.APARTAMENTO' | translate}}</option>
+                        <option value="SITIO">{{'orgcontrolApp.TipoResidencia.SITIO' | translate}}</option>
+                        <option value="FAZENDA">{{'orgcontrolApp.TipoResidencia.FAZENDA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.tipoEndereco" for="field_tipoEndereco">Tipo Endereco</label>
+                    <select class="form-control" name="tipoEndereco" [(ngModel)]="endereco.tipoEndereco" id="field_tipoEndereco" >
+                        <option value="RESIDENCIAL">{{'orgcontrolApp.EnderecoTipo.RESIDENCIAL' | translate}}</option>
+                        <option value="COMERCIAL">{{'orgcontrolApp.EnderecoTipo.COMERCIAL' | translate}}</option>
+                        <option value="ESTUDANTIL">{{'orgcontrolApp.EnderecoTipo.ESTUDANTIL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.tipoLogradouro" for="field_tipoLogradouro">Tipo Logradouro</label>
+                    <select class="form-control" name="tipoLogradouro" [(ngModel)]="endereco.tipoLogradouro" id="field_tipoLogradouro" >
+                        <option value="RUA">{{'orgcontrolApp.TipoLogradouro.RUA' | translate}}</option>
+                        <option value="AVENIDA">{{'orgcontrolApp.TipoLogradouro.AVENIDA' | translate}}</option>
+                        <option value="TRAVESSA">{{'orgcontrolApp.TipoLogradouro.TRAVESSA' | translate}}</option>
+                        <option value="ESTRADA">{{'orgcontrolApp.TipoLogradouro.ESTRADA' | translate}}</option>
+                        <option value="RODOVIA">{{'orgcontrolApp.TipoLogradouro.RODOVIA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="endereco.nome" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.numero" for="field_numero">Numero</label>
+                    <input type="number" class="form-control" name="numero" id="field_numero"
+                        [(ngModel)]="endereco.numero" max="99999" jhiMax="99999"/>
+                    <div [hidden]="!(editForm.controls.numero?.dirty && editForm.controls.numero?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numero?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 99999 }">
+                            This field cannot be more than 99999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numero?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.bairro" for="field_bairro">Bairro</label>
+                    <input type="text" class="form-control" name="bairro" id="field_bairro"
+                        [(ngModel)]="endereco.bairro" required maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.bairro?.dirty && editForm.controls.bairro?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.bairro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.bairro?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.tipoBairoo" for="field_tipoBairoo">Tipo Bairoo</label>
+                    <select class="form-control" name="tipoBairoo" [(ngModel)]="endereco.tipoBairoo" id="field_tipoBairoo"  required>
+                        <option value="RESIDENCIAL">{{'orgcontrolApp.TipoBairro.RESIDENCIAL' | translate}}</option>
+                        <option value="COMERCIAL">{{'orgcontrolApp.TipoBairro.COMERCIAL' | translate}}</option>
+                        <option value="INDUSTRIAL">{{'orgcontrolApp.TipoBairro.INDUSTRIAL' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.tipoBairoo?.dirty && editForm.controls.tipoBairoo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tipoBairoo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.zona" for="field_zona">Zona</label>
+                    <select class="form-control" name="zona" [(ngModel)]="endereco.zona" id="field_zona"  required>
+                        <option value="CENTRAL">{{'orgcontrolApp.Regiao.CENTRAL' | translate}}</option>
+                        <option value="LESTE">{{'orgcontrolApp.Regiao.LESTE' | translate}}</option>
+                        <option value="OESTE">{{'orgcontrolApp.Regiao.OESTE' | translate}}</option>
+                        <option value="NORTE">{{'orgcontrolApp.Regiao.NORTE' | translate}}</option>
+                        <option value="SUL">{{'orgcontrolApp.Regiao.SUL' | translate}}</option>
+                        <option value="SUDESTE">{{'orgcontrolApp.Regiao.SUDESTE' | translate}}</option>
+                        <option value="NORDESTE">{{'orgcontrolApp.Regiao.NORDESTE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.zona?.dirty && editForm.controls.zona?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.zona?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.cep" for="field_cep">Cep</label>
+                    <input type="text" class="form-control" name="cep" id="field_cep"
+                        [(ngModel)]="endereco.cep" maxlength="10"/>
+                    <div [hidden]="!(editForm.controls.cep?.dirty && editForm.controls.cep?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.cep?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.bloco" for="field_bloco">Bloco</label>
+                    <input type="text" class="form-control" name="bloco" id="field_bloco"
+                        [(ngModel)]="endereco.bloco" maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.bloco?.dirty && editForm.controls.bloco?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.bloco?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.apto" for="field_apto">Apto</label>
+                    <input type="text" class="form-control" name="apto" id="field_apto"
+                        [(ngModel)]="endereco.apto" maxlength="20"/>
+                    <div [hidden]="!(editForm.controls.apto?.dirty && editForm.controls.apto?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.apto?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.complemento" for="field_complemento">Complemento</label>
+                    <input type="text" class="form-control" name="complemento" id="field_complemento"
+                        [(ngModel)]="endereco.complemento" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.complemento?.dirty && editForm.controls.complemento?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.complemento?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.cidade" for="field_cidade">Cidade</label>
+                    <input type="text" class="form-control" name="cidade" id="field_cidade"
+                        [(ngModel)]="endereco.cidade" maxlength="50"/>
+                    <div [hidden]="!(editForm.controls.cidade?.dirty && editForm.controls.cidade?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.cidade?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.estado" for="field_estado">Estado</label>
+                    <select class="form-control" id="field_estado" name="estado" [(ngModel)]="endereco.estado">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ufOption.id === endereco.estado?.id ? endereco.estado : ufOption" *ngFor="let ufOption of estados; trackBy: trackUfById">{{ufOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.localizacao" for="field_localizacao">Localizacao</label>
+                    <select class="form-control" id="field_localizacao" name="localizacao" [(ngModel)]="endereco.localizacao">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="localizacaoOption.id === endereco.localizacao?.id ? endereco.localizacao : localizacaoOption" *ngFor="let localizacaoOption of localizacaos; trackBy: trackLocalizacaoById">{{localizacaoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.pessoa" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" [(ngModel)]="endereco.pessoa" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pessoaOption.id === endereco.pessoa?.id ? endereco.pessoa : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackPessoaById">{{pessoaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

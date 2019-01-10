@@ -1,0 +1,40 @@
+{
+    "name": "TipoAvaliacao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "avaliacao",
+            "otherEntityName": "avaliacao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoAvaliacao"
+        }
+    ],
+    "changelogDate": "20190110122614",
+    "entityTableName": "tipo_avaliacao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

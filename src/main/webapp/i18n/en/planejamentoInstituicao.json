@@ -1,0 +1,25 @@
+{
+    "orgcontrolApp": {
+        "planejamentoInstituicao": {
+            "home": {
+                "title": "Planejamento Instituicaos",
+                "createLabel": "Create a new Planejamento Instituicao",
+                "createOrEditLabel": "Create or edit a Planejamento Instituicao"
+            },
+            "created": "A new Planejamento Instituicao is created with identifier {{ param }}",
+            "updated": "A Planejamento Instituicao is updated with identifier {{ param }}",
+            "deleted": "A Planejamento Instituicao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Planejamento Instituicao {{ id }}?"
+            },
+            "detail": {
+                "title": "Planejamento Instituicao"
+            },
+            "nome": "Nome",
+            "objetivo": "Objetivo",
+            "obs": "Obs",
+            "itemPlanejamentoInstituicao": "Item Planejamento Instituicao",
+            "calendarioInstituicao": "Calendario Instituicao"
+        }
+    }
+}

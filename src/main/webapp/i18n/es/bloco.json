@@ -1,0 +1,27 @@
+{
+    "orgcontrolApp": {
+        "bloco": {
+            "home": {
+                "title": "Blocos",
+                "createLabel": "Crear nuevo Bloco",
+                "createOrEditLabel": "Crear o editar Bloco"
+            },
+            "created": "Un nuevo Bloco ha sido creado con el identificador {{ param }}",
+            "updated": "Un Bloco ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Bloco ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Bloco {{ id }}?"
+            },
+            "detail": {
+                "title": "Bloco"
+            },
+            "nome": "Nome",
+            "descricao": "Descricao",
+            "obs": "Obs",
+            "tipoBloco": "Tipo Bloco",
+            "localizacao": "Localizacao",
+            "parteBloco": "Parte Bloco",
+            "unidade": "Unidade"
+        }
+    }
+}

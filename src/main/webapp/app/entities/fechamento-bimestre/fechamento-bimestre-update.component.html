@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-fechamento-bimestre-heading" jhiTranslate="orgcontrolApp.fechamentoBimestre.home.createOrEditLabel">Create or edit a Fechamento Bimestre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fechamentoBimestre.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fechamentoBimestre.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.fechamentoBimestre.frequencia" for="field_frequencia">Frequencia</label>
+                    <input type="number" class="form-control" name="frequencia" id="field_frequencia"
+                        [(ngModel)]="fechamentoBimestre.frequencia" required/>
+                    <div [hidden]="!(editForm.controls.frequencia?.dirty && editForm.controls.frequencia?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.frequencia?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.frequencia?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.fechamentoBimestre.ausencia" for="field_ausencia">Ausencia</label>
+                    <input type="number" class="form-control" name="ausencia" id="field_ausencia"
+                        [(ngModel)]="fechamentoBimestre.ausencia" required/>
+                    <div [hidden]="!(editForm.controls.ausencia?.dirty && editForm.controls.ausencia?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.ausencia?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.ausencia?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.fechamentoBimestre.totalAtividades" for="field_totalAtividades">Total Atividades</label>
+                    <input type="number" class="form-control" name="totalAtividades" id="field_totalAtividades"
+                        [(ngModel)]="fechamentoBimestre.totalAtividades" required/>
+                    <div [hidden]="!(editForm.controls.totalAtividades?.dirty && editForm.controls.totalAtividades?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.totalAtividades?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.totalAtividades?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.fechamentoBimestre.porcentagemFrequencia" for="field_porcentagemFrequencia">Porcentagem Frequencia</label>
+                    <input type="number" class="form-control" name="porcentagemFrequencia" id="field_porcentagemFrequencia"
+                        [(ngModel)]="fechamentoBimestre.porcentagemFrequencia" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.fechamentoBimestre.porcentagemAusequencia" for="field_porcentagemAusequencia">Porcentagem Ausequencia</label>
+                    <input type="number" class="form-control" name="porcentagemAusequencia" id="field_porcentagemAusequencia"
+                        [(ngModel)]="fechamentoBimestre.porcentagemAusequencia" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orgcontrolApp.fechamentoBimestre.conceito" for="field_conceito">Conceito</label>
+                    <select class="form-control" id="field_conceito" name="conceito" [(ngModel)]="fechamentoBimestre.conceito">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conceitoOption.id === fechamentoBimestre.conceito?.id ? fechamentoBimestre.conceito : conceitoOption" *ngFor="let conceitoOption of conceitos; trackBy: trackConceitoById">{{conceitoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="orgcontrolApp.fechamentoBimestre.aluno" for="field_aluno">Aluno</label>
+                    <select class="form-control" id="field_aluno" multiple name="aluno" [(ngModel)]="fechamentoBimestre.alunos">
+                        <option [ngValue]="getSelected(fechamentoBimestre.alunos, alunoOption)" *ngFor="let alunoOption of alunos; trackBy: trackAlunoById">{{alunoOption.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

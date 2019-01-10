@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.colaborador.home.title">Colaboradors</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-colaborador" [routerLink]="['/colaborador/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.colaborador.home.createLabel">
+            Create new Colaborador
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="colaboradors">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataCadastro"><span jhiTranslate="orgcontrolApp.colaborador.dataCadastro">Data Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataAdmissao"><span jhiTranslate="orgcontrolApp.colaborador.dataAdmissao">Data Admissao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="salario"><span jhiTranslate="orgcontrolApp.colaborador.salario">Salario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pai"><span jhiTranslate="orgcontrolApp.colaborador.pai">Pai</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mae"><span jhiTranslate="orgcontrolApp.colaborador.mae">Mae</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="conjuge"><span jhiTranslate="orgcontrolApp.colaborador.conjuge">Conjuge</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.colaborador.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoContratacao.nome"><span jhiTranslate="orgcontrolApp.colaborador.tipoContratacao">Tipo Contratacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoColaborador.nome"><span jhiTranslate="orgcontrolApp.colaborador.tipoColaborador">Tipo Colaborador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estadoCivil.nome"><span jhiTranslate="orgcontrolApp.colaborador.estadoCivil">Estado Civil</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pessoa.nome"><span jhiTranslate="orgcontrolApp.colaborador.pessoa">Pessoa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dadosMedico.id"><span jhiTranslate="orgcontrolApp.colaborador.dadosMedico">Dados Medico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="instituicao.id"><span jhiTranslate="orgcontrolApp.colaborador.instituicao">Instituicao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="unidade.id"><span jhiTranslate="orgcontrolApp.colaborador.unidade">Unidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let colaborador of colaboradors ;trackBy: trackId">
+                <td><a [routerLink]="['/colaborador', colaborador.id, 'view' ]">{{colaborador.id}}</a></td>
+                <td>{{colaborador.dataCadastro | date:'mediumDate'}}</td>
+                <td>{{colaborador.dataAdmissao | date:'mediumDate'}}</td>
+                <td>{{colaborador.salario}}</td>
+                <td>{{colaborador.pai}}</td>
+                <td>{{colaborador.mae}}</td>
+                <td>{{colaborador.conjuge}}</td>
+                <td>{{colaborador.obs}}</td>
+                <td>
+                    <div *ngIf="colaborador.tipoContratacao">
+                        <a [routerLink]="['../tipo-contratacao', colaborador.tipoContratacao?.id, 'view' ]" >{{colaborador.tipoContratacao?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="colaborador.tipoColaborador">
+                        <a [routerLink]="['../tipo-colaborador', colaborador.tipoColaborador?.id, 'view' ]" >{{colaborador.tipoColaborador?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="colaborador.estadoCivil">
+                        <a [routerLink]="['../estado-civil', colaborador.estadoCivil?.id, 'view' ]" >{{colaborador.estadoCivil?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="colaborador.pessoa">
+                        <a [routerLink]="['../pessoa', colaborador.pessoa?.id, 'view' ]" >{{colaborador.pessoa?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="colaborador.dadosMedico">
+                        <a [routerLink]="['../dados-medico', colaborador.dadosMedico?.id, 'view' ]" >{{colaborador.dadosMedico?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="colaborador.instituicao">
+                        <a [routerLink]="['../instituicao', colaborador.instituicao?.id, 'view' ]" >{{colaborador.instituicao?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="colaborador.unidade">
+                        <a [routerLink]="['../unidade', colaborador.unidade?.id, 'view' ]" >{{colaborador.unidade?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/colaborador', colaborador.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/colaborador', colaborador.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'colaborador/'+ colaborador.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="colaboradors && colaboradors.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

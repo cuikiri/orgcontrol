@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "generalidade": {
+            "home": {
+                "title": "Generalidades",
+                "createLabel": "Criar novo Generalidade",
+                "createOrEditLabel": "Criar ou editar Generalidade"
+            },
+            "created": "Um novo Generalidade foi criado com o identificador {{ param }}",
+            "updated": "Um Generalidade foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Generalidade foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Generalidade {{ id }}?"
+            },
+            "detail": {
+                "title": "Generalidade"
+            },
+            "codigo": "Codigo",
+            "nome": "Nome",
+            "diario": "Diario",
+            "bimestre": "Bimestre"
+        }
+    }
+}

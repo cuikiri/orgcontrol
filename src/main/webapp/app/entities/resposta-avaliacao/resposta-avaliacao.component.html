@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orgcontrolApp.respostaAvaliacao.home.title">Resposta Avaliacaos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-resposta-avaliacao" [routerLink]="['/resposta-avaliacao/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="orgcontrolApp.respostaAvaliacao.home.createLabel">
+            Create new Resposta Avaliacao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="respostaAvaliacaos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="data"><span jhiTranslate="orgcontrolApp.respostaAvaliacao.data">Data</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="obs"><span jhiTranslate="orgcontrolApp.respostaAvaliacao.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="respAvalDescritiva.id"><span jhiTranslate="orgcontrolApp.respostaAvaliacao.respAvalDescritiva">Resp Aval Descritiva</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="respAvalOptativa.id"><span jhiTranslate="orgcontrolApp.respostaAvaliacao.respAvalOptativa">Resp Aval Optativa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="conceito.nome"><span jhiTranslate="orgcontrolApp.respostaAvaliacao.conceito">Conceito</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="itemAvaliacao.id"><span jhiTranslate="orgcontrolApp.respostaAvaliacao.itemAvaliacao">Item Avaliacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let respostaAvaliacao of respostaAvaliacaos ;trackBy: trackId">
+                <td><a [routerLink]="['/resposta-avaliacao', respostaAvaliacao.id, 'view' ]">{{respostaAvaliacao.id}}</a></td>
+                <td>{{respostaAvaliacao.data | date:'mediumDate'}}</td>
+                <td>{{respostaAvaliacao.obs}}</td>
+                <td>
+                    <div *ngIf="respostaAvaliacao.respAvalDescritiva">
+                        <a [routerLink]="['../resp-aval-descritiva', respostaAvaliacao.respAvalDescritiva?.id, 'view' ]" >{{respostaAvaliacao.respAvalDescritiva?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="respostaAvaliacao.respAvalOptativa">
+                        <a [routerLink]="['../resp-aval-optativa', respostaAvaliacao.respAvalOptativa?.id, 'view' ]" >{{respostaAvaliacao.respAvalOptativa?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="respostaAvaliacao.conceito">
+                        <a [routerLink]="['../conceito', respostaAvaliacao.conceito?.id, 'view' ]" >{{respostaAvaliacao.conceito?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="respostaAvaliacao.itemAvaliacao">
+                        <a [routerLink]="['../item-avaliacao', respostaAvaliacao.itemAvaliacao?.id, 'view' ]" >{{respostaAvaliacao.itemAvaliacao?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/resposta-avaliacao', respostaAvaliacao.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/resposta-avaliacao', respostaAvaliacao.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resposta-avaliacao/'+ respostaAvaliacao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="respostaAvaliacaos && respostaAvaliacaos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

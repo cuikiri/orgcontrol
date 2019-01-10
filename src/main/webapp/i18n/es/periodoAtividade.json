@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "periodoAtividade": {
+            "home": {
+                "title": "Periodo Atividades",
+                "createLabel": "Crear nuevo Periodo Atividade",
+                "createOrEditLabel": "Crear o editar Periodo Atividade"
+            },
+            "created": "Un nuevo Periodo Atividade ha sido creado con el identificador {{ param }}",
+            "updated": "Un Periodo Atividade ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Periodo Atividade ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Periodo Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Periodo Atividade"
+            },
+            "nome": "Nome",
+            "horaInicio": "Hora Inicio",
+            "horaFim": "Hora Fim",
+            "obs": "Obs",
+            "parteBloco": "Parte Bloco",
+            "turma": "Turma"
+        }
+    }
+}

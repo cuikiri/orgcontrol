@@ -1,0 +1,28 @@
+{
+    "orgcontrolApp": {
+        "exameMedico": {
+            "home": {
+                "title": "Exame Medicos",
+                "createLabel": "Criar novo Exame Medico",
+                "createOrEditLabel": "Criar ou editar Exame Medico"
+            },
+            "created": "Um novo Exame Medico foi criado com o identificador {{ param }}",
+            "updated": "Um Exame Medico foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Exame Medico foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Exame Medico {{ id }}?"
+            },
+            "detail": {
+                "title": "Exame Medico"
+            },
+            "nomeMedico": "Nome Medico",
+            "crmMedico": "Crm Medico",
+            "especialidadeMedico": "Especialidade Medico",
+            "idadePaciente": "Idade Paciente",
+            "obs": "Obs",
+            "biotipo": "Biotipo",
+            "doenca": "Doenca",
+            "dadosMedico": "Dados Medico"
+        }
+    }
+}

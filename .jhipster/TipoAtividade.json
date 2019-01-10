@@ -1,0 +1,32 @@
+{
+    "name": "TipoAtividade",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "atividade",
+            "otherEntityName": "atividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoAtividade"
+        }
+    ],
+    "changelogDate": "20190110122602",
+    "entityTableName": "tipo_atividade",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

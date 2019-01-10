@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="motivoDiaNaoUtil">
+            <h2><span jhiTranslate="orgcontrolApp.motivoDiaNaoUtil.detail.title">Motivo Dia Nao Util</span> {{motivoDiaNaoUtil.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.motivoDiaNaoUtil.nome">Nome</span></dt>
+                <dd>
+                    <span>{{motivoDiaNaoUtil.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.motivoDiaNaoUtil.obs">Obs</span></dt>
+                <dd>
+                    <span>{{motivoDiaNaoUtil.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.motivoDiaNaoUtil.diaNaoUtil">Dia Nao Util</span></dt>
+                <dd>
+                    <div *ngIf="motivoDiaNaoUtil.diaNaoUtil">
+                        <a [routerLink]="['/dia-nao-util', motivoDiaNaoUtil.diaNaoUtil?.id, 'view']">{{motivoDiaNaoUtil.diaNaoUtil?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/motivo-dia-nao-util', motivoDiaNaoUtil.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

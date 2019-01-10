@@ -1,0 +1,50 @@
+{
+    "name": "Localizacao",
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "latitude",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "altitude",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "endereco",
+            "otherEntityName": "endereco",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "localizacao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bloco",
+            "otherEntityName": "bloco",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "localizacao"
+        }
+    ],
+    "changelogDate": "20190110122434",
+    "entityTableName": "localizacao",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,64 @@
+{
+    "name": "Materia",
+    "fields": [
+        {
+            "fieldName": "abreviatura",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 500
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "horarioMateria",
+            "otherEntityName": "horarioMateria",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "materia"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "diario",
+            "otherEntityName": "diario",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "materia"
+        }
+    ],
+    "changelogDate": "20190110122553",
+    "entityTableName": "materia",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

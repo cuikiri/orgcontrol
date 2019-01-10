@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="caracteristicasPsiquicas">
+            <h2><span jhiTranslate="orgcontrolApp.caracteristicasPsiquicas.detail.title">Caracteristicas Psiquicas</span> {{caracteristicasPsiquicas.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.caracteristicasPsiquicas.nome">Nome</span></dt>
+                <dd>
+                    <span>{{caracteristicasPsiquicas.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.caracteristicasPsiquicas.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="caracteristicasPsiquicas.aluno">
+                        <a [routerLink]="['/aluno', caracteristicasPsiquicas.aluno?.id, 'view']">{{caracteristicasPsiquicas.aluno?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/caracteristicas-psiquicas', caracteristicasPsiquicas.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{
+    "name": "TipoAcompanhamentoAtividade",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "acompanhamentoAtividade",
+            "otherEntityName": "acompanhamentoAtividade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tipoAcompanhamentoAtividade"
+        }
+    ],
+    "changelogDate": "20190110122605",
+    "entityTableName": "tipo_acompanhamento_atividade",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

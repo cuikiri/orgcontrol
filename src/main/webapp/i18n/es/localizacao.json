@@ -1,0 +1,26 @@
+{
+    "orgcontrolApp": {
+        "localizacao": {
+            "home": {
+                "title": "Localizacaos",
+                "createLabel": "Crear nuevo Localizacao",
+                "createOrEditLabel": "Crear o editar Localizacao"
+            },
+            "created": "Un nuevo Localizacao ha sido creado con el identificador {{ param }}",
+            "updated": "Un Localizacao ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Localizacao ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Localizacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Localizacao"
+            },
+            "descricao": "Descricao",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "altitude": "Altitude",
+            "endereco": "Endereco",
+            "bloco": "Bloco"
+        }
+    }
+}

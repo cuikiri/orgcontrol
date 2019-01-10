@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="advertencia">
+            <h2><span jhiTranslate="orgcontrolApp.advertencia.detail.title">Advertencia</span> {{advertencia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.advertencia.nome">Nome</span></dt>
+                <dd>
+                    <span>{{advertencia.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.advertencia.data">Data</span></dt>
+                <dd>
+                    <span>{{advertencia.data}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.advertencia.dataAdvertencia">Data Advertencia</span></dt>
+                <dd>
+                    <span>{{advertencia.dataAdvertencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.advertencia.horaAdvertencia">Hora Advertencia</span></dt>
+                <dd>
+                    <span>{{advertencia.horaAdvertencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.advertencia.resumo">Resumo</span></dt>
+                <dd>
+                    <span>{{advertencia.resumo}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.advertencia.obs">Obs</span></dt>
+                <dd>
+                    <span>{{advertencia.obs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.advertencia.aluno">Aluno</span></dt>
+                <dd>
+                    <div *ngIf="advertencia.aluno">
+                        <a [routerLink]="['/aluno', advertencia.aluno?.id, 'view']">{{advertencia.aluno?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/advertencia', advertencia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

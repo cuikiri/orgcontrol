@@ -1,0 +1,14 @@
+{
+    "orgcontrolApp": {
+        "Regiao": {
+            "null": "",
+            "CENTRAL": "CENTRAL",
+            "LESTE": "LESTE",
+            "OESTE": "OESTE",
+            "NORTE": "NORTE",
+            "SUL": "SUL",
+            "SUDESTE": "SUDESTE",
+            "NORDESTE": "NORDESTE"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoUnidade">
+            <h2><span jhiTranslate="orgcontrolApp.tipoUnidade.detail.title">Tipo Unidade</span> {{tipoUnidade.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orgcontrolApp.tipoUnidade.nome">Nome</span></dt>
+                <dd>
+                    <span>{{tipoUnidade.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orgcontrolApp.tipoUnidade.obs">Obs</span></dt>
+                <dd>
+                    <span>{{tipoUnidade.obs}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-unidade', tipoUnidade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+    "orgcontrolApp": {
+        "respAtivOptativa": {
+            "home": {
+                "title": "Resp Ativ Optativas",
+                "createLabel": "Criar novo Resp Ativ Optativa",
+                "createOrEditLabel": "Criar ou editar Resp Ativ Optativa"
+            },
+            "created": "Um novo Resp Ativ Optativa foi criado com o identificador {{ param }}",
+            "updated": "Um Resp Ativ Optativa foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Resp Ativ Optativa foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Resp Ativ Optativa {{ id }}?"
+            },
+            "detail": {
+                "title": "Resp Ativ Optativa"
+            },
+            "data": "Data",
+            "opcaoResposta": "Opcao Resposta",
+            "itemAcompanhamentoAtividade": "Item Acompanhamento Atividade",
+            "respostaAtividade": "Resposta Atividade"
+        }
+    }
+}

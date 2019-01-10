@@ -1,0 +1,33 @@
+{
+    "orgcontrolApp": {
+        "eleicao": {
+            "home": {
+                "title": "Eleicaos",
+                "createLabel": "Create a new Eleicao",
+                "createOrEditLabel": "Create or edit a Eleicao"
+            },
+            "created": "A new Eleicao is created with identifier {{ param }}",
+            "updated": "A Eleicao is updated with identifier {{ param }}",
+            "deleted": "A Eleicao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Eleicao {{ id }}?"
+            },
+            "detail": {
+                "title": "Eleicao"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "anoEleicao": "Ano Eleicao",
+            "dataPleito": "Data Pleito",
+            "totalEleitores": "Total Eleitores",
+            "totaVotos": "Tota Votos",
+            "local": "Local",
+            "hora": "Hora",
+            "obs": "Obs",
+            "chapaGanhadora": "Chapa Ganhadora",
+            "chapa": "Chapa",
+            "instituicao": "Instituicao",
+            "unidade": "Unidade"
+        }
+    }
+}

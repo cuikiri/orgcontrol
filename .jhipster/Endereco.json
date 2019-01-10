@@ -1,0 +1,141 @@
+{
+    "name": "Endereco",
+    "fields": [
+        {
+            "fieldName": "tipoResidencia",
+            "fieldType": "TipoResidencia",
+            "fieldValues": "CASA,APARTAMENTO,SITIO,FAZENDA"
+        },
+        {
+            "fieldName": "tipoEndereco",
+            "fieldType": "EnderecoTipo",
+            "fieldValues": "RESIDENCIAL,COMERCIAL,ESTUDANTIL"
+        },
+        {
+            "fieldName": "tipoLogradouro",
+            "fieldType": "TipoLogradouro",
+            "fieldValues": "RUA,AVENIDA,TRAVESSA,ESTRADA,RODOVIA"
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": 99999
+        },
+        {
+            "fieldName": "bairro",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "tipoBairoo",
+            "fieldType": "TipoBairro",
+            "fieldValues": "RESIDENCIAL,COMERCIAL,INDUSTRIAL",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "zona",
+            "fieldType": "Regiao",
+            "fieldValues": "CENTRAL,LESTE,OESTE,NORTE,SUL,SUDESTE,NORDESTE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cep",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "bloco",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "apto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "complemento",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "cidade",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "estado",
+            "otherEntityName": "uf",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "endereco"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "localizacao",
+            "otherEntityName": "localizacao",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "endereco"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "endereco"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190110122436",
+    "entityTableName": "endereco",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
