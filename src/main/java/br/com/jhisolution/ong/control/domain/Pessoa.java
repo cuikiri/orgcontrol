@@ -1,17 +1,32 @@
 package br.com.jhisolution.ong.control.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A Pessoa.
@@ -31,6 +46,17 @@ public class Pessoa implements Serializable {
     @Size(max = 50)
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
+    
+    @Column(name = "nascimento")
+    private LocalDate nascimento;
+
+    @Size(max = 12)
+    @Column(name = "rg", length = 12)
+    private String rg;
+
+    @Size(max = 15)
+    @Column(name = "cpf", length = 15)
+    private String cpf;
 
     @OneToMany(mappedBy = "pessoa")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -74,8 +100,27 @@ public class Pessoa implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("irmaos")
     private Aluno alunoIrmao;
+    
+    @OneToOne(mappedBy = "pessoa", fetch=FetchType.LAZY)
+    @JsonIgnore
+    private User user;
+    
+    @ManyToMany(mappedBy = "pessoas", fetch=FetchType.LAZY)
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Grupo> grupos = new HashSet<>();
+    
+    @OneToMany(mappedBy = "pessoa", fetch=FetchType.LAZY)
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Aluno> alunos = new HashSet<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Pessoa() {}
+    
+    public static Pessoa getInstance() {
+    	return new Pessoa();
+    }
+    
     public Long getId() {
         return id;
     }
@@ -88,34 +133,12 @@ public class Pessoa implements Serializable {
         return nome;
     }
 
-    public Pessoa nome(String nome) {
-        this.nome = nome;
-        return this;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     public Set<Telefone> getTelefones() {
         return telefones;
-    }
-
-    public Pessoa telefones(Set<Telefone> telefones) {
-        this.telefones = telefones;
-        return this;
-    }
-
-    public Pessoa addTelefone(Telefone telefone) {
-        this.telefones.add(telefone);
-        telefone.setPessoa(this);
-        return this;
-    }
-
-    public Pessoa removeTelefone(Telefone telefone) {
-        this.telefones.remove(telefone);
-        telefone.setPessoa(null);
-        return this;
     }
 
     public void setTelefones(Set<Telefone> telefones) {
@@ -126,46 +149,12 @@ public class Pessoa implements Serializable {
         return emails;
     }
 
-    public Pessoa emails(Set<Email> emails) {
-        this.emails = emails;
-        return this;
-    }
-
-    public Pessoa addEmail(Email email) {
-        this.emails.add(email);
-        email.setPessoa(this);
-        return this;
-    }
-
-    public Pessoa removeEmail(Email email) {
-        this.emails.remove(email);
-        email.setPessoa(null);
-        return this;
-    }
-
     public void setEmails(Set<Email> emails) {
         this.emails = emails;
     }
 
     public Set<Endereco> getEnderecos() {
         return enderecos;
-    }
-
-    public Pessoa enderecos(Set<Endereco> enderecos) {
-        this.enderecos = enderecos;
-        return this;
-    }
-
-    public Pessoa addEndereco(Endereco endereco) {
-        this.enderecos.add(endereco);
-        endereco.setPessoa(this);
-        return this;
-    }
-
-    public Pessoa removeEndereco(Endereco endereco) {
-        this.enderecos.remove(endereco);
-        endereco.setPessoa(null);
-        return this;
     }
 
     public void setEnderecos(Set<Endereco> enderecos) {
@@ -176,46 +165,12 @@ public class Pessoa implements Serializable {
         return documentos;
     }
 
-    public Pessoa documentos(Set<Documento> documentos) {
-        this.documentos = documentos;
-        return this;
-    }
-
-    public Pessoa addDocumento(Documento documento) {
-        this.documentos.add(documento);
-        documento.setPessoa(this);
-        return this;
-    }
-
-    public Pessoa removeDocumento(Documento documento) {
-        this.documentos.remove(documento);
-        documento.setPessoa(null);
-        return this;
-    }
-
     public void setDocumentos(Set<Documento> documentos) {
         this.documentos = documentos;
     }
 
     public Set<Aviso> getAvisos() {
         return avisos;
-    }
-
-    public Pessoa avisos(Set<Aviso> avisos) {
-        this.avisos = avisos;
-        return this;
-    }
-
-    public Pessoa addAviso(Aviso aviso) {
-        this.avisos.add(aviso);
-        aviso.getPessoas().add(this);
-        return this;
-    }
-
-    public Pessoa removeAviso(Aviso aviso) {
-        this.avisos.remove(aviso);
-        aviso.getPessoas().remove(this);
-        return this;
     }
 
     public void setAvisos(Set<Aviso> avisos) {
@@ -226,11 +181,6 @@ public class Pessoa implements Serializable {
         return colaborador;
     }
 
-    public Pessoa colaborador(Colaborador colaborador) {
-        this.colaborador = colaborador;
-        return this;
-    }
-
     public void setColaborador(Colaborador colaborador) {
         this.colaborador = colaborador;
     }
@@ -239,35 +189,12 @@ public class Pessoa implements Serializable {
         return responsavel;
     }
 
-    public Pessoa responsavel(Responsavel responsavel) {
-        this.responsavel = responsavel;
-        return this;
-    }
-
     public void setResponsavel(Responsavel responsavel) {
         this.responsavel = responsavel;
     }
 
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-    public Pessoa aluno(Aluno aluno) {
-        this.aluno = aluno;
-        return this;
-    }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
-
     public Aluno getAlunoMae() {
         return alunoMae;
-    }
-
-    public Pessoa alunoMae(Aluno aluno) {
-        this.alunoMae = aluno;
-        return this;
     }
 
     public void setAlunoMae(Aluno aluno) {
@@ -278,11 +205,6 @@ public class Pessoa implements Serializable {
         return alunoPai;
     }
 
-    public Pessoa alunoPai(Aluno aluno) {
-        this.alunoPai = aluno;
-        return this;
-    }
-
     public void setAlunoPai(Aluno aluno) {
         this.alunoPai = aluno;
     }
@@ -291,15 +213,9 @@ public class Pessoa implements Serializable {
         return alunoIrmao;
     }
 
-    public Pessoa alunoIrmao(Aluno aluno) {
-        this.alunoIrmao = aluno;
-        return this;
-    }
-
     public void setAlunoIrmao(Aluno aluno) {
         this.alunoIrmao = aluno;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -310,22 +226,78 @@ public class Pessoa implements Serializable {
             return false;
         }
         Pessoa pessoa = (Pessoa) o;
-        if (pessoa.getId() == null || getId() == null) {
+        if(pessoa.id == null || id == null) {
             return false;
         }
-        return Objects.equals(getId(), pessoa.getId());
+        return Objects.equals(id, pessoa.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getId());
+        return Objects.hashCode(id);
     }
 
     @Override
     public String toString() {
         return "Pessoa{" +
-            "id=" + getId() +
-            ", nome='" + getNome() + "'" +
-            "}";
+            "id=" + id +
+            ", nome='" + nome + "'" +
+            '}';
     }
+
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(Set<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
+	public Set<Grupo> getGrupos() {
+		return grupos;
+	}
+
+	public void setGrupos(Set<Grupo> grupos) {
+		this.grupos = grupos;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
 }

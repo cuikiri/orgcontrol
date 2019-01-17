@@ -159,4 +159,11 @@ public class PessoaServiceImpl implements PessoaService {
         log.debug("Request to delete Pessoa : {}", id);
         pessoaRepository.deleteById(id);
     }
+    
+    @Transactional(readOnly = true)
+	public Pessoa findOneByUser(Long id) {
+    	log.debug("Request to get Pessoa by User: {}", id);
+	    Pessoa pessoa = pessoaRepository.findOneByUser(id);
+	    return pessoa;
+	}
 }

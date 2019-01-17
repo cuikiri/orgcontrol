@@ -4,6 +4,7 @@ import br.com.jhisolution.ong.control.OrgcontrolApp;
 
 import br.com.jhisolution.ong.control.domain.Pessoa;
 import br.com.jhisolution.ong.control.repository.PessoaRepository;
+import br.com.jhisolution.ong.control.repository.UserRepository;
 import br.com.jhisolution.ong.control.service.PessoaService;
 import br.com.jhisolution.ong.control.web.rest.errors.ExceptionTranslator;
 
@@ -59,6 +60,9 @@ public class PessoaResourceIntTest {
 
     @Autowired
     private PessoaService pessoaService;
+    
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -79,7 +83,7 @@ public class PessoaResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final PessoaResource pessoaResource = new PessoaResource(pessoaService);
+        final PessoaResource pessoaResource = new PessoaResource(pessoaService, userRepository);
         this.restPessoaMockMvc = MockMvcBuilders.standaloneSetup(pessoaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -94,8 +98,8 @@ public class PessoaResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static Pessoa createEntity(EntityManager em) {
-        Pessoa pessoa = new Pessoa()
-            .nome(DEFAULT_NOME);
+        Pessoa pessoa = Pessoa.getInstance();
+        pessoa.setNome(DEFAULT_NOME);
         return pessoa;
     }
 
@@ -175,7 +179,7 @@ public class PessoaResourceIntTest {
     
     @SuppressWarnings({"unchecked"})
     public void getAllPessoasWithEagerRelationshipsIsEnabled() throws Exception {
-        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock);
+        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock, userRepository);
         when(pessoaServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
 
         MockMvc restPessoaMockMvc = MockMvcBuilders.standaloneSetup(pessoaResource)
@@ -192,7 +196,7 @@ public class PessoaResourceIntTest {
 
     @SuppressWarnings({"unchecked"})
     public void getAllPessoasWithEagerRelationshipsIsNotEnabled() throws Exception {
-        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock);
+        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock, userRepository);
             when(pessoaServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
             MockMvc restPessoaMockMvc = MockMvcBuilders.standaloneSetup(pessoaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
@@ -241,7 +245,7 @@ public class PessoaResourceIntTest {
         // Disconnect from session so that the updates on updatedPessoa are not directly saved in db
         em.detach(updatedPessoa);
         updatedPessoa
-            .nome(UPDATED_NOME);
+            .setNome(UPDATED_NOME);
 
         restPessoaMockMvc.perform(put("/api/pessoas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
