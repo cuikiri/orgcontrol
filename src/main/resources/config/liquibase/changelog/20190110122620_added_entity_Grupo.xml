@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Grupo.
+    -->
+    <changeSet id="20170221162703-1" author="jhipster">
+        <createTable tableName="grupo">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="data_cadastro" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="habilitado" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+			<column name="user_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="grupo" columnName="data_cadastro" columnDataType="datetime"/>
+        
+        <createTable tableName="grupo_post">
+            <column name="posts_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="grupos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="grupos_id, posts_id" tableName="grupo_post"/>
+        
+        <createTable tableName="grupo_pessoa">
+            <column name="pessoas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="grupos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="grupos_id, pessoas_id" tableName="grupo_pessoa"/>
+        
+    </changeSet>
+</databaseChangeLog>

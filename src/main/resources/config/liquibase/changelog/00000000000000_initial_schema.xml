@@ -42,7 +42,57 @@
             </column>
             <column name="last_modified_by" type="varchar(50)"/>
             <column name="last_modified_date" type="timestamp"/>
+            
+            <column name="foto_id" type="bigint">
+                <constraints unique="true"/>
+            </column>
+            <column name="foto_icon_id" type="bigint">
+                <constraints unique="true"/>
+            </column>
+            <column name="foto_avatar_id" type="bigint">
+                <constraints unique="true"/>
+            </column>
+            <column name="pessoa_id" type="bigint">
+                <constraints unique="true"/>
+            </column>
         </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="foto_id"
+                                 baseTableName="jhi_user"
+                                 constraintName="fk_user_foto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="foto"/>
+                                 
+        <addForeignKeyConstraint baseColumnNames="foto_icon_id"
+                                 baseTableName="jhi_user"
+                                 constraintName="fk_user_foto_icon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="foto_icon"/>
+          
+        <addForeignKeyConstraint baseColumnNames="foto_avatar_id"
+                                 baseTableName="jhi_user"
+                                 constraintName="fk_user_foto_avatar_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="foto_avatar"/>
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="foto"
+                                 constraintName="fk_foto_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="foto_icon"
+                                 constraintName="fk_foto_icon_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="foto_avatar"
+                                 constraintName="fk_foto_avatar_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
 
         <createTable tableName="jhi_authority">
             <column name="name" type="varchar(50)">
