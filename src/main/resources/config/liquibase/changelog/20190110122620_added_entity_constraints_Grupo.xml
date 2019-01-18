@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Grupo.
     -->
-    <changeSet id="20170221162703-2" author="jhipster">
+    <changeSet id="20190110122620-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="grupos_id"
                                  baseTableName="grupo_post"

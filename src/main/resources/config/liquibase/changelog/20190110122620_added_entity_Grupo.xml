@@ -17,7 +17,7 @@
     <!--
         Added the entity Grupo.
     -->
-    <changeSet id="20170221162703-1" author="jhipster">
+    <changeSet id="20190110122620-1" author="jhipster">
         <createTable tableName="grupo">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
