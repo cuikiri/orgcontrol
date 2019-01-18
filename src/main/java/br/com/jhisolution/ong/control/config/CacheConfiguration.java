@@ -37,7 +37,11 @@ public class CacheConfiguration {
             cm.createCache(br.com.jhisolution.ong.control.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Authority.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.User.class.getName() + ".posts", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.User.class.getName() + ".comentarios", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.User.class.getName() + ".respostas", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.User.class.getName() + ".grupos", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Localizacao.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Uf.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Endereco.class.getName(), jcacheConfiguration);
@@ -49,8 +53,13 @@ public class CacheConfiguration {
             cm.createCache(br.com.jhisolution.ong.control.domain.Pessoa.class.getName() + ".enderecos", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Pessoa.class.getName() + ".documentos", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Pessoa.class.getName() + ".avisos", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Pessoa.class.getName() + ".grupos", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Pessoa.class.getName() + ".alunos", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Aviso.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Aviso.class.getName() + ".pessoas", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Grupo.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Grupo.class.getName() + ".posts", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Grupo.class.getName() + ".pessoas", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Documento.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.FotoDocumento.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.TipoDocumento.class.getName(), jcacheConfiguration);
@@ -228,6 +237,18 @@ public class CacheConfiguration {
             cm.createCache(br.com.jhisolution.ong.control.domain.RespAvalOptativa.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.RespAvalOptativa.class.getName() + ".opcaoRespostas", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.OpcaoRespAvalOptativa.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Imagem.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.ImagemAvatar.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.ImageIcon.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Foto.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.FotoAvatar.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.FotoIcon.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Post.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Post.class.getName() + ".comentarios", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Post.class.getName() + ".grupos", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Comentario.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Comentario.class.getName() + ".respostas", jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Resposta.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
