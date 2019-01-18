@@ -10,7 +10,24 @@
             <jhi-alert-error></jhi-alert-error>
 
             <form name="form" role="form" (ngSubmit)="save()" #settingsForm="ngForm" *ngIf="settingsAccount" novalidate>
-
+				<div class="form-group" ngf-drop ngf-change="vm.setConteudo($file, vm.imagem)" ngf-pattern="'image/*'">
+		            <div>
+		                <img data-ng-src="{{'data:' + vm.imagem.conteudoContentType + ';base64,' + vm.imagem.conteudo}}" style="max-height: 200px;" ng-if="vm.imagem.conteudo"/>
+		                <div ng-if="vm.post.imagem.conteudo" class="help-block clearfix">
+		                    <span class="pull-left">{{vm.imagem.conteudoContentType}}, {{vm.byteSize(vm.post.imagem.conteudo)}}</span>
+		                    <button ng-click="vm.imagem.conteudo=null;vm.imagem.conteudoContentType=null;"
+		                            class="btn btn-default btn-xs pull-right">
+		                        <span class="glyphicon glyphicon-remove"></span>
+		                    </button>
+		                </div>
+		                <button type="file" ngf-select class="btn btn-default btn-block" ng-disabled="vm.post.id"
+		                        ngf-change="vm.setConteudo($file, vm.imagem)" accept="image/*" translate="entity.action.addimage">
+		                    Add image
+		                </button>
+		            </div>
+		            <input type="hidden" class="form-control" name="conteudo" id="field_conteudo" ng-model="vm.imagem.conteudo" />
+		            <input type="hidden" class="form-control" name="conteudoContentType" id="field_conteudoContentType" ng-model="vm.imagem.conteudoContentType" />
+		        </div>
                 <div class="form-group">
                     <label class="form-control-label" for="firstName" jhiTranslate="settings.form.firstname">First Name</label>
                     <input type="text" class="form-control" id="firstName" name="firstName" placeholder="{{'settings.form.firstname.placeholder' | translate}}"
@@ -79,6 +96,14 @@
                     </select>
                 </div>
                 <button type="submit" [disabled]="settingsForm.form.invalid" class="btn btn-primary" jhiTranslate="settings.form.button">Save</button>
+                <div class="btn-group" role="group" aria-label="...">
+                	<button type="button" class="btn btn-default" translate="settings.form.dadosPessoais" ui-sref="pessoa.new">Dados Pessoais</button>
+                	<button type="button" ng-disabled="!vm.pessoa.id" class="btn btn-default" translate="settings.form.endereco" ui-sref="endereco">Endereço</button>
+			        <button type="button" ng-disabled="!vm.pessoa.id" class="btn btn-default" translate="settings.form.telefone" ui-sref="telefone">Telefone</button>
+        			<button type="button" ng-disabled="!vm.pessoa.id" class="btn btn-default" translate="settings.form.email" ui-sref="email">Email</button>
+        			<button type="button" ng-disabled="!vm.pessoa.id" class="btn btn-default" translate="settings.form.documento" ui-sref="documento">Documento</button>
+        			<button type="button" ng-disabled="!vm.pessoa.id" class="btn btn-default" translate="settings.form.matricula" ui-sref="aluno-matricula">Matrícula</button>
+				</div>
             </form>
         </div>
     </div>

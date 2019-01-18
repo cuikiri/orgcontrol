@@ -62,18 +62,4 @@ export class SettingsComponent implements OnInit {
             imageUrl: account.imageUrl
         };
     }
-
-    setConteudo = function($file, imagem) {
-        if ($file && $file.$error === 'pattern') {
-            return;
-        }
-        if ($file) {
-            DataUtils.toBase64($file, function(base64Data) {
-                $scope.$apply(function() {
-                    imagem.conteudo = base64Data;
-                    imagem.conteudoContentType = $file.type;
-                });
-            });
-        }
-    };
 }
