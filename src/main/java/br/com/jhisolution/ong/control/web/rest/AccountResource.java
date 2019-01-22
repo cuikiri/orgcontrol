@@ -126,6 +126,13 @@ public class AccountResource {
         if (!user.isPresent()) {
             throw new InternalServerErrorException("User could not be found");
         }
+        
+        if (userDTO.getFoto() == null) {
+        	log.info("Foto não encontrada");
+        } else {
+        	log.info("Foto encontrada");
+        }
+        
         userService.updateUser(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(),
             userDTO.getLangKey(), userDTO.getImageUrl());
     }

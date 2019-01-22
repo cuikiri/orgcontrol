@@ -4,6 +4,7 @@ import br.com.jhisolution.ong.control.config.Constants;
 
 import br.com.jhisolution.ong.control.domain.Authority;
 import br.com.jhisolution.ong.control.domain.User;
+import br.com.jhisolution.ong.control.web.rest.dto.FotoDTO;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -52,6 +53,8 @@ public class UserDTO {
     private Instant lastModifiedDate;
 
     private Set<String> authorities;
+    
+    private FotoDTO foto;
 
     public UserDTO() {
         // Empty constructor needed for Jackson.
@@ -196,4 +199,12 @@ public class UserDTO {
             ", authorities=" + authorities +
             "}";
     }
+
+	public FotoDTO getFoto() {
+		return foto;
+	}
+
+	public void setFoto(FotoDTO foto) {
+		this.foto = foto;
+	}
 }

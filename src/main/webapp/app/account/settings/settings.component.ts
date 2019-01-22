@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { JhiLanguageService } from 'ng-jhipster';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { JhiLanguageService, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
 import { Principal, AccountService, JhiLanguageHelper } from 'app/core';
+
+import { IFotoUser, FotoUser } from 'app/shared/model/foto-user.model';
 
 @Component({
     selector: 'jhi-settings',
@@ -12,9 +14,12 @@ export class SettingsComponent implements OnInit {
     success: string;
     settingsAccount: any;
     languages: any[];
-    imagem = { user: null, conteudo: null, conteudoContentType: null, id: null };
+    fotoUser: IFotoUser;
 
     constructor(
+        private dataUtils: JhiDataUtils,
+        private jhiAlertService: JhiAlertService,
+        private elementRef: ElementRef,
         private account: AccountService,
         private principal: Principal,
         private languageService: JhiLanguageService,
@@ -28,9 +33,37 @@ export class SettingsComponent implements OnInit {
         this.languageHelper.getAll().then(languages => {
             this.languages = languages;
         });
+
+        this.fotoUser = new FotoUser();
+    }
+
+    byteSize(field) {
+        return this.dataUtils.byteSize(field);
+    }
+
+    openFile(contentType, field) {
+        return this.dataUtils.openFile(contentType, field);
+    }
+
+    setFileData(event, entity, field, isImage) {
+        this.dataUtils.setFileData(event, entity, field, isImage);
+    }
+
+    clearInputImage(field: string, fieldContentType: string, idInput: string) {
+        this.dataUtils.clearInputImage(this.fotoUser, this.elementRef, field, fieldContentType, idInput);
     }
 
     save() {
+        if (this.fotoUser) {
+            alert('Tem foto');
+
+            if (this.fotoUser.conteudo) {
+                alert('No foto');
+            }
+
+            this.settingsAccount.foto = this.fotoUser;
+        }
+
         this.account.save(this.settingsAccount).subscribe(
             () => {
                 this.error = null;
@@ -59,7 +92,8 @@ export class SettingsComponent implements OnInit {
             langKey: account.langKey,
             lastName: account.lastName,
             login: account.login,
-            imageUrl: account.imageUrl
+            imageUrl: account.imageUrl,
+            foto: account.imageUrl
         };
     }
 }
