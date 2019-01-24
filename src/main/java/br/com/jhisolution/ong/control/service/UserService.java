@@ -1,16 +1,19 @@
 package br.com.jhisolution.ong.control.service;
 
-import br.com.jhisolution.ong.control.config.Constants;
-import br.com.jhisolution.ong.control.domain.Authority;
-import br.com.jhisolution.ong.control.domain.User;
-import br.com.jhisolution.ong.control.repository.AuthorityRepository;
-import br.com.jhisolution.ong.control.repository.UserRepository;
-import br.com.jhisolution.ong.control.security.AuthoritiesConstants;
-import br.com.jhisolution.ong.control.security.SecurityUtils;
-import br.com.jhisolution.ong.control.service.dto.UserDTO;
-import br.com.jhisolution.ong.control.service.util.RandomUtil;
-import br.com.jhisolution.ong.control.web.rest.errors.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import javax.imageio.ImageIO;
+
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -21,10 +24,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.stream.Collectors;
+import br.com.jhisolution.ong.control.config.Constants;
+import br.com.jhisolution.ong.control.domain.Authority;
+import br.com.jhisolution.ong.control.domain.Foto;
+import br.com.jhisolution.ong.control.domain.FotoAvatar;
+import br.com.jhisolution.ong.control.domain.FotoIcon;
+import br.com.jhisolution.ong.control.domain.User;
+import br.com.jhisolution.ong.control.domain.util.UtilDomain;
+import br.com.jhisolution.ong.control.repository.AuthorityRepository;
+import br.com.jhisolution.ong.control.repository.UserRepository;
+import br.com.jhisolution.ong.control.security.AuthoritiesConstants;
+import br.com.jhisolution.ong.control.security.SecurityUtils;
+import br.com.jhisolution.ong.control.service.dto.UserDTO;
+import br.com.jhisolution.ong.control.service.util.RandomUtil;
+import br.com.jhisolution.ong.control.web.rest.dto.FotoDTO;
+import br.com.jhisolution.ong.control.web.rest.errors.EmailAlreadyUsedException;
+import br.com.jhisolution.ong.control.web.rest.errors.InvalidPasswordException;
+import br.com.jhisolution.ong.control.web.rest.errors.LoginAlreadyUsedException;
 
 /**
  * Service class for managing users.
@@ -290,4 +306,49 @@ public class UserService {
         Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE)).evict(user.getLogin());
         Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE)).evict(user.getEmail());
     }
+    
+    public void updateUserInformation(String firstName, String lastName, String email, String langKey, FotoDTO fotoDto) {
+    	
+      	 
+  		 
+        userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get()).ifPresent(u -> {
+        	
+        	try {
+
+        		Foto foto = Foto.getInstance(fotoDto.getConteudo(), fotoDto.getConteudoContentType());
+        		
+	        	ByteArrayInputStream bais = new ByteArrayInputStream(fotoDto.getConteudo());
+		    	
+		    	BufferedImage fotoAux = ImageIO.read(bais);
+		    
+		    	BufferedImage fotoSmall = Scalr.resize(fotoAux, Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH, 60, 60, Scalr.OP_ANTIALIAS);
+		    	
+		    	FotoIcon fotoIcon = FotoIcon.getInstance(UtilDomain.convertBufferedImageToByte(fotoSmall), fotoDto.getConteudoContentType());
+		    
+		    	BufferedImage fotoMediu = Scalr.resize(fotoAux, Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH, 200, 200, Scalr.OP_ANTIALIAS);
+		    
+		    	FotoAvatar fotoAvatar = FotoAvatar.getInstance(UtilDomain.convertBufferedImageToByte(fotoMediu), fotoDto.getConteudoContentType());
+		    	
+		    	u.setFirstName(firstName);
+	            u.setLastName(lastName);
+	            u.setEmail(email);
+	            u.setLangKey(langKey);
+	            foto.setUser(u);
+	            u.setFoto(foto);
+	            fotoIcon.setUser(u);
+	            u.setFotoIcon(fotoIcon);
+	            fotoAvatar.setUser(u);
+	            u.setFotoAvatar(fotoAvatar);
+	            userRepository.save(u);
+	            log.debug("Changed Information for User: {}", u);
+	            
+        	} catch (Exception ex) {
+    	    	ex.printStackTrace();
+    	    }
+        	
+            
+        });
+        
+
+}
 }

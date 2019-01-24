@@ -58,7 +58,7 @@ export class SettingsComponent implements OnInit {
             alert('Tem foto');
 
             if (this.fotoUser.conteudo) {
-                alert('No foto');
+                alert('Tem foto conteudo');
             }
 
             this.settingsAccount.foto = this.fotoUser;
