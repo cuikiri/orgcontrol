@@ -32,6 +32,11 @@ export class EnderecoService {
         return this.http.get<IEndereco[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 
+    queryByPessoa(req?: any): Observable<EntityArrayResponseType> {
+        const options = createRequestOption(req);
+        return this.http.get<IEndereco[]>(`${this.resourceUrl}/pessoa`, { params: options, observe: 'response' });
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }

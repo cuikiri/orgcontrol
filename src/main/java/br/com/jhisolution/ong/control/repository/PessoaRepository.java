@@ -25,8 +25,8 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 	Pessoa findOneByUser(@Param("id") Long id);
 	
 	@Modifying
-	@Query("update Pessoa p set p.nome = :nome, p.nascimento = :nascimento, p.rg = :rg, p.cpf = :cpf where p.id = :id")
-	void updateOne(@Param("id") Long id, @Param("nome") String nome, @Param("nascimento") LocalDate nascimento, @Param("rg") String rg, @Param("cpf") String cpf);
+	@Query("update Pessoa p set p.nome = :nome, p.nascimento = :nascimento where p.id = :id")
+	void updateOne(@Param("id") Long id, @Param("nome") String nome, @Param("nascimento") LocalDate nascimento);
 	
     @Query(value = "select distinct pessoa from Pessoa pessoa left join fetch pessoa.avisos",
         countQuery = "select count(distinct pessoa) from Pessoa pessoa")

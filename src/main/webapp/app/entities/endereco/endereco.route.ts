@@ -12,10 +12,11 @@ import { EnderecoDetailComponent } from './endereco-detail.component';
 import { EnderecoUpdateComponent } from './endereco-update.component';
 import { EnderecoDeletePopupComponent } from './endereco-delete-dialog.component';
 import { IEndereco } from 'app/shared/model/endereco.model';
+import { PessoaResolve } from 'app/entities/pessoa/pessoa.route';
 
 @Injectable({ providedIn: 'root' })
 export class EnderecoResolve implements Resolve<IEndereco> {
-    constructor(private service: EnderecoService) {}
+    constructor(private service: EnderecoService, private pessoaResolve: PessoaResolve) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Endereco> {
         const id = route.params['id'] ? route.params['id'] : null;

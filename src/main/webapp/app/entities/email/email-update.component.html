@@ -38,21 +38,6 @@
                         </small>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="orgcontrolApp.email.pessoa" for="field_pessoa">Pessoa</label>
-                    <select class="form-control" id="field_pessoa" name="pessoa" [(ngModel)]="email.pessoa" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="pessoaOption.id === email.pessoa?.id ? email.pessoa : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackPessoaById">{{pessoaOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="orgcontrolApp.email.unidade" for="field_unidade">Unidade</label>
-                    <select class="form-control" id="field_unidade" name="unidade" [(ngModel)]="email.unidade" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="unidadeOption.id === email.unidade?.id ? email.unidade : unidadeOption" *ngFor="let unidadeOption of unidades; trackBy: trackUnidadeById">{{unidadeOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

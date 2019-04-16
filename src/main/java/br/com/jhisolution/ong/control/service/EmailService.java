@@ -1,11 +1,12 @@
 package br.com.jhisolution.ong.control.service;
 
-import br.com.jhisolution.ong.control.domain.Email;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Optional;
+import br.com.jhisolution.ong.control.domain.Email;
+import br.com.jhisolution.ong.control.domain.Pessoa;
 
 /**
  * Service Interface for managing Email.
@@ -28,6 +29,13 @@ public interface EmailService {
      */
     Page<Email> findAll(Pageable pageable);
 
+    /**
+     * Get all the emails.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<Email> findAllByPessoa(Pageable pageable, Pessoa pessoa);
 
     /**
      * Get the "id" email.

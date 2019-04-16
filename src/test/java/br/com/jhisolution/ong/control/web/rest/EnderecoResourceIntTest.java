@@ -1,11 +1,19 @@
 package br.com.jhisolution.ong.control.web.rest;
 
-import br.com.jhisolution.ong.control.OrgcontrolApp;
+import static br.com.jhisolution.ong.control.web.rest.TestUtil.createFormattingConversionService;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import br.com.jhisolution.ong.control.domain.Endereco;
-import br.com.jhisolution.ong.control.repository.EnderecoRepository;
-import br.com.jhisolution.ong.control.service.EnderecoService;
-import br.com.jhisolution.ong.control.web.rest.errors.ExceptionTranslator;
+import java.util.List;
+
+import javax.persistence.EntityManager;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,21 +29,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import java.util.List;
-
-
-import static br.com.jhisolution.ong.control.web.rest.TestUtil.createFormattingConversionService;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import br.com.jhisolution.ong.control.domain.enumeration.TipoResidencia;
+import br.com.jhisolution.ong.control.OrgcontrolApp;
+import br.com.jhisolution.ong.control.domain.Endereco;
 import br.com.jhisolution.ong.control.domain.enumeration.EnderecoTipo;
-import br.com.jhisolution.ong.control.domain.enumeration.TipoLogradouro;
-import br.com.jhisolution.ong.control.domain.enumeration.TipoBairro;
 import br.com.jhisolution.ong.control.domain.enumeration.Regiao;
+import br.com.jhisolution.ong.control.domain.enumeration.TipoBairro;
+import br.com.jhisolution.ong.control.domain.enumeration.TipoLogradouro;
+import br.com.jhisolution.ong.control.domain.enumeration.TipoResidencia;
+import br.com.jhisolution.ong.control.repository.EnderecoRepository;
+import br.com.jhisolution.ong.control.repository.UserRepository;
+import br.com.jhisolution.ong.control.service.EnderecoService;
+import br.com.jhisolution.ong.control.web.rest.errors.ExceptionTranslator;
 /**
  * Test class for the EnderecoResource REST controller.
  *
@@ -86,6 +90,9 @@ public class EnderecoResourceIntTest {
 
     @Autowired
     private EnderecoRepository enderecoRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private EnderecoService enderecoService;
@@ -109,7 +116,7 @@ public class EnderecoResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final EnderecoResource enderecoResource = new EnderecoResource(enderecoService);
+        final EnderecoResource enderecoResource = new EnderecoResource(enderecoService, userRepository);
         this.restEnderecoMockMvc = MockMvcBuilders.standaloneSetup(enderecoResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

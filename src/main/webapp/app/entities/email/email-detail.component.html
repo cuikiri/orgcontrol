@@ -13,18 +13,6 @@
                 <dd>
                     <span>{{email.descricao}}</span>
                 </dd>
-                <dt><span jhiTranslate="orgcontrolApp.email.pessoa">Pessoa</span></dt>
-                <dd>
-                    <div *ngIf="email.pessoa">
-                        <a [routerLink]="['/pessoa', email.pessoa?.id, 'view']">{{email.pessoa?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="orgcontrolApp.email.unidade">Unidade</span></dt>
-                <dd>
-                    <div *ngIf="email.unidade">
-                        <a [routerLink]="['/unidade', email.unidade?.id, 'view']">{{email.unidade?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

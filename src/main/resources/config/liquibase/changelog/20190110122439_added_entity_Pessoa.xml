@@ -30,17 +30,6 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="rg" type="varchar(12)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="cpf" type="varchar(15)">
-                <constraints nullable="true" />
-            </column>
-            <column name="user_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>
-            
             <column name="aluno_irmao_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -57,12 +46,6 @@
         </createTable>
 
         <addPrimaryKey columnNames="pessoas_id, avisos_id" tableName="pessoa_aviso"/>
-        
-        <addForeignKeyConstraint baseColumnNames="pessoa_id"
-                                 baseTableName="jhi_user"
-                                 constraintName="fk_pessoa_usar_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="pessoa"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

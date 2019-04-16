@@ -1,6 +1,7 @@
 package br.com.jhisolution.ong.control.web.rest.dto;
 
 import br.com.jhisolution.ong.control.domain.Foto;
+import br.com.jhisolution.ong.control.domain.FotoAvatar;
 
 public class FotoDTO {
 	private Long id;
@@ -20,6 +21,10 @@ public class FotoDTO {
 	}
 	
 	public static FotoDTO getInstance(Foto foto) {
+		return new FotoDTO(foto.getId(), foto.getConteudo(), foto.getConteudoContentType());
+	}
+	
+	public static FotoDTO getInstance(FotoAvatar foto) {
 		return new FotoDTO(foto.getId(), foto.getConteudo(), foto.getConteudoContentType());
 	}
 	

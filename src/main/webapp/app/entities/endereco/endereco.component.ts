@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { IEndereco } from 'app/shared/model/endereco.model';
+import { IPessoa } from 'app/shared/model/pessoa.model';
 import { Principal } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
@@ -29,6 +30,7 @@ export class EnderecoComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
+    pessoa: IPessoa;
 
     constructor(
         private enderecoService: EnderecoService,
@@ -50,7 +52,7 @@ export class EnderecoComponent implements OnInit, OnDestroy {
 
     loadAll() {
         this.enderecoService
-            .query({
+            .queryByPessoa({
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()
@@ -128,5 +130,9 @@ export class EnderecoComponent implements OnInit, OnDestroy {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    previousState() {
+        window.history.back();
     }
 }

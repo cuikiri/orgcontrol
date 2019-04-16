@@ -1,17 +1,18 @@
 package br.com.jhisolution.ong.control.service.impl;
 
-import br.com.jhisolution.ong.control.service.TelefoneService;
-import br.com.jhisolution.ong.control.domain.Telefone;
-import br.com.jhisolution.ong.control.repository.TelefoneRepository;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
+import br.com.jhisolution.ong.control.domain.Pessoa;
+import br.com.jhisolution.ong.control.domain.Telefone;
+import br.com.jhisolution.ong.control.repository.TelefoneRepository;
+import br.com.jhisolution.ong.control.service.TelefoneService;
 
 /**
  * Service Implementation for managing Telefone.
@@ -53,6 +54,18 @@ public class TelefoneServiceImpl implements TelefoneService {
         return telefoneRepository.findAll(pageable);
     }
 
+    /**
+     * Get all the telefones.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Telefone> findAllByPessoa(Pageable pageable, Pessoa pessoa) {
+        log.debug("Request to get all Telefones");
+        return telefoneRepository.findAllByPessoa(pageable, pessoa);
+    }
 
     /**
      * Get one telefone by id.

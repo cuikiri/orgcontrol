@@ -2,6 +2,9 @@ package br.com.jhisolution.ong.control.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import br.com.jhisolution.ong.control.domain.Telefone;
+import br.com.jhisolution.ong.control.domain.User;
+import br.com.jhisolution.ong.control.repository.UserRepository;
+import br.com.jhisolution.ong.control.security.SecurityUtils;
 import br.com.jhisolution.ong.control.service.TelefoneService;
 import br.com.jhisolution.ong.control.web.rest.errors.BadRequestAlertException;
 import br.com.jhisolution.ong.control.web.rest.util.HeaderUtil;
@@ -35,9 +38,13 @@ public class TelefoneResource {
     private static final String ENTITY_NAME = "telefone";
 
     private final TelefoneService telefoneService;
+    
+    private final UserRepository userRepository;
 
-    public TelefoneResource(TelefoneService telefoneService) {
+    public TelefoneResource(TelefoneService telefoneService,
+    		UserRepository userRepository) {
         this.telefoneService = telefoneService;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -54,6 +61,13 @@ public class TelefoneResource {
         if (telefone.getId() != null) {
             throw new BadRequestAlertException("A new telefone cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        if (Optional.ofNullable(user.get().getPessoa()).isPresent()) {
+        	telefone.setPessoa(user.get().getPessoa());
+        }
+        
         Telefone result = telefoneService.save(telefone);
         return ResponseEntity.created(new URI("/api/telefones/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -93,6 +107,24 @@ public class TelefoneResource {
     public ResponseEntity<List<Telefone>> getAllTelefones(Pageable pageable) {
         log.debug("REST request to get a page of Telefones");
         Page<Telefone> page = telefoneService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/telefones");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
+    /**
+     * GET  /telefones : get all the telefones.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of telefones in body
+     */
+    @GetMapping("/telefones/pessoa")
+    @Timed
+    public ResponseEntity<List<Telefone>> getAllTelefonesByPessoa(Pageable pageable) {
+        log.debug("REST request to get a page of Telefones");
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        Page<Telefone> page = telefoneService.findAllByPessoa(pageable, user.get().getPessoa());
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/telefones");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

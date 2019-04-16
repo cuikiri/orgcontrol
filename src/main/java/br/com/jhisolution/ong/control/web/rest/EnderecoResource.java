@@ -2,6 +2,9 @@ package br.com.jhisolution.ong.control.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import br.com.jhisolution.ong.control.domain.Endereco;
+import br.com.jhisolution.ong.control.domain.User;
+import br.com.jhisolution.ong.control.repository.UserRepository;
+import br.com.jhisolution.ong.control.security.SecurityUtils;
 import br.com.jhisolution.ong.control.service.EnderecoService;
 import br.com.jhisolution.ong.control.web.rest.errors.BadRequestAlertException;
 import br.com.jhisolution.ong.control.web.rest.util.HeaderUtil;
@@ -36,9 +39,13 @@ public class EnderecoResource {
     private static final String ENTITY_NAME = "endereco";
 
     private final EnderecoService enderecoService;
+    
+    private final UserRepository userRepository;
 
-    public EnderecoResource(EnderecoService enderecoService) {
+    public EnderecoResource(EnderecoService enderecoService,
+    		UserRepository userRepository) {
         this.enderecoService = enderecoService;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -55,6 +62,13 @@ public class EnderecoResource {
         if (endereco.getId() != null) {
             throw new BadRequestAlertException("A new endereco cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        if (Optional.ofNullable(user.get().getPessoa()).isPresent()) {
+        	endereco.setPessoa(user.get().getPessoa());
+        }
+        
         Endereco result = enderecoService.save(endereco);
         return ResponseEntity.created(new URI("/api/enderecos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -100,6 +114,30 @@ public class EnderecoResource {
         }
         log.debug("REST request to get a page of Enderecos");
         Page<Endereco> page = enderecoService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/enderecos");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
+    /**
+     * GET  /enderecos : get all the enderecos.
+     *
+     * @param pageable the pagination information
+     * @param filter the filter of the request
+     * @return the ResponseEntity with status 200 (OK) and the list of enderecos in body
+     */
+    @GetMapping("/enderecos/pessoa")
+    @Timed
+    public ResponseEntity<List<Endereco>> getAllEnderecosByPessoa(Pageable pageable, @RequestParam(required = false) String filter) {
+        if ("unidade-is-null".equals(filter)) {
+            log.debug("REST request to get all Enderecos where unidade is null");
+            return new ResponseEntity<>(enderecoService.findAllWhereUnidadeIsNull(),
+                    HttpStatus.OK);
+        }
+        log.debug("REST request to get a page of Enderecos");
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        Page<Endereco> page = enderecoService.findAllByPessoa(pageable, user.get().getPessoa());
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/enderecos");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

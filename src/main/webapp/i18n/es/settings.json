@@ -7,7 +7,13 @@
             "lastname": "Apellidos",
             "lastname.placeholder": "Sus apellidos",
             "language": "Idioma",
-            "button": "Guardar"
+            "button": "Guardar",
+            "endereco": "Endereço",
+            "telefone": "Telefone",
+            "email": "Email",
+            "documento": "Documento",
+            "matricula": "Matricula",
+            "dadosPessoais": "Dados Pessoais"
         },
         "messages": {
             "error": {

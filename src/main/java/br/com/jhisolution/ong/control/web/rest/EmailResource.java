@@ -2,6 +2,9 @@ package br.com.jhisolution.ong.control.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import br.com.jhisolution.ong.control.domain.Email;
+import br.com.jhisolution.ong.control.domain.User;
+import br.com.jhisolution.ong.control.repository.UserRepository;
+import br.com.jhisolution.ong.control.security.SecurityUtils;
 import br.com.jhisolution.ong.control.service.EmailService;
 import br.com.jhisolution.ong.control.web.rest.errors.BadRequestAlertException;
 import br.com.jhisolution.ong.control.web.rest.util.HeaderUtil;
@@ -35,9 +38,13 @@ public class EmailResource {
     private static final String ENTITY_NAME = "email";
 
     private final EmailService emailService;
+    
+    private final UserRepository userRepository;
 
-    public EmailResource(EmailService emailService) {
+    public EmailResource(EmailService emailService,
+    		UserRepository userRepository) {
         this.emailService = emailService;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -54,6 +61,13 @@ public class EmailResource {
         if (email.getId() != null) {
             throw new BadRequestAlertException("A new email cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        if (Optional.ofNullable(user.get().getPessoa()).isPresent()) {
+        	email.setPessoa(user.get().getPessoa());
+        }
+        
         Email result = emailService.save(email);
         return ResponseEntity.created(new URI("/api/emails/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -93,6 +107,24 @@ public class EmailResource {
     public ResponseEntity<List<Email>> getAllEmails(Pageable pageable) {
         log.debug("REST request to get a page of Emails");
         Page<Email> page = emailService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/emails");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
+    /**
+     * GET  /emails : get all the emails.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of emails in body
+     */
+    @GetMapping("/emails/pessoa")
+    @Timed
+    public ResponseEntity<List<Email>> getAllEmailsByPessoa(Pageable pageable) {
+        log.debug("REST request to get a page of Emails");
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        Page<Email> page = emailService.findAllByPessoa(pageable, user.get().getPessoa());
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/emails");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

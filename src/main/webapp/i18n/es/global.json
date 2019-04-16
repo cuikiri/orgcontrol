@@ -5,6 +5,10 @@
         "menu": {
             "home": "Inicio",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "dados": {
+                "controle": "Controle",
+                "auxiliares": "Auxiliares"
+            },
             "entities": {
                 "main": "Entidades",
                 "localizacao": "Localizacao",

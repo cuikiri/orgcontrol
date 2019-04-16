@@ -4,6 +4,7 @@ import br.com.jhisolution.ong.control.OrgcontrolApp;
 
 import br.com.jhisolution.ong.control.domain.Email;
 import br.com.jhisolution.ong.control.repository.EmailRepository;
+import br.com.jhisolution.ong.control.repository.UserRepository;
 import br.com.jhisolution.ong.control.service.EmailService;
 import br.com.jhisolution.ong.control.web.rest.errors.ExceptionTranslator;
 
@@ -48,6 +49,9 @@ public class EmailResourceIntTest {
     private static final String UPDATED_DESCRICAO = "BBBBBBBBBB";
 
     @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
     private EmailRepository emailRepository;
 
     @Autowired
@@ -72,7 +76,7 @@ public class EmailResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final EmailResource emailResource = new EmailResource(emailService);
+        final EmailResource emailResource = new EmailResource(emailService, userRepository);
         this.restEmailMockMvc = MockMvcBuilders.standaloneSetup(emailResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

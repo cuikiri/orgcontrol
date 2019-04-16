@@ -1,11 +1,11 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="orgcontrolApp.endereco.home.title">Enderecos</span>
+        <button type="button" id="cancel-save" class="btn btn-secondary float-right"  (click)="previousState()">
+            <fa-icon [icon]="'ban'"></fa-icon>
+        </button>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-endereco" [routerLink]="['/endereco/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="orgcontrolApp.endereco.home.createLabel">
-            Create new Endereco
-            </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
@@ -15,54 +15,26 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tipoResidencia"><span jhiTranslate="orgcontrolApp.endereco.tipoResidencia">Tipo Residencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tipoEndereco"><span jhiTranslate="orgcontrolApp.endereco.tipoEndereco">Tipo Endereco</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="tipoLogradouro"><span jhiTranslate="orgcontrolApp.endereco.tipoLogradouro">Tipo Logradouro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="nome"><span jhiTranslate="orgcontrolApp.endereco.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="numero"><span jhiTranslate="orgcontrolApp.endereco.numero">Numero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="bairro"><span jhiTranslate="orgcontrolApp.endereco.bairro">Bairro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tipoBairoo"><span jhiTranslate="orgcontrolApp.endereco.tipoBairoo">Tipo Bairoo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="zona"><span jhiTranslate="orgcontrolApp.endereco.zona">Zona</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="cep"><span jhiTranslate="orgcontrolApp.endereco.cep">Cep</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="bloco"><span jhiTranslate="orgcontrolApp.endereco.bloco">Bloco</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="apto"><span jhiTranslate="orgcontrolApp.endereco.apto">Apto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="complemento"><span jhiTranslate="orgcontrolApp.endereco.complemento">Complemento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="cidade"><span jhiTranslate="orgcontrolApp.endereco.cidade">Cidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="estado.nome"><span jhiTranslate="orgcontrolApp.endereco.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="localizacao.id"><span jhiTranslate="orgcontrolApp.endereco.localizacao">Localizacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="pessoa.id"><span jhiTranslate="orgcontrolApp.endereco.pessoa">Pessoa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let endereco of enderecos ;trackBy: trackId">
                 <td><a [routerLink]="['/endereco', endereco.id, 'view' ]">{{endereco.id}}</a></td>
-                <td jhiTranslate="{{'orgcontrolApp.TipoResidencia.' + endereco.tipoResidencia}}">{{endereco.tipoResidencia}}</td>
-                <td jhiTranslate="{{'orgcontrolApp.EnderecoTipo.' + endereco.tipoEndereco}}">{{endereco.tipoEndereco}}</td>
                 <td jhiTranslate="{{'orgcontrolApp.TipoLogradouro.' + endereco.tipoLogradouro}}">{{endereco.tipoLogradouro}}</td>
                 <td>{{endereco.nome}}</td>
                 <td>{{endereco.numero}}</td>
                 <td>{{endereco.bairro}}</td>
-                <td jhiTranslate="{{'orgcontrolApp.TipoBairro.' + endereco.tipoBairoo}}">{{endereco.tipoBairoo}}</td>
-                <td jhiTranslate="{{'orgcontrolApp.Regiao.' + endereco.zona}}">{{endereco.zona}}</td>
-                <td>{{endereco.cep}}</td>
-                <td>{{endereco.bloco}}</td>
-                <td>{{endereco.apto}}</td>
-                <td>{{endereco.complemento}}</td>
                 <td>{{endereco.cidade}}</td>
                 <td>
                     <div *ngIf="endereco.estado">
                         <a [routerLink]="['../uf', endereco.estado?.id, 'view' ]" >{{endereco.estado?.nome}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="endereco.localizacao">
-                        <a [routerLink]="['../localizacao', endereco.localizacao?.id, 'view' ]" >{{endereco.localizacao?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="endereco.pessoa">
-                        <a [routerLink]="['../pessoa', endereco.pessoa?.id, 'view' ]" >{{endereco.pessoa?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -71,13 +43,11 @@
                                 [routerLink]="['/endereco', endereco.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/endereco', endereco.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'endereco/'+ endereco.id + '/delete'} }]"
@@ -85,7 +55,6 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>
                     </div>
                 </td>

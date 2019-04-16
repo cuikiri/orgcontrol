@@ -1,20 +1,21 @@
 package br.com.jhisolution.ong.control.service.impl;
 
-import br.com.jhisolution.ong.control.service.EnderecoService;
-import br.com.jhisolution.ong.control.domain.Endereco;
-import br.com.jhisolution.ong.control.repository.EnderecoRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import br.com.jhisolution.ong.control.domain.Endereco;
+import br.com.jhisolution.ong.control.domain.Pessoa;
+import br.com.jhisolution.ong.control.repository.EnderecoRepository;
+import br.com.jhisolution.ong.control.service.EnderecoService;
 
 /**
  * Service Implementation for managing Endereco.
@@ -55,8 +56,19 @@ public class EnderecoServiceImpl implements EnderecoService {
         log.debug("Request to get all Enderecos");
         return enderecoRepository.findAll(pageable);
     }
-
-
+    
+    /**
+     * Get all the enderecos.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Endereco> findAllByPessoa(Pageable pageable, Pessoa pessoa) {
+        log.debug("Request to get all Enderecos");
+        return enderecoRepository.findAllByPessoa(pageable, pessoa);
+    }
 
     /**
      *  get all the enderecos where Unidade is null.

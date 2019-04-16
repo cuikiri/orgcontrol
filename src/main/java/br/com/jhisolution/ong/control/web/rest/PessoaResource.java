@@ -68,10 +68,23 @@ public class PessoaResource {
     @Timed
     public ResponseEntity<Pessoa> createPessoa(@Valid @RequestBody Pessoa pessoa) throws URISyntaxException {
         log.debug("REST request to save Pessoa : {}", pessoa);
+        
+        Pessoa result = pessoa; 
+        
         if (pessoa.getId() != null) {
             throw new BadRequestAlertException("A new pessoa cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Pessoa result = pessoaService.save(pessoa);
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        		
+        if (user.isPresent()) {
+        	User u = user.get();
+        	pessoa.setUser(u);
+    		u.setPessoa(pessoa);
+    		userRepository.save(u);
+        }
+
+        result.setId(0L);
         return ResponseEntity.created(new URI("/api/pessoas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);

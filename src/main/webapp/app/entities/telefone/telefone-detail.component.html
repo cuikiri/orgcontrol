@@ -13,18 +13,6 @@
                 <dd>
                     <span>{{telefone.numero}}</span>
                 </dd>
-                <dt><span jhiTranslate="orgcontrolApp.telefone.pessoa">Pessoa</span></dt>
-                <dd>
-                    <div *ngIf="telefone.pessoa">
-                        <a [routerLink]="['/pessoa', telefone.pessoa?.id, 'view']">{{telefone.pessoa?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="orgcontrolApp.telefone.unidade">Unidade</span></dt>
-                <dd>
-                    <div *ngIf="telefone.unidade">
-                        <a [routerLink]="['/unidade', telefone.unidade?.id, 'view']">{{telefone.unidade?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

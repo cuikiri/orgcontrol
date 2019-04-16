@@ -172,20 +172,6 @@
                         <option [ngValue]="ufOption.id === endereco.estado?.id ? endereco.estado : ufOption" *ngFor="let ufOption of estados; trackBy: trackUfById">{{ufOption.nome}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.localizacao" for="field_localizacao">Localizacao</label>
-                    <select class="form-control" id="field_localizacao" name="localizacao" [(ngModel)]="endereco.localizacao">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="localizacaoOption.id === endereco.localizacao?.id ? endereco.localizacao : localizacaoOption" *ngFor="let localizacaoOption of localizacaos; trackBy: trackLocalizacaoById">{{localizacaoOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="orgcontrolApp.endereco.pessoa" for="field_pessoa">Pessoa</label>
-                    <select class="form-control" id="field_pessoa" name="pessoa" [(ngModel)]="endereco.pessoa" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="pessoaOption.id === endereco.pessoa?.id ? endereco.pessoa : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackPessoaById">{{pessoaOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

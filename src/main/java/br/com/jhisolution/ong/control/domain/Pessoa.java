@@ -50,14 +50,6 @@ public class Pessoa implements Serializable {
     @Column(name = "nascimento")
     private LocalDate nascimento;
 
-    @Size(max = 12)
-    @Column(name = "rg", length = 12)
-    private String rg;
-
-    @Size(max = 15)
-    @Column(name = "cpf", length = 15)
-    private String cpf;
-
     @OneToMany(mappedBy = "pessoa")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Telefone> telefones = new HashSet<>();
@@ -251,22 +243,6 @@ public class Pessoa implements Serializable {
 
 	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
-	}
-
-	public String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	public User getUser() {

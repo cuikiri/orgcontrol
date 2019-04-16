@@ -25,12 +25,6 @@ export class EnderecoUpdateComponent implements OnInit {
 
     estados: IUf[];
 
-    localizacaos: ILocalizacao[];
-
-    unidades: IUnidade[];
-
-    pessoas: IPessoa[];
-
     constructor(
         private jhiAlertService: JhiAlertService,
         private enderecoService: EnderecoService,
@@ -58,33 +52,6 @@ export class EnderecoUpdateComponent implements OnInit {
                         (subRes: HttpErrorResponse) => this.onError(subRes.message)
                     );
                 }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.localizacaoService.query({ filter: 'endereco-is-null' }).subscribe(
-            (res: HttpResponse<ILocalizacao[]>) => {
-                if (!this.endereco.localizacao || !this.endereco.localizacao.id) {
-                    this.localizacaos = res.body;
-                } else {
-                    this.localizacaoService.find(this.endereco.localizacao.id).subscribe(
-                        (subRes: HttpResponse<ILocalizacao>) => {
-                            this.localizacaos = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.unidadeService.query().subscribe(
-            (res: HttpResponse<IUnidade[]>) => {
-                this.unidades = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.pessoaService.query().subscribe(
-            (res: HttpResponse<IPessoa[]>) => {
-                this.pessoas = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

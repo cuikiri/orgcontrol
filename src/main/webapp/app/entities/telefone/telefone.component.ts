@@ -50,7 +50,7 @@ export class TelefoneComponent implements OnInit, OnDestroy {
 
     loadAll() {
         this.telefoneService
-            .query({
+            .queryByPessoa({
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()
@@ -128,5 +128,9 @@ export class TelefoneComponent implements OnInit, OnDestroy {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    previousState() {
+        window.history.back();
     }
 }

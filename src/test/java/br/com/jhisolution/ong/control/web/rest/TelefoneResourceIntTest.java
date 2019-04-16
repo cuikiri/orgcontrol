@@ -4,6 +4,7 @@ import br.com.jhisolution.ong.control.OrgcontrolApp;
 
 import br.com.jhisolution.ong.control.domain.Telefone;
 import br.com.jhisolution.ong.control.repository.TelefoneRepository;
+import br.com.jhisolution.ong.control.repository.UserRepository;
 import br.com.jhisolution.ong.control.service.TelefoneService;
 import br.com.jhisolution.ong.control.web.rest.errors.ExceptionTranslator;
 
@@ -48,6 +49,9 @@ public class TelefoneResourceIntTest {
     private static final String UPDATED_NUMERO = "BBBBBBBBBB";
 
     @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
     private TelefoneRepository telefoneRepository;
 
     @Autowired
@@ -72,7 +76,7 @@ public class TelefoneResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final TelefoneResource telefoneResource = new TelefoneResource(telefoneService);
+        final TelefoneResource telefoneResource = new TelefoneResource(telefoneService, userRepository);
         this.restTelefoneMockMvc = MockMvcBuilders.standaloneSetup(telefoneResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

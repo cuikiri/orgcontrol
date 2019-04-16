@@ -63,18 +63,6 @@
                         <a [routerLink]="['/uf', endereco.estado?.id, 'view']">{{endereco.estado?.nome}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="orgcontrolApp.endereco.localizacao">Localizacao</span></dt>
-                <dd>
-                    <div *ngIf="endereco.localizacao">
-                        <a [routerLink]="['/localizacao', endereco.localizacao?.id, 'view']">{{endereco.localizacao?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="orgcontrolApp.endereco.pessoa">Pessoa</span></dt>
-                <dd>
-                    <div *ngIf="endereco.pessoa">
-                        <a [routerLink]="['/pessoa', endereco.pessoa?.id, 'view']">{{endereco.pessoa?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

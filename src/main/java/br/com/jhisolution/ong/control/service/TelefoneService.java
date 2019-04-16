@@ -1,11 +1,12 @@
 package br.com.jhisolution.ong.control.service;
 
-import br.com.jhisolution.ong.control.domain.Telefone;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Optional;
+import br.com.jhisolution.ong.control.domain.Pessoa;
+import br.com.jhisolution.ong.control.domain.Telefone;
 
 /**
  * Service Interface for managing Telefone.
@@ -28,6 +29,13 @@ public interface TelefoneService {
      */
     Page<Telefone> findAll(Pageable pageable);
 
+    /**
+     * Get all the telefones.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<Telefone> findAllByPessoa(Pageable pageable, Pessoa pessoa);
 
     /**
      * Get the "id" telefone.

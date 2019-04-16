@@ -36,18 +36,6 @@ export class EmailUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ email }) => {
             this.email = email;
         });
-        this.pessoaService.query().subscribe(
-            (res: HttpResponse<IPessoa[]>) => {
-                this.pessoas = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.unidadeService.query().subscribe(
-            (res: HttpResponse<IUnidade[]>) => {
-                this.unidades = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
     }
 
     previousState() {

@@ -7,7 +7,13 @@
             "lastname": "Last Name",
             "lastname.placeholder": "Your last name",
             "language": "Language",
-            "button": "Save"
+            "button": "Save",
+            "endereco": "Endereço",
+            "telefone": "Telefone",
+            "email": "Email",
+            "documento": "Documento",
+            "matricula": "Matricula",
+            "dadosPessoais": "Dados Pessoais"
         },
         "messages": {
             "error": {

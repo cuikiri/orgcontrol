@@ -5,12 +5,14 @@ import br.com.jhisolution.ong.control.config.Constants;
 import br.com.jhisolution.ong.control.domain.Authority;
 import br.com.jhisolution.ong.control.domain.User;
 import br.com.jhisolution.ong.control.web.rest.dto.FotoDTO;
+import br.com.jhisolution.ong.control.web.rest.dto.PessoaDTO;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import javax.validation.constraints.*;
 import java.time.Instant;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -55,6 +57,8 @@ public class UserDTO {
     private Set<String> authorities;
     
     private FotoDTO foto;
+    
+    private PessoaDTO pessoa;
 
     public UserDTO() {
         // Empty constructor needed for Jackson.
@@ -76,6 +80,15 @@ public class UserDTO {
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
+        Optional.ofNullable(user.getFotoAvatar()).ifPresent(foto -> {
+        	this.foto = FotoDTO.getInstance(user.getFotoAvatar());
+        });
+        System.out.println("=============================================================================================");
+        Optional.ofNullable(user.getPessoa()).ifPresent(foto -> {
+        	this.pessoa = PessoaDTO.getInstance(user.getPessoa());
+        	System.out.println("Pessoa = "+ user.getPessoa());
+        });
+        System.out.println("=============================================================================================");
     }
 
     public Long getId() {
@@ -206,5 +219,13 @@ public class UserDTO {
 
 	public void setFoto(FotoDTO foto) {
 		this.foto = foto;
+	}
+
+	public PessoaDTO getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(PessoaDTO pessoa) {
+		this.pessoa = pessoa;
 	}
 }

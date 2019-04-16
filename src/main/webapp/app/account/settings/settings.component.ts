@@ -4,6 +4,7 @@ import { JhiLanguageService, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { Principal, AccountService, JhiLanguageHelper } from 'app/core';
 
 import { IFotoUser, FotoUser } from 'app/shared/model/foto-user.model';
+import { IPessoa } from 'app/shared/model/pessoa.model';
 
 @Component({
     selector: 'jhi-settings',
@@ -15,6 +16,7 @@ export class SettingsComponent implements OnInit {
     settingsAccount: any;
     languages: any[];
     fotoUser: IFotoUser;
+    pessoa: IPessoa;
 
     constructor(
         private dataUtils: JhiDataUtils,
@@ -27,14 +29,17 @@ export class SettingsComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        this.fotoUser = new FotoUser();
         this.principal.identity().then(account => {
             this.settingsAccount = this.copyAccount(account);
+            this.pessoa = this.settingsAccount.pessoa;
+            if (this.settingsAccount.foto) {
+                this.fotoUser = this.settingsAccount.foto;
+            }
         });
         this.languageHelper.getAll().then(languages => {
             this.languages = languages;
         });
-
-        this.fotoUser = new FotoUser();
     }
 
     byteSize(field) {
@@ -55,12 +60,6 @@ export class SettingsComponent implements OnInit {
 
     save() {
         if (this.fotoUser) {
-            alert('Tem foto');
-
-            if (this.fotoUser.conteudo) {
-                alert('Tem foto conteudo');
-            }
-
             this.settingsAccount.foto = this.fotoUser;
         }
 
@@ -93,7 +92,8 @@ export class SettingsComponent implements OnInit {
             lastName: account.lastName,
             login: account.login,
             imageUrl: account.imageUrl,
-            foto: account.imageUrl
+            foto: account.foto,
+            pessoa: account.pessoa
         };
     }
 }

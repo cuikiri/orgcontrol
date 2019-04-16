@@ -13,6 +13,7 @@
                                  constraintName="fk_pessoa_aviso_pessoas_id"
                                  referencedColumnNames="id"
                                  referencedTableName="pessoa"/>
+                                 
         <addForeignKeyConstraint baseColumnNames="avisos_id"
                                  baseTableName="pessoa_aviso"
                                  constraintName="fk_pessoa_aviso_avisos_id"
@@ -24,6 +25,12 @@
                                  constraintName="fk_pessoa_aluno_irmao_id"
                                  referencedColumnNames="id"
                                  referencedTableName="aluno"/>
-
+                                 
+		<addForeignKeyConstraint baseColumnNames="pessoa_id"
+                                 baseTableName="jhi_user"
+                                 constraintName="fk_user_pessoa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pessoa"/>
+                                                                  
     </changeSet>
 </databaseChangeLog>

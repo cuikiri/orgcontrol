@@ -75,25 +75,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="foto_avatar"/>
         
-        <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="foto"
-                                 constraintName="fk_foto_user_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
-        
-        <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="foto_icon"
-                                 constraintName="fk_foto_icon_user_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
-        
-        
-        <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="foto_avatar"
-                                 constraintName="fk_foto_avatar_user_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
-
         <createTable tableName="jhi_authority">
             <column name="name" type="varchar(50)">
                 <constraints primaryKey="true" nullable="false"/>
