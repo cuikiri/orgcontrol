@@ -83,7 +83,7 @@ public class PessoaResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final PessoaResource pessoaResource = new PessoaResource(pessoaService, userRepository);
+        final PessoaResource pessoaResource = new PessoaResource(pessoaService, userRepository, pessoaRepository);
         this.restPessoaMockMvc = MockMvcBuilders.standaloneSetup(pessoaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -179,7 +179,7 @@ public class PessoaResourceIntTest {
     
     @SuppressWarnings({"unchecked"})
     public void getAllPessoasWithEagerRelationshipsIsEnabled() throws Exception {
-        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock, userRepository);
+        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock, userRepository, pessoaRepository);
         when(pessoaServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
 
         MockMvc restPessoaMockMvc = MockMvcBuilders.standaloneSetup(pessoaResource)
@@ -196,7 +196,7 @@ public class PessoaResourceIntTest {
 
     @SuppressWarnings({"unchecked"})
     public void getAllPessoasWithEagerRelationshipsIsNotEnabled() throws Exception {
-        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock, userRepository);
+        PessoaResource pessoaResource = new PessoaResource(pessoaServiceMock, userRepository, pessoaRepository);
             when(pessoaServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
             MockMvc restPessoaMockMvc = MockMvcBuilders.standaloneSetup(pessoaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)

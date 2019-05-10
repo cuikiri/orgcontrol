@@ -30,7 +30,7 @@ export class SettingsComponent implements OnInit {
 
     ngOnInit() {
         this.fotoUser = new FotoUser();
-        this.principal.identity().then(account => {
+        this.principal.identity(true).then(account => {
             this.settingsAccount = this.copyAccount(account);
             this.pessoa = this.settingsAccount.pessoa;
             if (this.settingsAccount.foto) {

@@ -29,11 +29,43 @@ export class FotoDocumentoResolve implements Resolve<IFotoDocumento> {
     }
 }
 
+@Injectable({ providedIn: 'root' })
+export class FotoDocumentoNewResolve implements Resolve<IFotoDocumento> {
+    constructor() {}
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<FotoDocumento> {
+        return of(new FotoDocumento());
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export class FotoDocumentoDocumentoResolve implements Resolve<any> {
+    constructor(private service: FotoDocumentoService) {}
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<FotoDocumento> {
+        return route.params['id'] ? route.params['id'] : null;
+    }
+}
+
 export const fotoDocumentoRoute: Routes = [
     {
         path: 'foto-documento',
         component: FotoDocumentoComponent,
         resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            defaultSort: 'id,asc',
+            pageTitle: 'orgcontrolApp.fotoDocumento.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'foto-documento/documento/:id',
+        component: FotoDocumentoComponent,
+        resolve: {
+            idDocumento: FotoDocumentoDocumentoResolve,
             pagingParams: JhiResolvePagingParams
         },
         data: {
@@ -60,6 +92,19 @@ export const fotoDocumentoRoute: Routes = [
         component: FotoDocumentoUpdateComponent,
         resolve: {
             fotoDocumento: FotoDocumentoResolve
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'orgcontrolApp.fotoDocumento.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'foto-documento/documento/:id/new',
+        component: FotoDocumentoUpdateComponent,
+        resolve: {
+            idDocumento: FotoDocumentoDocumentoResolve,
+            fotoDocumento: FotoDocumentoNewResolve
         },
         data: {
             authorities: ['ROLE_USER'],

@@ -93,7 +93,7 @@ public class Pessoa implements Serializable {
     @JsonIgnoreProperties("irmaos")
     private Aluno alunoIrmao;
     
-    @OneToOne(mappedBy = "pessoa", fetch=FetchType.LAZY)
+    @OneToOne(mappedBy = "pessoa")
     @JsonIgnore
     private User user;
     

@@ -2,6 +2,9 @@ package br.com.jhisolution.ong.control.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import br.com.jhisolution.ong.control.domain.Documento;
+import br.com.jhisolution.ong.control.domain.User;
+import br.com.jhisolution.ong.control.repository.UserRepository;
+import br.com.jhisolution.ong.control.security.SecurityUtils;
 import br.com.jhisolution.ong.control.service.DocumentoService;
 import br.com.jhisolution.ong.control.web.rest.errors.BadRequestAlertException;
 import br.com.jhisolution.ong.control.web.rest.util.HeaderUtil;
@@ -35,9 +38,13 @@ public class DocumentoResource {
     private static final String ENTITY_NAME = "documento";
 
     private final DocumentoService documentoService;
+    
+    private final UserRepository userRepository;
 
-    public DocumentoResource(DocumentoService documentoService) {
+    public DocumentoResource(DocumentoService documentoService,
+    		UserRepository userRepository) {
         this.documentoService = documentoService;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -54,6 +61,13 @@ public class DocumentoResource {
         if (documento.getId() != null) {
             throw new BadRequestAlertException("A new documento cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        if (Optional.ofNullable(user.get().getPessoa()).isPresent()) {
+        	documento.setPessoa(user.get().getPessoa());
+        }
+        
         Documento result = documentoService.save(documento);
         return ResponseEntity.created(new URI("/api/documentos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -97,6 +111,24 @@ public class DocumentoResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    /**
+     * GET  /documentos : get all the documentos.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of documentos in body
+     */
+    @GetMapping("/documentos/pessoa")
+    @Timed
+    public ResponseEntity<List<Documento>> getAllDocumentosByPessoa(Pageable pageable) {
+        log.debug("REST request to get a page of Documentos");
+        
+        Optional<User> user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get());
+        
+        Page<Documento> page = documentoService.findAllByPessoa(pageable, user.get().getPessoa());
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/documentos");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
     /**
      * GET  /documentos/:id : get the "id" documento.
      *

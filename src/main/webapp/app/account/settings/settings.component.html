@@ -107,7 +107,7 @@
                 	<button type="button" *ngIf="pessoa" class="btn btn-default" translate="settings.form.endereco" [routerLink]="['/endereco']">Endereço</button>
 			        <button type="button" *ngIf="pessoa" class="btn btn-default" translate="settings.form.telefone" [routerLink]="['/telefone']">Telefone</button>
         			<button type="button" *ngIf="pessoa" class="btn btn-default" translate="settings.form.email" [routerLink]="['/email']">Email</button>
-        			<button type="button" *ngIf="pessoa" class="btn btn-default" translate="settings.form.documento" ui-sref="documento">Documento</button>
+        			<button type="button" *ngIf="pessoa" class="btn btn-default" translate="settings.form.documento" [routerLink]="['/documento']">Documento</button>
         			<button type="button" *ngIf="pessoa" class="btn btn-default" translate="settings.form.matricula" ui-sref="aluno-matricula">Matrícula</button>
 				</div>
             </form>

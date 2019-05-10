@@ -28,6 +28,15 @@ public interface FotoDocumentoService {
      * @return the list of entities
      */
     Page<FotoDocumento> findAll(Pageable pageable);
+    
+    /**
+     * Get all the fotoDocumentos.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<FotoDocumento> findAllByDocumento(Pageable pageable, Long id);
+    
     /**
      * Get all the FotoDocumentoDTO where Documento is null.
      *

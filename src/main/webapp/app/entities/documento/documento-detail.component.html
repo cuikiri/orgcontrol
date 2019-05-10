@@ -13,39 +13,15 @@
                 <dd>
                     <span>{{documento.numero}}</span>
                 </dd>
-                <dt><span jhiTranslate="orgcontrolApp.documento.obs">Obs</span></dt>
-                <dd>
-                    <span>{{documento.obs}}</span>
-                </dd>
                 <dt><span jhiTranslate="orgcontrolApp.documento.tipoDocumento">Tipo Documento</span></dt>
                 <dd>
                     <div *ngIf="documento.tipoDocumento">
-                        <a [routerLink]="['/tipo-documento', documento.tipoDocumento?.id, 'view']">{{documento.tipoDocumento?.id}}</a>
+                        <span>{{documento.tipoDocumento?.nome}}</span>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="orgcontrolApp.documento.fotoDocumento">Foto Documento</span></dt>
+                <dt><span jhiTranslate="orgcontrolApp.documento.obs">Obs</span></dt>
                 <dd>
-                    <div *ngIf="documento.fotoDocumento">
-                        <a [routerLink]="['/foto-documento', documento.fotoDocumento?.id, 'view']">{{documento.fotoDocumento?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="orgcontrolApp.documento.pessoa">Pessoa</span></dt>
-                <dd>
-                    <div *ngIf="documento.pessoa">
-                        <a [routerLink]="['/pessoa', documento.pessoa?.id, 'view']">{{documento.pessoa?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="orgcontrolApp.documento.colaborador">Colaborador</span></dt>
-                <dd>
-                    <div *ngIf="documento.colaborador">
-                        <a [routerLink]="['/colaborador', documento.colaborador?.id, 'view']">{{documento.colaborador?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="orgcontrolApp.documento.dependenteLegal">Dependente Legal</span></dt>
-                <dd>
-                    <div *ngIf="documento.dependenteLegal">
-                        <a [routerLink]="['/dependente-legal', documento.dependenteLegal?.id, 'view']">{{documento.dependenteLegal?.id}}</a>
-                    </div>
+                    <span>{{documento.obs}}</span>
                 </dd>
             </dl>
 

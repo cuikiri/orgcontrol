@@ -28,6 +28,7 @@ import com.codahale.metrics.annotation.Timed;
 
 import br.com.jhisolution.ong.control.domain.Pessoa;
 import br.com.jhisolution.ong.control.domain.User;
+import br.com.jhisolution.ong.control.repository.PessoaRepository;
 import br.com.jhisolution.ong.control.repository.UserRepository;
 import br.com.jhisolution.ong.control.security.SecurityUtils;
 import br.com.jhisolution.ong.control.service.PessoaService;
@@ -51,10 +52,13 @@ public class PessoaResource {
     private final PessoaService pessoaService;
     
     private final UserRepository userRepository;
+    
+    private final PessoaRepository pessoaRepository;
 
-    public PessoaResource(PessoaService pessoaService, UserRepository userRepository) {
+    public PessoaResource(PessoaService pessoaService, UserRepository userRepository, PessoaRepository pessoaRepository) {
         this.pessoaService  = pessoaService;
         this.userRepository = userRepository;
+        this.pessoaRepository = pessoaRepository;
     }
 
     /**
@@ -81,7 +85,7 @@ public class PessoaResource {
         	User u = user.get();
         	pessoa.setUser(u);
     		u.setPessoa(pessoa);
-    		userRepository.save(u);
+    		userRepository.saveAndFlush(u);
         }
 
         result.setId(0L);

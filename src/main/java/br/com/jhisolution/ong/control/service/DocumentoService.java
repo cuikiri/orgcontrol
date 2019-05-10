@@ -1,6 +1,7 @@
 package br.com.jhisolution.ong.control.service;
 
 import br.com.jhisolution.ong.control.domain.Documento;
+import br.com.jhisolution.ong.control.domain.Pessoa;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +29,13 @@ public interface DocumentoService {
      */
     Page<Documento> findAll(Pageable pageable);
 
+    /**
+     * Get all the documentos.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<Documento> findAllByPessoa(Pageable pageable, Pessoa pessoa);
 
     /**
      * Get the "id" documento.

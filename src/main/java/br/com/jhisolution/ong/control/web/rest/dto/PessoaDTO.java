@@ -63,6 +63,11 @@ public class PessoaDTO {
 	public void setUser(UserDTO user) {
 		this.user = user;
 	}
+
+	@Override
+	public String toString() {
+		return "PessoaDTO [id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + "]";
+	}
     
     
 }

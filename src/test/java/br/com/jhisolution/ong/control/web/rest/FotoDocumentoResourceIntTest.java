@@ -4,6 +4,7 @@ import br.com.jhisolution.ong.control.OrgcontrolApp;
 
 import br.com.jhisolution.ong.control.domain.FotoDocumento;
 import br.com.jhisolution.ong.control.repository.FotoDocumentoRepository;
+import br.com.jhisolution.ong.control.service.DocumentoService;
 import br.com.jhisolution.ong.control.service.FotoDocumentoService;
 import br.com.jhisolution.ong.control.web.rest.errors.ExceptionTranslator;
 
@@ -51,6 +52,9 @@ public class FotoDocumentoResourceIntTest {
 
     @Autowired
     private FotoDocumentoService fotoDocumentoService;
+    
+    @Autowired
+    private DocumentoService documentoService;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -67,11 +71,13 @@ public class FotoDocumentoResourceIntTest {
     private MockMvc restFotoDocumentoMockMvc;
 
     private FotoDocumento fotoDocumento;
+    
+    
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final FotoDocumentoResource fotoDocumentoResource = new FotoDocumentoResource(fotoDocumentoService);
+        final FotoDocumentoResource fotoDocumentoResource = new FotoDocumentoResource(fotoDocumentoService, documentoService);
         this.restFotoDocumentoMockMvc = MockMvcBuilders.standaloneSetup(fotoDocumentoResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

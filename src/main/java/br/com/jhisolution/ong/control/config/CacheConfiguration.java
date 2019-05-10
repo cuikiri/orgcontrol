@@ -61,6 +61,7 @@ public class CacheConfiguration {
             cm.createCache(br.com.jhisolution.ong.control.domain.Grupo.class.getName() + ".posts", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Grupo.class.getName() + ".pessoas", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Documento.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.jhisolution.ong.control.domain.Documento.class.getName() + ".fotoDocumentos", jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.FotoDocumento.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.TipoDocumento.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.jhisolution.ong.control.domain.Instituicao.class.getName(), jcacheConfiguration);

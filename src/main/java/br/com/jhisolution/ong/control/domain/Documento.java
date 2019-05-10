@@ -8,7 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Documento.
@@ -41,8 +43,9 @@ public class Documento implements Serializable {
     @OneToOne    @JoinColumn(unique = true)
     private TipoDocumento tipoDocumento;
 
-    @OneToOne    @JoinColumn(unique = true)
-    private FotoDocumento fotoDocumento;
+    @OneToMany(mappedBy = "documento")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FotoDocumento> fotoDocumentos = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("documentos")
@@ -55,7 +58,22 @@ public class Documento implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("documentos")
     private DependenteLegal dependenteLegal;
+    
+    // Construtores
+    public Documento() {}
+    
+    public Documento(Long id) {
+    	this.id = id;
+    }
+    
+    // Fábricas
+    public static Documento getInstance() {
+    	return new Documento();
+    }
 
+    public static Documento getInstance(Long id) {
+    	return new Documento(id);
+    }
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -117,17 +135,17 @@ public class Documento implements Serializable {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public FotoDocumento getFotoDocumento() {
-        return fotoDocumento;
+    public Set<FotoDocumento> getFotoDocumentos() {
+        return this.fotoDocumentos;
     }
 
-    public Documento fotoDocumento(FotoDocumento fotoDocumento) {
-        this.fotoDocumento = fotoDocumento;
+    public Documento fotoDocumentos(Set<FotoDocumento> fotoDocumentos) {
+        this.fotoDocumentos = fotoDocumentos;
         return this;
     }
 
-    public void setFotoDocumento(FotoDocumento fotoDocumento) {
-        this.fotoDocumento = fotoDocumento;
+    public void setFotoDocumento(Set<FotoDocumento> fotoDocumentos) {
+        this.fotoDocumentos = fotoDocumentos;
     }
 
     public Pessoa getPessoa() {

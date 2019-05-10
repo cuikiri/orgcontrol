@@ -14,12 +14,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="tipo_documento"/>
 
-        <addForeignKeyConstraint baseColumnNames="foto_documento_id"
-                                 baseTableName="documento"
-                                 constraintName="fk_documento_foto_documento_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="foto_documento"/>
-
         <addForeignKeyConstraint baseColumnNames="pessoa_id"
                                  baseTableName="documento"
                                  constraintName="fk_documento_pessoa_id"

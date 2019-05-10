@@ -83,12 +83,9 @@ public class UserDTO {
         Optional.ofNullable(user.getFotoAvatar()).ifPresent(foto -> {
         	this.foto = FotoDTO.getInstance(user.getFotoAvatar());
         });
-        System.out.println("=============================================================================================");
-        Optional.ofNullable(user.getPessoa()).ifPresent(foto -> {
-        	this.pessoa = PessoaDTO.getInstance(user.getPessoa());
-        	System.out.println("Pessoa = "+ user.getPessoa());
+        Optional.ofNullable(user.getPessoa()).ifPresent(pessoa -> {
+        	this.pessoa = PessoaDTO.getInstance(pessoa);
         });
-        System.out.println("=============================================================================================");
     }
 
     public Long getId() {
@@ -209,6 +206,7 @@ public class UserDTO {
             ", createdDate=" + createdDate +
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
+            ", pessoa=" + pessoa +
             ", authorities=" + authorities +
             "}";
     }

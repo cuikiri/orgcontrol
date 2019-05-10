@@ -7,6 +7,7 @@ import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { IFotoDocumento } from 'app/shared/model/foto-documento.model';
 import { FotoDocumentoService } from './foto-documento.service';
 import { IDocumento } from 'app/shared/model/documento.model';
+import { Documento } from 'app/shared/model/documento.model';
 import { DocumentoService } from 'app/entities/documento';
 
 @Component({
@@ -16,6 +17,7 @@ import { DocumentoService } from 'app/entities/documento';
 export class FotoDocumentoUpdateComponent implements OnInit {
     fotoDocumento: IFotoDocumento;
     isSaving: boolean;
+    idDocumento: number;
 
     documentos: IDocumento[];
 
@@ -26,7 +28,11 @@ export class FotoDocumentoUpdateComponent implements OnInit {
         private documentoService: DocumentoService,
         private elementRef: ElementRef,
         private activatedRoute: ActivatedRoute
-    ) {}
+    ) {
+        this.activatedRoute.data.subscribe(data => {
+            this.idDocumento = data.idDocumento;
+        });
+    }
 
     ngOnInit() {
         this.isSaving = false;
@@ -66,6 +72,11 @@ export class FotoDocumentoUpdateComponent implements OnInit {
         if (this.fotoDocumento.id !== undefined) {
             this.subscribeToSaveResponse(this.fotoDocumentoService.update(this.fotoDocumento));
         } else {
+            if (this.idDocumento) {
+                const documento = new Documento();
+                documento.id = this.idDocumento;
+                this.fotoDocumento.documento = documento;
+            }
             this.subscribeToSaveResponse(this.fotoDocumentoService.create(this.fotoDocumento));
         }
     }

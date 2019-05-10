@@ -4,6 +4,7 @@ import br.com.jhisolution.ong.control.OrgcontrolApp;
 
 import br.com.jhisolution.ong.control.domain.Documento;
 import br.com.jhisolution.ong.control.repository.DocumentoRepository;
+import br.com.jhisolution.ong.control.repository.UserRepository;
 import br.com.jhisolution.ong.control.service.DocumentoService;
 import br.com.jhisolution.ong.control.web.rest.errors.ExceptionTranslator;
 
@@ -51,6 +52,9 @@ public class DocumentoResourceIntTest {
 
     @Autowired
     private DocumentoRepository documentoRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private DocumentoService documentoService;
@@ -74,7 +78,7 @@ public class DocumentoResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final DocumentoResource documentoResource = new DocumentoResource(documentoService);
+        final DocumentoResource documentoResource = new DocumentoResource(documentoService, userRepository);
         this.restDocumentoMockMvc = MockMvcBuilders.standaloneSetup(documentoResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

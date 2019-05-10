@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
@@ -29,6 +29,7 @@ export class FotoDocumentoComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
+    idDocumento: number;
 
     constructor(
         private fotoDocumentoService: FotoDocumentoService,
@@ -46,20 +47,37 @@ export class FotoDocumentoComponent implements OnInit, OnDestroy {
             this.previousPage = data.pagingParams.page;
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
+            this.idDocumento = data.idDocumento;
         });
     }
 
     loadAll() {
-        this.fotoDocumentoService
-            .query({
-                page: this.page - 1,
-                size: this.itemsPerPage,
-                sort: this.sort()
-            })
-            .subscribe(
-                (res: HttpResponse<IFotoDocumento[]>) => this.paginateFotoDocumentos(res.body, res.headers),
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
+        if (this.idDocumento) {
+            this.fotoDocumentoService
+                .queryByDocumentoId(
+                    {
+                        page: this.page - 1,
+                        size: this.itemsPerPage,
+                        sort: this.sort()
+                    },
+                    this.idDocumento
+                )
+                .subscribe(
+                    (res: HttpResponse<IFotoDocumento[]>) => this.paginateFotoDocumentos(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+        } else {
+            this.fotoDocumentoService
+                .query({
+                    page: this.page - 1,
+                    size: this.itemsPerPage,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<IFotoDocumento[]>) => this.paginateFotoDocumentos(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+        }
     }
 
     loadPage(page: number) {

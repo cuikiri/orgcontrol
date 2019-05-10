@@ -2,6 +2,7 @@ package br.com.jhisolution.ong.control.service.impl;
 
 import br.com.jhisolution.ong.control.service.DocumentoService;
 import br.com.jhisolution.ong.control.domain.Documento;
+import br.com.jhisolution.ong.control.domain.Pessoa;
 import br.com.jhisolution.ong.control.repository.DocumentoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,7 +53,19 @@ public class DocumentoServiceImpl implements DocumentoService {
         log.debug("Request to get all Documentos");
         return documentoRepository.findAll(pageable);
     }
-
+    
+    /**
+     * Get all the documentos.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Documento> findAllByPessoa(Pageable pageable, Pessoa pessoa) {
+        log.debug("Request to get all Documentos");
+        return documentoRepository.findAllByPessoa(pageable, pessoa);
+    }
 
     /**
      * Get one documento by id.

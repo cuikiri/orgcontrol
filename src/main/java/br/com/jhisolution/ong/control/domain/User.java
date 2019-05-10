@@ -135,7 +135,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @OneToOne(cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
     private FotoAvatar fotoAvatar;
     
-    @OneToOne(cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
+    @OneToOne(cascade=CascadeType.ALL, orphanRemoval=true)
     private Pessoa pessoa;
 
     public User() {}

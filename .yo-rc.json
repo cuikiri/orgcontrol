@@ -6,6 +6,7 @@
     },
     "jhipsterVersion": "5.7.0",
     "applicationType": "monolith",
+	"jhipsterAppConfig": "getAllJhipsterConfig()",
     "baseName": "orgcontrol",
     "packageName": "br.com.jhisolution.ong.control",
     "packageFolder": "br/com/jhisolution/ong/control",

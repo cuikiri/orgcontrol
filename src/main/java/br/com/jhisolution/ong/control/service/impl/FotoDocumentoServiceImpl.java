@@ -56,7 +56,18 @@ public class FotoDocumentoServiceImpl implements FotoDocumentoService {
         return fotoDocumentoRepository.findAll(pageable);
     }
 
-
+    /**
+     * Get all the fotoDocumentos.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<FotoDocumento> findAllByDocumento(Pageable pageable, Long id) {
+        log.debug("Request to get all FotoDocumentos");
+        return fotoDocumentoRepository.findAllByDocumento(pageable, id);
+    }
 
     /**
      *  get all the fotoDocumentos where Documento is null.
