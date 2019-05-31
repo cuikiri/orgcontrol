@@ -266,25 +266,16 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
-    	System.out.println("=============================================================================================================");
-    	System.out.println("==================== PASSOU NO LUGAR 1 ======================================================================");
-    	System.out.println("=============================================================================================================");
         return userRepository.findOneWithAuthoritiesByLogin(login);
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthorities(Long id) {
-    	System.out.println("=============================================================================================================");
-    	System.out.println("==================== PASSOU NO LUGAR 2 ======================================================================");
-    	System.out.println("=============================================================================================================");
         return userRepository.findOneWithAuthoritiesById(id);
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthorities() {
-    	System.out.println("=============================================================================================================");
-    	System.out.println("==================== PASSOU NO LUGAR 3 ======================================================================");
-    	System.out.println("=============================================================================================================");
         return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByLogin);
     }
 
@@ -359,5 +350,5 @@ public class UserService {
         });
         
 
-}
+    }
 }
